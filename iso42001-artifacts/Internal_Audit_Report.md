@@ -201,6 +201,18 @@ This document records the findings of the first internal audit of the MedFlow V3
 | **Target Date** | 2026-05-31 |
 | **Status** | OPEN |
 
+#### NC-004: Clinical Output Validity — Synthetic Data & Pipeline
+| Attribute | Detail |
+|-----------|--------|
+| **Clause** | 8.4 - AI System Testing; 8.2 - AI Impact Assessment |
+| **Finding** | Full pipeline audit revealed 28 clinical non-conformities across all 6 layers. Synthetic test data generates clinically impossible scenarios (age-diagnosis mismatches, pediatric patients with adult comorbidities, absurd social histories). Gemini input truncation loses clinical data. DRG validation is disconnected from decision logic. Dashboard silently hides missing data. |
+| **Evidence Gap** | No clinical plausibility validation of synthetic test data; no integration testing between DRG validation and decision logic; no error flagging for missing critical fields in UI |
+| **Severity** | Major |
+| **Root Cause** | Synthetic data generator lacks age-appropriate filtering and clinical consistency rules. Pipeline layers developed independently without end-to-end clinical validation. |
+| **Corrective Action** | Clinical Corrective Action Plan (CCAP) — 5 phases: (A) Fix synthetic data generator, (B) Fix Gemini prompts, (C) Integrate DRG with decision logic, (D) Dashboard safety fixes, (E) Full pipeline re-validation with regenerated test data. |
+| **Target Date** | 2026-02-28 |
+| **Status** | OPEN — Phase A in progress |
+
 ---
 
 ### 4.3 Observations (Opportunities for Improvement)

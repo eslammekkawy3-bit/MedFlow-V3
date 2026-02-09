@@ -231,6 +231,18 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Target Date** | 2026-03-31 |
 | **Status** | PLANNED |
 
+### IMP-015: Clinical Pipeline Corrective Action (NC-004)
+| Attribute | Detail |
+|-----------|--------|
+| **ID** | IMP-015 |
+| **Category** | Accuracy (ACCU) |
+| **Priority** | P1 - Critical |
+| **Source** | Internal Audit (NC-004, Clauses 8.2/8.4) |
+| **Description** | Full pipeline clinical corrective action (CCAP). 28 non-conformities identified across 6 layers. 5-phase remediation: (A) Synthetic data clinical validity, (B) Gemini prompt fixes, (C) DRG-decision integration, (D) Dashboard safety, (E) Full re-validation. |
+| **Target Date** | 2026-02-28 |
+| **Status** | IN PROGRESS — Phase A COMPLETE 2026-02-09, Phase B pending |
+| **Phase A Results** | 10 SYN findings + 10 audit findings remediated in `synthetic_data.py`. Age-stratified data pools, locked patient data, diagnosis-specific PE/imaging, lab trending, clinical disposition logic, family/social deduplication. 18/18 clinical plausibility checkpoints pass. 20 test cases regenerated. |
+
 ---
 
 ## 5. Improvement Summary by Category
@@ -238,11 +250,11 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | Category | Completed | Planned | Total |
 |----------|-----------|---------|-------|
 | Performance (PERF) | 1 | 0 | 1 |
-| Accuracy (ACCU) | 3 | 2 | 5 |
+| Accuracy (ACCU) | 3 | 3 | 6 |
 | Compliance (COMP) | 3 | 0 | 3 |
 | Reliability (RELI) | 3 | 1 | 4 |
 | Usability (USAB) | 1 | 0 | 1 |
-| **Total** | **11** | **3** | **14** |
+| **Total** | **11** | **4** | **15** |
 
 ### Priority Distribution (Completed)
 
