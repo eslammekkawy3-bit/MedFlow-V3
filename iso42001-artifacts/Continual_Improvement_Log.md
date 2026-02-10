@@ -248,6 +248,17 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Phase D Results** | 5 UI findings remediated in `dashboard_utils.py` v1.3.0 + `terminology_system.py` v1.1.0. Error banners for missing grade/trajectory (UI-01). Precise confidence with threshold context (UI-02). Dropped timeline event warnings (UI-03). Out-of-range confidence flagging (UI-04). Threshold-aligned terminology labels (UI-05). |
 | **Phase E Results** | Full pipeline re-validation: 5/5 cases produce clinically appropriate decisions. Simple AKI→EXTENSION(95%), Medium Appendicitis→DISCHARGE(88%), Medium Appendicitis+cardiac→ESCALATE(95%), Complex Sepsis→EXTENSION(88%), Complex CHF→EXTENSION(95%). Confidence calibration verified. DRG context flowing to decisions. NC-004 CLOSED. |
 
+### IMP-016: Clinical Audit Failure Remediation (NC-005)
+| Attribute | Detail |
+|-----------|--------|
+| **ID** | IMP-016 |
+| **Category** | Accuracy (ACCU) |
+| **Priority** | P1 - Critical |
+| **Source** | Internal Audit (NC-005, Clauses 8.1/8.4) |
+| **Description** | Clinical audit of CASE-0016-2026 revealed 3 concurrent failures: (1) Extension on Discharge Summary (document type metadata discarded), (2) Conflicting PE findings (Appendicitis + Asthma wheezes from random fallback), (3) LOS 3 days instead of 10 (Gemini-only timeline unreliable on multi-document cases). Three-fix remediation: Fix A — NEUTRAL_PE dictionary replaces random fallback in synthetic_data.py v2.1.0. Fix B — Metadata-aware merging injects document type headers in cds_brain.py v1.4.0. Fix C — Pre-Gemini timeline engine extracts dates deterministically from structured JSON fields with regex fallback. |
+| **Target Date** | 2026-02-28 |
+| **Status** | PLANNED |
+
 ---
 
 ## 5. Improvement Summary by Category
@@ -255,11 +266,11 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | Category | Completed | Planned | Total |
 |----------|-----------|---------|-------|
 | Performance (PERF) | 1 | 0 | 1 |
-| Accuracy (ACCU) | 3 | 3 | 6 |
+| Accuracy (ACCU) | 3 | 4 | 7 |
 | Compliance (COMP) | 3 | 0 | 3 |
 | Reliability (RELI) | 3 | 1 | 4 |
 | Usability (USAB) | 1 | 0 | 1 |
-| **Total** | **11** | **4** | **15** |
+| **Total** | **11** | **5** | **16** |
 
 ### Priority Distribution (Completed)
 
@@ -299,6 +310,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 |---------|------|--------|---------|
 | 1.0 | 2026-02-09 | Dr. Islam Mekawy | Initial continual improvement log (10 completed + 4 planned) |
 | 1.1 | 2026-02-09 | Dr. Islam Mekawy | IMP-011 completed (Competence Assessment Matrix, NC-001 closure) |
+| 1.2 | 2026-02-10 | Dr. Islam Mekawy | IMP-016 added: NC-005 Clinical Audit Failure Remediation (3-fix plan). Summary counts updated (16 total, 5 planned). |
 
 ---
 

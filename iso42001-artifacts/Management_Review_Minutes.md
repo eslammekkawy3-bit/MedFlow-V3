@@ -2,9 +2,9 @@
 ## MedFlow V3 Clinical Decision Support System
 
 **Document ID:** MF-ISO42001-MRM-001
-**Version:** 1.0
+**Version:** 1.1
 **Classification:** Internal
-**Last Updated:** 2026-02-09
+**Last Updated:** 2026-02-10
 **Author:** Dr. Islam Mekawy, Lead Implementer
 **ISO 42001 Reference:** Clause 9.3 - Management Review
 
@@ -54,10 +54,10 @@ This document records the management review of the MedFlow V3 AI Management Syst
 | Metric | Value | Assessment |
 |--------|-------|------------|
 | **Development Phases Completed** | 5 of 6 (Phase 6 Active) | On track |
-| **Build Sessions Completed** | 10 | Documented in Project Tracker |
-| **Professional Hours Logged** | 64 hours | Per Implementation Experience Log |
+| **Build Sessions Completed** | 14 | Documented in Project Tracker |
+| **Professional Hours Logged** | 76 hours | Per Implementation Experience Log |
 | **Core Modules Operational** | 5/5 | All functional |
-| **ISO Controls Mapped** | 39/39 | 92% conformant (per Internal Audit) |
+| **ISO Controls Mapped** | 39/39 | 87% conformant (36/39 implemented, 3 partial — per IAR v1.2) |
 | **Test Pass Rate** | 100% | DRG 8/8, KB 6/6, Dashboard 5/5 |
 | **MOH Protocols Loaded** | 13 | Knowledge Base operational |
 | **Saved Case Analyses** | 5+ | All render correctly in dashboard |
@@ -72,22 +72,24 @@ Reference: `iso42001-artifacts/Internal_Audit_Report.md` (MF-ISO42001-IAR-001)
 
 | Finding | Clause | Severity | Status |
 |---------|--------|----------|--------|
-| NC-001: Competence Assessment Records | 7.2 | Minor | OPEN - Target 2026-03-15 |
+| NC-001: Competence Assessment Records | 7.2 | Minor | **CLOSED (2026-02-09)** — CAM-001 created |
 | NC-002: Fairness Validation Not Executed | 8.2 | Minor | OPEN - Target 2026-04-30 |
 | NC-003: Automated Drift Detection | Annex A | Minor | OPEN - Target 2026-05-31 |
+| NC-004: Clinical Accuracy Pipeline (CCAP) | 8.2, 8.4 | Major | **CLOSED (2026-02-10)** — 5-phase CCAP complete |
+| NC-005: Clinical Audit Failure (PE/Timeline/Decision) | 8.1, 8.4 | Major | OPEN - Target 2026-02-28 |
 | OBS-001: Protocol Coverage Gaps | KB | Observation | NOTED |
 | OBS-002: PII Performance Benchmarks | PII | Observation | NOTED |
 | OBS-003: Terminology Standardization | Phase 5.5 | Observation | NOTED |
 
 ### 4.4 Risk Register Review
 
-Reference: `iso42001-artifacts/AI_Risk_Register.md` (v3.0, 14 risks)
+Reference: `iso42001-artifacts/AI_Risk_Register.md` (v5.0, 16 risks)
 
 | Risk Category | Count | High | Medium | Low |
 |---------------|-------|------|--------|-----|
-| Technical | 8 | 2 | 4 | 2 |
+| Technical | 10 | 3 | 5 | 2 |
 | Strategic/Governance | 6 | 1 | 3 | 2 |
-| **Total** | **14** | **3** | **7** | **4** |
+| **Total** | **16** | **4** | **8** | **4** |
 
 **High-Priority Risks Reviewed:**
 1. **RISK-001: PII Leakage** - Mitigated by Defense in Depth (Regex + LLM + Validation). Residual risk: Low.
@@ -162,6 +164,7 @@ Identified during this review:
 | MRA-005 | Run PII scrubber performance benchmark (OBS-002) | Dr. Islam Mekawy | 2026-03-15 | Low | OPEN |
 | MRA-006 | Start Regulatory Package (PDPL/NPHIES) | Dr. Islam Mekawy | 2026-04-15 | Medium | OPEN |
 | MRA-007 | Clinical Pipeline Corrective Action (NC-004 CCAP) | Dr. Islam Mekawy | 2026-02-28 | Critical | **CLOSED (2026-02-10)** — 5-phase CCAP complete, 5/5 validation pass |
+| MRA-008 | Clinical Audit Failure Remediation (NC-005): PE conflict fix, metadata-aware merging, pre-Gemini timeline engine | Dr. Islam Mekawy | 2026-02-28 | Critical | **IN PROGRESS** — 3-fix code remediation complete, pending validation closure |
 
 ---
 
@@ -190,6 +193,7 @@ Identified during this review:
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-02-09 | Dr. Islam Mekawy | Initial management review (Q1 2026) |
+| 1.1 | 2026-02-10 | Dr. Islam Mekawy | Updated: NC-001 CLOSED, NC-004 CLOSED, NC-005 OPEN; Risk Register v5.0 (16 risks); MRA-008 added; session/hours counts updated |
 
 ---
 

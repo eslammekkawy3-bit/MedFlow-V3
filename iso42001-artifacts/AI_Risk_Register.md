@@ -173,13 +173,18 @@ This register documents identified AI-specific risks, their assessment, and impl
 | **Residual Impact** | Major (4) |
 | **Residual Risk** | 8 (MEDIUM) |
 | **Owner** | Clinical Validator |
-| **Status** | MONITORING |
-| **Last Review** | 2026-02-04 |
+| **Status** | REALIZED (NC-005) |
+| **Last Review** | 2026-02-10 |
 
 **Additional Controls Needed:**
 - Clinical validation with 100+ real cases
 - Periodic accuracy audits
 - Feedback loop for continuous improvement
+
+**Realized Event (2026-02-10):**
+- NC-005: CASE-0016-2026 clinical audit revealed decision logic failure (Extension on Discharge document), timeline miscalculation (3 days instead of 10), and synthetic data PE inconsistency (Appendicitis + Asthma findings)
+- Root cause: Document type metadata loss during merging, Gemini-only timeline calculation, random PE fallback in synthetic generator
+- Corrective actions: 3-fix remediation — (A) NEUTRAL_PE fallback, (B) metadata-aware merging, (C) pre-Gemini timeline engine (see IAR NC-005)
 
 ---
 
@@ -272,10 +277,11 @@ This register documents identified AI-specific risks, their assessment, and impl
 | RISK-002 | Wrong Protocol Citation | HIGH (12) | MEDIUM (6) | MITIGATED |
 | RISK-003 | PII Scrubbing Latency | HIGH (10) | LOW (3) | MITIGATED |
 | RISK-004 | Gemini API Unavailability | MEDIUM (9) | LOW (4) | MITIGATED |
-| RISK-005 | Clinical Decision Accuracy | HIGH (12) | MEDIUM (8) | MONITORING |
+| RISK-005 | Clinical Decision Accuracy | HIGH (12) | MEDIUM (8) | REALIZED (NC-005) |
 | RISK-006 | Missing Clinical Protocols | HIGH (10) | LOW (4) | ACCEPTED |
 | RISK-007 | DRG Misclassification / Model Bias | HIGH (12) | MEDIUM (6) | MITIGATED |
 | RISK-008 | Ollama Service Failure | MEDIUM (8) | LOW (3) | MITIGATED |
+| RISK-016 | Document Metadata Loss in Pipeline | HIGH (15) | HIGH (15) | OPEN (NC-005) |
 
 ### 4.2 Strategic & Governance Risks
 
@@ -306,13 +312,15 @@ HIGH ░░░░░░░░░░░░░░░░ (0 remaining)
 MED  ████████         (4 remaining: RISK-002,005,009,010)
 LOW  ██████████████████ (11 after controls)
 
-Total Active Risks: 15
-├── Technical/Operational: 9 (added RISK-015)
+Total Active Risks: 16
+├── Technical/Operational: 10 (added RISK-016: Document Metadata Loss)
 └── Strategic/Governance: 6
 
 By Status:
-├── Mitigated: 11 (was 9, added RISK-007 upgrade + RISK-015)
-├── Monitoring: 2 (RISK-005, RISK-009)
+├── Mitigated: 11
+├── Monitoring: 1 (RISK-009)
+├── Realized: 1 (RISK-005 → NC-005)
+├── Open: 1 (RISK-016 → NC-005 remediation in progress)
 ├── Documented: 1
 └── Accepted: 1
 ```
@@ -491,6 +499,30 @@ By Status:
 - When LLM and rule engine disagree, it signals the case needs human clinical review
 - Together they catch different failure modes: LLM misses coding rules, rules miss clinical context
 
+### RISK-016: Document Metadata Loss in Pipeline
+
+| Attribute | Value |
+|-----------|-------|
+| **Risk ID** | RISK-016 |
+| **Category** | AI Reliability |
+| **Description** | Document type, date, and sequence metadata is discarded during the merge step (Step 2 of CDS pipeline), causing downstream analysis to lack context about document provenance, report type, and temporal ordering. Directly caused NC-005 decision failure (Extension recommended on Discharge Summary). |
+| **Likelihood** | Almost Certain (5) |
+| **Impact** | Moderate (3) |
+| **Inherent Risk** | 15 (HIGH) |
+| **Controls Implemented** | None (gap identified by NC-005) |
+| **Control Effectiveness** | Not Applicable |
+| **Residual Likelihood** | Almost Certain (5) |
+| **Residual Impact** | Moderate (3) |
+| **Residual Risk** | 15 (HIGH) |
+| **Owner** | AI Engineer |
+| **Status** | OPEN (NC-005 remediation in progress) |
+| **Last Review** | 2026-02-10 |
+
+**Corrective Actions (NC-005):**
+- Fix B: Metadata-aware document merging injects [Document Type | Hospital Day | Date] headers (cds_brain.py v1.4.0)
+- Fix C: Pre-Gemini timeline engine extracts dates from structured JSON fields, overrides Gemini LOS calculation
+- Status: Code implemented, pending validation
+
 ---
 
 ## 7. Document Approval
@@ -511,6 +543,7 @@ By Status:
 | 2.0 | 2026-02-04 | MedFlow Team | Added RISK-002 (Hallucination), RISK-003 (Latency) with mitigations |
 | 3.0 | 2026-02-06 | MedFlow Team | Merged Strategic & Governance Risks (RISK-009 to RISK-014) from legacy Risk_Register.xlsx |
 | 4.0 | 2026-02-07 | MedFlow Team | Phase 4: RISK-007 upgraded to MITIGATED (DRG Validator); RISK-003 latency note (data sovereignty trade-off); New RISK-015 (Conflicting AI Evidence) |
+| 5.0 | 2026-02-10 | Dr. Islam Mekawy | NC-005: RISK-005 status changed to REALIZED. New RISK-016 (Document Metadata Loss). Summary counts updated (16 total, 10 technical). |
 
 ---
 

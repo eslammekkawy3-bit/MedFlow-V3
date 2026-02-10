@@ -65,10 +65,10 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 | ISO 42001 Clause | Requirement | MedFlow Implementation | Evidence Artifact | Status |
 |---|---|---|---|---|
-| 8.1 Operational planning and control | Plan, implement, and control processes to meet AIMS requirements | 8-step CDS pipeline with centralized orchestration: PII scrub, merge, summarize, timeline, guidelines, DRG validation, decision, assembly. Pipeline reordered (CCAP Phase C): DRG runs BEFORE decision so severity context flows into clinical reasoning. Escalation criteria codified: Severity A + WORSENING → ESCALATE, confidence <0.40 → ESCALATE | `cds_brain.py` v1.3.0 (8-step pipeline, DRG→Decision integration), `config.py` (ProcessingConfig) | IMPLEMENTED |
+| 8.1 Operational planning and control | Plan, implement, and control processes to meet AIMS requirements | 8-step CDS pipeline with centralized orchestration: PII scrub, merge, summarize, timeline, guidelines, DRG validation, decision, assembly. Pipeline reordered (CCAP Phase C): DRG runs BEFORE decision so severity context flows into clinical reasoning. Escalation criteria codified: Severity A + WORSENING → ESCALATE, confidence <0.40 → ESCALATE. **NC-005 Fix B/C:** Step 2 now injects document type metadata headers during merging. New Step 2.5 pre-Gemini timeline engine extracts dates from structured fields, overrides Gemini LOS. Document type context injected into decision prompt. | `cds_brain.py` v1.4.0 (metadata-aware merging, pre-Gemini timeline, doc type context), `config.py` (ProcessingConfig) | PARTIAL — NC-005 OPEN |
 | 8.2 AI system impact assessment | Conduct impact assessments for AI systems | Algorithmic Impact Assessment covering 3 dimensions: Patient Safety (3 risks), Fairness/Bias (3 concerns), Human Oversight (4-tier framework) | `iso42001-artifacts/Algorithmic_Impact_Assessment.md` v1.0 | IMPLEMENTED |
 | 8.3 AI system life cycle processes | Manage AI system through its lifecycle | 5-layer architecture with versioned components, defined development phases (1-5.5), modular design enabling independent component updates | `iso42001-artifacts/AI_System_Design.md` v2.0, `PHASE3_ARCHITECTURE.md` | IMPLEMENTED |
-| 8.4 Data management for AI systems | Manage data quality, provenance, and preparation | Data classification (4 tiers: PHI/PII/Clinical/Operational), PII extraction strategy, strict matching policy, data localization controls, retention periods (7-year). **CCAP Phase A:** Synthetic test data clinically validated — age-stratified diagnosis pools, locked patient data across reports, diagnosis-specific PE/imaging/labs, clinical disposition logic. 20 test cases regenerated with full clinical plausibility | `iso42001-artifacts/AI_Data_Policy.md` v1.0 (Sections 2-7), `synthetic_data.py` v2.0.0 (CCAP Phase A), `iso42001-artifacts/Internal_Audit_Report.md` (NC-004 closure evidence) | IMPLEMENTED |
+| 8.4 Data management for AI systems | Manage data quality, provenance, and preparation | Data classification (4 tiers: PHI/PII/Clinical/Operational), PII extraction strategy, strict matching policy, data localization controls, retention periods (7-year). **CCAP Phase A:** Synthetic test data clinically validated — age-stratified diagnosis pools, locked patient data across reports, diagnosis-specific PE/imaging/labs, clinical disposition logic. **NC-005 Fix A:** PE generation fallback now uses NEUTRAL_PE (non-pathological defaults) to prevent diagnosis-contradicting findings. | `iso42001-artifacts/AI_Data_Policy.md` v1.0 (Sections 2-7), `synthetic_data.py` v2.1.0 (NC-005 Fix A: neutral PE fallback), `iso42001-artifacts/Internal_Audit_Report.md` (NC-004 closure + NC-005 findings) | PARTIAL — NC-005 OPEN |
 | 8.5 AI system monitoring and control | Monitor AI system performance during operation | Health check system (Ollama, Gemini, KB, DRG statuses), processing time tracking, confidence score monitoring, auto-fallback on API failures. **CCAP Phase B:** 5-tier confidence calibration enforced in Gemini prompts (0.90+ textbook → <0.40 critical-missing). Input truncation removed — full clinical text sent to Gemini 1M context. **CCAP Phase D:** Dashboard displays precise confidence with threshold context, flags out-of-range values, warns on dropped timeline events | `cds_brain.py` v1.3.0 (--health flag), `app.py` (sidebar health status), `gemini_client.py` v2.0.0 (calibration, no truncation), `dashboard_utils.py` v1.3.0 (safety warnings) | IMPLEMENTED |
 | 8.6 Third-party and customer relationships | Manage external AI system providers | Gemini API as sole cloud dependency; anonymized data only; API encryption; no PII sharing; prohibited actions documented | `iso42001-artifacts/AI_Data_Policy.md` (Sections 8-9), `gemini_client.py` (API integration) | IMPLEMENTED |
 
@@ -119,17 +119,19 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 | Clause 5: Leadership | 3 | 3 | 0 | 0 |
 | Clause 6: Planning | 5 | 5 | 0 | 0 |
 | Clause 7: Support | 5 | 4 | 1 | 0 |
-| Clause 8: Operation | 6 | 6 | 0 | 0 |
+| Clause 8: Operation | 6 | 4 | 2 | 0 |
 | Clause 9: Evaluation | 4 | 4 | 0 | 0 |
 | Clause 10: Improvement | 3 | 3 | 0 | 0 |
 | Annex A Controls | 9 | 9 | 0 | 0 |
-| **TOTAL** | **39** | **38** | **1** | **0** |
+| **TOTAL** | **39** | **36** | **3** | **0** |
 
-**Overall Compliance Rate: 100% Implemented (39/39)**
+**Overall Compliance Rate: 92% Implemented (36/39), 3 Partial**
 
 **Previously Partial (Cl. 7.2 Competence):** Resolved 2026-02-09 — Competence Assessment Matrix (MF-ISO42001-CAM-001) created with full evidence of qualifications per role. NC-001 closed.
 
 **NC-004 (Major) Clinical Output Validity:** Resolved 2026-02-10 — 5-phase CCAP completed. 28 clinical non-conformities across 6 pipeline layers remediated. 5/5 validation cases clinically appropriate. Evidence: `synthetic_data.py` v2.0.0, `gemini_client.py` v2.0.0, `cds_brain.py` v1.3.0, `drg_validator.py` v1.1.0, `dashboard_utils.py` v1.3.0, `terminology_system.py` v1.1.0.
+
+**NC-005 (Major) Clinical Logic Failure & Timeline Inconsistency:** OPEN — Clinical audit of CASE-0016-2026. Clauses 8.1 and 8.4 set to PARTIAL pending validation. 3-fix remediation implemented: (A) `synthetic_data.py` v2.1.0 neutral PE fallback, (B) `cds_brain.py` v1.4.0 metadata-aware merging + doc type context, (C) `cds_brain.py` v1.4.0 pre-Gemini timeline engine. Pending: test case regeneration + pipeline re-validation.
 
 ---
 
@@ -148,6 +150,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 |---|---|---|---|
 | 1.0 | 2026-02-08 | Dr. Islam Mekawy | Initial compliance matrix (39 controls mapped) |
 | 1.1 | 2026-02-10 | Dr. Islam Mekawy | Updated for NC-004 CCAP closure: Clauses 8.1, 8.4, 8.5, 9.1, 9.2, 10.1, 10.2, A.6 evidence updated with CCAP phase results and module versions |
+| 1.2 | 2026-02-10 | Dr. Islam Mekawy | NC-005 (Major): Clauses 8.1 and 8.4 set to PARTIAL. 3-fix remediation referenced (synthetic_data.py v2.1.0, cds_brain.py v1.4.0). Summary: 36/39 implemented, 3 partial. |
 
 ---
 

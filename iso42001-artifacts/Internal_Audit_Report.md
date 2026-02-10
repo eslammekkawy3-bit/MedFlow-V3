@@ -61,9 +61,9 @@ This document records the findings of the first internal audit of the MedFlow V3
 | Category | Count |
 |----------|-------|
 | **Controls Audited** | 39 |
-| **Conformances** | 35 (90%) |
+| **Conformances** | 34 (87%) |
 | **Minor Non-conformances** | 3 (NC-001 CLOSED, NC-002 OPEN, NC-003 OPEN) |
-| **Major Non-conformances** | 1 (NC-004 CLOSED — CCAP 5-phase remediation) |
+| **Major Non-conformances** | 2 (NC-004 CLOSED, NC-005 OPEN — Clinical Logic & Timeline Failure) |
 | **Observations / Opportunities for Improvement** | 3 |
 
 ### 3.2 Compliance by Clause
@@ -74,12 +74,12 @@ This document records the findings of the first internal audit of the MedFlow V3
 | 5 | Leadership | 3 | 3 | 0 | FULL |
 | 6 | Planning | 5 | 5 | 0 | FULL |
 | 7 | Support | 5 | 4 | 1 | PARTIAL |
-| 8 | Operation | 6 | 4 | 2 | PARTIAL |
+| 8 | Operation | 6 | 3 | 3 | PARTIAL |
 | 9 | Performance Evaluation | 4 | 4 | 0 | FULL |
 | 10 | Improvement | 3 | 3 | 0 | FULL |
 | Annex A | AI Controls | 5 | 4 | 1 | PARTIAL |
 | Annex B | AI Guidance | 4 | 4 | 0 | FULL |
-| **Total** | | **39** | **35** | **4** | **90%** |
+| **Total** | | **39** | **34** | **5** | **87%** |
 
 ---
 
@@ -215,6 +215,18 @@ This document records the findings of the first internal audit of the MedFlow V3
 | **Closure Date** | 2026-02-10 |
 | **Status** | **CLOSED** |
 
+#### NC-005: Clinical Logic Failure & Timeline Inconsistency
+| Attribute | Detail |
+|-----------|--------|
+| **Clause** | 8.1 - Operational Planning and Control; 8.4 - AI System Testing |
+| **Finding** | Clinical audit of CASE-0016-2026 revealed three concurrent failures: (1) Decision logic recommended "Extension" on a Discharge Summary document because document type metadata is discarded during the merge step in cds_brain.py. (2) Synthetic generator produced conflicting clinical signs (Appendicitis patient with Asthma-specific respiratory PE findings "Diffuse expiratory wheezes") because PE fallback selection uses random pathological findings for unmapped systems. (3) Timeline engine calculated 3-day LOS instead of actual 10-day LOS because Gemini-only date extraction from merged multi-document text is unreliable. |
+| **Evidence Gap** | No document type context passed to decision prompt; no PE consistency validation against primary diagnosis; no pre-Gemini timeline calculation from structured fields |
+| **Severity** | Major |
+| **Root Cause** | Three independent gaps: (a) cds_brain.py Step 2 merging discards report_type/report_day metadata from JSON inputs. (b) synthetic_data.py _select_diagnosis_pe() falls back to random PE_TEMPLATES for systems not in PE_BY_DIAGNOSIS, allowing contradictory findings (e.g., wheezes on Appendicitis). (c) Timeline LOS relies entirely on Gemini parsing merged text, with no deterministic pre-calculation from structured JSON fields (admission_date, report_day, timestamps). |
+| **Corrective Action** | Three-fix remediation: Fix A — NEUTRAL_PE dictionary with non-pathological defaults replaces random fallback in synthetic_data.py v2.1.0. Fix B — Metadata-aware document merging injects [Document Type | Hospital Day | Date] headers in cds_brain.py v1.4.0, with latest document type context in decision prompt. Fix C — Pre-Gemini timeline engine extracts dates deterministically from structured JSON fields (with regex fallback for PDFs), overrides Gemini's LOS calculation when mismatch detected. |
+| **Target Date** | 2026-02-28 |
+| **Status** | OPEN |
+
 ---
 
 ### 4.3 Observations (Opportunities for Improvement)
@@ -262,6 +274,7 @@ This document records the findings of the first internal audit of the MedFlow V3
 | NC-002 | 8.2 | Execute fairness tests with demographic stratification | 2026-04-30 | Dr. Islam Mekawy |
 | NC-003 | Annex A | Implement automated drift detection with thresholds | 2026-05-31 | Dr. Islam Mekawy |
 | NC-004 | 8.4/8.2 | CCAP: 5-phase pipeline clinical remediation | 2026-02-28 | Dr. Islam Mekawy | **CLOSED (2026-02-10)** |
+| NC-005 | 8.1/8.4 | 3-fix remediation: Neutral PE fallback, metadata-aware merging, pre-Gemini timeline engine | 2026-02-28 | Dr. Islam Mekawy |
 
 ### 5.3 Strengths Identified
 
@@ -288,6 +301,7 @@ This document records the findings of the first internal audit of the MedFlow V3
 |---------|------|--------|---------|
 | 1.0 | 2026-02-09 | Dr. Islam Mekawy | Initial internal audit report |
 | 1.1 | 2026-02-10 | Dr. Islam Mekawy | NC-004 added (Major, Clauses 8.2/8.4) and CLOSED via CCAP. Summary counts updated (35/39 conformant). Audit opinion revised to reflect corrective action capability |
+| 1.2 | 2026-02-10 | Dr. Islam Mekawy | NC-005 added (Major, Clauses 8.1/8.4): Clinical logic failure & timeline inconsistency on CASE-0016-2026. 3-fix remediation plan. Summary counts updated (34/39 conformant, 5 NCs total). |
 
 ---
 

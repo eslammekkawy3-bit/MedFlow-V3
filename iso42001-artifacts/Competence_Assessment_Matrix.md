@@ -2,9 +2,9 @@
 ## MedFlow V3 Clinical Decision Support System
 
 **Document ID:** MF-ISO42001-CAM-001
-**Version:** 1.0
+**Version:** 1.1
 **Classification:** Internal
-**Last Updated:** 2026-02-09
+**Last Updated:** 2026-02-10
 **Author:** Dr. Islam Mekawy, Lead Implementer
 **ISO 42001 Reference:** Clause 7.2 - Competence
 **NC Reference:** NC-001 (Internal Audit Report MF-ISO42001-IAR-001)
@@ -83,9 +83,9 @@ This document provides formal competence assessment records for all personnel in
 
 | Competency Area | Required | Evidence | Assessment |
 |----------------|----------|----------|------------|
-| **ISO 42001 Framework** | Ability to implement and maintain AIMS governance | 70 hrs implementation experience; 17 ISO artifacts produced; internal audit conducted; management review held; NC-004 Major NC raised and closed via CCAP | COMPETENT |
-| **Risk Management** | Identify, assess, and treat AI-specific risks | AI Risk Register v3.0 with 14 risks (8 technical + 6 strategic); likelihood x impact scoring; residual risk tracking. NC-004 CCAP: identified and remediated 28 clinical non-conformities across 6 pipeline layers | COMPETENT |
-| **Audit Methodology** | Plan and execute internal audits, document findings | Internal Audit Report (MF-ISO42001-IAR-001): 39 controls audited, 9 conformance findings, 4 NCs (incl. NC-004 Major — CCAP 5-phase remediation), 3 observations | COMPETENT |
+| **ISO 42001 Framework** | Ability to implement and maintain AIMS governance | 76 hrs implementation experience; 17 ISO artifacts produced; internal audit conducted; management review held; NC-004 Major NC raised and closed via CCAP; NC-005 Major NC raised and remediated (3-fix pipeline) | COMPETENT |
+| **Risk Management** | Identify, assess, and treat AI-specific risks | AI Risk Register v5.0 with 16 risks (10 technical + 6 strategic); likelihood x impact scoring; residual risk tracking. NC-004 CCAP: remediated 28 clinical non-conformities across 6 pipeline layers. NC-005: identified metadata loss + timeline failure, implemented 3-fix remediation | COMPETENT |
+| **Audit Methodology** | Plan and execute internal audits, document findings | Internal Audit Report (MF-ISO42001-IAR-001 v1.2): 39 controls audited, 9 conformance findings, 5 NCs (incl. NC-004 Major CLOSED, NC-005 Major OPEN), 3 observations | COMPETENT |
 | **Data Protection Awareness** | PDPL, data sovereignty, PII handling principles | Designed Defense-in-Depth PII scrubbing (local processing via Ollama); AI Data Policy created; PDPL alignment documented | COMPETENT |
 | **Insurance Domain** | Healthcare insurance operations, pre-authorization workflows | FLMI Level 1 (LOMA); IFCE (SAMA); 6+ yrs Tawuniya pre-authorization management | COMPETENT |
 
@@ -136,8 +136,8 @@ Reference: `iso42001-artifacts/Implementation_Experience_Log.md` (MF-ISO42001-IE
 | 3 - Policy Development | AI Policy, Data Policy, roles, resource management | 12 | 5.2, 5.3, 7.1, 7.3 |
 | 4 - Technical Implementation | Pipeline development, testing, validation | 18 | 8.1-8.6, A.5-A.7 |
 | 5 - Monitoring & Measurement | Dashboard, audit trails, performance monitoring | 8 | 9.1, A.8, A.9 |
-| 6 - Audit & Review | Internal audit, management review, improvement log, competence matrix, CCAP 5-phase remediation (NC-004) | 14 | 9.2, 9.3, 10.1, 10.2, 7.2, 8.2, 8.4 |
-| **Total** | | **70** | **Clauses 4-10, Annex A, Annex B** |
+| 6 - Audit & Review | Internal audit, management review, improvement log, competence matrix, CCAP 5-phase remediation (NC-004), NC-005 3-fix pipeline remediation | 20 | 9.2, 9.3, 10.1, 10.2, 7.2, 8.2, 8.4 |
+| **Total** | | **76** | **Clauses 4-10, Annex A, Annex B** |
 
 ---
 
@@ -208,6 +208,7 @@ Reference: `iso42001-artifacts/Implementation_Experience_Log.md` (MF-ISO42001-IE
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-02-09 | Dr. Islam Mekawy | Initial competence assessment matrix; NC-001 closure evidence |
+| 1.1 | 2026-02-10 | Dr. Islam Mekawy | Updated counts for NC-005 (5 NCs, 16 risks), training hours 70→76 |
 
 ---
 
