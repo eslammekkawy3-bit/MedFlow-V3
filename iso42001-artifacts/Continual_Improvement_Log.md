@@ -240,8 +240,13 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Source** | Internal Audit (NC-004, Clauses 8.2/8.4) |
 | **Description** | Full pipeline clinical corrective action (CCAP). 28 non-conformities identified across 6 layers. 5-phase remediation: (A) Synthetic data clinical validity, (B) Gemini prompt fixes, (C) DRG-decision integration, (D) Dashboard safety, (E) Full re-validation. |
 | **Target Date** | 2026-02-28 |
-| **Status** | IN PROGRESS — Phase A COMPLETE 2026-02-09, Phase B pending |
+| **Status** | **COMPLETED** — All 5 phases complete 2026-02-10 |
+| **Implemented** | 2026-02-09 to 2026-02-10 (Session 13) |
 | **Phase A Results** | 10 SYN findings + 10 audit findings remediated in `synthetic_data.py`. Age-stratified data pools, locked patient data, diagnosis-specific PE/imaging, lab trending, clinical disposition logic, family/social deduplication. 18/18 clinical plausibility checkpoints pass. 20 test cases regenerated. |
+| **Phase B Results** | 3 GEM findings remediated in `gemini_client.py` v2.0.0. Removed 15K char truncation (full text sent to Gemini 1M context). Added confidence calibration (5 tiers: 0.90+ textbook, 0.75-0.89 strong, 0.60-0.74 mixed/review, 0.40-0.59 ambiguous/escalate, <0.40 critical-missing). Added few-shot decision example. Added DRG context parameter to decision prompt. 3/3 test cases verified (simple 95%, medium 90%, complex 50% → SENIOR_REVIEW). |
+| **Phase C Results** | 6 DRG/CDS findings remediated in `cds_brain.py` v1.3.0 + `drg_validator.py` v1.1.0. Pipeline reordered: DRG validation now runs BEFORE decision (Step 6→7 swap). DRG severity context fed to Gemini decision prompt. Primary diagnosis 2x weighting in MDC keyword matching. Expected LOS comparison included when available. Escalation criteria: Severity A + WORSENING → ESCALATE, confidence <0.40 → ESCALATE. 8/8 DRG tests pass. 2/2 pipeline tests verified. |
+| **Phase D Results** | 5 UI findings remediated in `dashboard_utils.py` v1.3.0 + `terminology_system.py` v1.1.0. Error banners for missing grade/trajectory (UI-01). Precise confidence with threshold context (UI-02). Dropped timeline event warnings (UI-03). Out-of-range confidence flagging (UI-04). Threshold-aligned terminology labels (UI-05). |
+| **Phase E Results** | Full pipeline re-validation: 5/5 cases produce clinically appropriate decisions. Simple AKI→EXTENSION(95%), Medium Appendicitis→DISCHARGE(88%), Medium Appendicitis+cardiac→ESCALATE(95%), Complex Sepsis→EXTENSION(88%), Complex CHF→EXTENSION(95%). Confidence calibration verified. DRG context flowing to decisions. NC-004 CLOSED. |
 
 ---
 

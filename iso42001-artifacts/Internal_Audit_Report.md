@@ -2,9 +2,9 @@
 ## MedFlow V3 Clinical Decision Support System
 
 **Document ID:** MF-ISO42001-IAR-001
-**Version:** 1.0
+**Version:** 1.1
 **Classification:** Internal
-**Last Updated:** 2026-02-09
+**Last Updated:** 2026-02-10
 **Author:** Dr. Islam Mekawy, Lead Implementer
 **ISO 42001 Reference:** Clause 9.2 - Internal Audit
 
@@ -61,9 +61,9 @@ This document records the findings of the first internal audit of the MedFlow V3
 | Category | Count |
 |----------|-------|
 | **Controls Audited** | 39 |
-| **Conformances** | 36 (92%) |
-| **Minor Non-conformances** | 3 (8%) |
-| **Major Non-conformances** | 0 |
+| **Conformances** | 35 (90%) |
+| **Minor Non-conformances** | 3 (NC-001 CLOSED, NC-002 OPEN, NC-003 OPEN) |
+| **Major Non-conformances** | 1 (NC-004 CLOSED — CCAP 5-phase remediation) |
 | **Observations / Opportunities for Improvement** | 3 |
 
 ### 3.2 Compliance by Clause
@@ -74,12 +74,12 @@ This document records the findings of the first internal audit of the MedFlow V3
 | 5 | Leadership | 3 | 3 | 0 | FULL |
 | 6 | Planning | 5 | 5 | 0 | FULL |
 | 7 | Support | 5 | 4 | 1 | PARTIAL |
-| 8 | Operation | 6 | 5 | 1 | PARTIAL |
+| 8 | Operation | 6 | 4 | 2 | PARTIAL |
 | 9 | Performance Evaluation | 4 | 4 | 0 | FULL |
 | 10 | Improvement | 3 | 3 | 0 | FULL |
 | Annex A | AI Controls | 5 | 4 | 1 | PARTIAL |
 | Annex B | AI Guidance | 4 | 4 | 0 | FULL |
-| **Total** | | **39** | **36** | **3** | **92%** |
+| **Total** | | **39** | **35** | **4** | **90%** |
 
 ---
 
@@ -211,7 +211,9 @@ This document records the findings of the first internal audit of the MedFlow V3
 | **Root Cause** | Synthetic data generator lacks age-appropriate filtering and clinical consistency rules. Pipeline layers developed independently without end-to-end clinical validation. |
 | **Corrective Action** | Clinical Corrective Action Plan (CCAP) — 5 phases: (A) Fix synthetic data generator, (B) Fix Gemini prompts, (C) Integrate DRG with decision logic, (D) Dashboard safety fixes, (E) Full pipeline re-validation with regenerated test data. |
 | **Target Date** | 2026-02-28 |
-| **Status** | OPEN — Phase A in progress |
+| **Action Taken** | CCAP 5-phase remediation complete: (A) synthetic_data.py v2.0.0 — age-stratified pools, locked data, clinical disposition; (B) gemini_client.py v2.0.0 — no truncation, confidence calibration, few-shot; (C) cds_brain.py v1.3.0 + drg_validator.py v1.1.0 — DRG→decision integration, escalation criteria; (D) dashboard_utils.py v1.3.0 + terminology_system.py v1.1.0 — error states, precision, warnings; (E) 5/5 validation cases clinically appropriate. |
+| **Closure Date** | 2026-02-10 |
+| **Status** | **CLOSED** |
 
 ---
 
@@ -246,11 +248,11 @@ This document records the findings of the first internal audit of the MedFlow V3
 
 | Metric | Value |
 |--------|-------|
-| **Overall Compliance Rating** | 92% (36/39 controls conformant) |
-| **Major Non-conformances** | 0 |
-| **Minor Non-conformances** | 3 |
+| **Overall Compliance Rating** | 90% (35/39 controls conformant at time of audit) |
+| **Major Non-conformances** | 1 (NC-004 — **CLOSED** 2026-02-10 via 5-phase CCAP) |
+| **Minor Non-conformances** | 3 (NC-001 **CLOSED** 2026-02-09, NC-002 OPEN, NC-003 OPEN) |
 | **Observations** | 3 |
-| **Audit Opinion** | The AIMS substantially conforms to ISO 42001:2023 requirements. Non-conformances are minor and relate to evidence documentation gaps rather than fundamental control failures. The system demonstrates effective AI governance for a research prototype. |
+| **Audit Opinion** | The AIMS substantially conforms to ISO 42001:2023 requirements. NC-004 (Major) identified critical clinical output validity issues and was addressed through a comprehensive 5-phase CCAP with 5/5 validation pass. Remaining 2 minor NCs relate to evidence documentation gaps (fairness testing, drift detection) rather than fundamental control failures. The system demonstrates effective AI governance for a research prototype with demonstrated corrective action capability. |
 
 ### 5.2 Corrective Action Summary
 
@@ -259,6 +261,7 @@ This document records the findings of the first internal audit of the MedFlow V3
 | NC-001 | 7.2 | Create competence matrix + document credentials | 2026-03-15 | Dr. Islam Mekawy | **CLOSED (2026-02-09)** |
 | NC-002 | 8.2 | Execute fairness tests with demographic stratification | 2026-04-30 | Dr. Islam Mekawy |
 | NC-003 | Annex A | Implement automated drift detection with thresholds | 2026-05-31 | Dr. Islam Mekawy |
+| NC-004 | 8.4/8.2 | CCAP: 5-phase pipeline clinical remediation | 2026-02-28 | Dr. Islam Mekawy | **CLOSED (2026-02-10)** |
 
 ### 5.3 Strengths Identified
 
@@ -274,8 +277,8 @@ This document records the findings of the first internal audit of the MedFlow V3
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|
-| Lead Auditor | Dr. Islam Mekawy | 2026-02-09 | __________ |
-| Management Representative | Dr. Islam Mekawy | 2026-02-09 | __________ |
+| Lead Auditor | Dr. Islam Mekawy | 2026-02-10 | __________ |
+| Management Representative | Dr. Islam Mekawy | 2026-02-10 | __________ |
 
 ---
 
@@ -284,6 +287,7 @@ This document records the findings of the first internal audit of the MedFlow V3
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
 | 1.0 | 2026-02-09 | Dr. Islam Mekawy | Initial internal audit report |
+| 1.1 | 2026-02-10 | Dr. Islam Mekawy | NC-004 added (Major, Clauses 8.2/8.4) and CLOSED via CCAP. Summary counts updated (35/39 conformant). Audit opinion revised to reflect corrective action capability |
 
 ---
 

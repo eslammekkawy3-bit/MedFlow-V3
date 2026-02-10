@@ -2,9 +2,9 @@
 ## MedFlow V3 - AI Management System Implementation
 
 **Document ID:** MF-ISO42001-MATRIX-001
-**Version:** 1.0
+**Version:** 1.1
 **Classification:** Internal
-**Date:** 2026-02-08
+**Date:** 2026-02-10
 **Author:** Dr. Islam Mekawy, Lead Implementer
 **Purpose:** Map MedFlow V3 implementation artifacts to ISO/IEC 42001:2023 requirements
 
@@ -65,11 +65,11 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 | ISO 42001 Clause | Requirement | MedFlow Implementation | Evidence Artifact | Status |
 |---|---|---|---|---|
-| 8.1 Operational planning and control | Plan, implement, and control processes to meet AIMS requirements | 8-step CDS pipeline with centralized orchestration: PII scrub, merge, summarize, timeline, guidelines, decision, DRG validation, assembly | `cds_brain.py` v1.2.0 (8-step pipeline), `config.py` (ProcessingConfig) | IMPLEMENTED |
+| 8.1 Operational planning and control | Plan, implement, and control processes to meet AIMS requirements | 8-step CDS pipeline with centralized orchestration: PII scrub, merge, summarize, timeline, guidelines, DRG validation, decision, assembly. Pipeline reordered (CCAP Phase C): DRG runs BEFORE decision so severity context flows into clinical reasoning. Escalation criteria codified: Severity A + WORSENING → ESCALATE, confidence <0.40 → ESCALATE | `cds_brain.py` v1.3.0 (8-step pipeline, DRG→Decision integration), `config.py` (ProcessingConfig) | IMPLEMENTED |
 | 8.2 AI system impact assessment | Conduct impact assessments for AI systems | Algorithmic Impact Assessment covering 3 dimensions: Patient Safety (3 risks), Fairness/Bias (3 concerns), Human Oversight (4-tier framework) | `iso42001-artifacts/Algorithmic_Impact_Assessment.md` v1.0 | IMPLEMENTED |
 | 8.3 AI system life cycle processes | Manage AI system through its lifecycle | 5-layer architecture with versioned components, defined development phases (1-5.5), modular design enabling independent component updates | `iso42001-artifacts/AI_System_Design.md` v2.0, `PHASE3_ARCHITECTURE.md` | IMPLEMENTED |
-| 8.4 Data management for AI systems | Manage data quality, provenance, and preparation | Data classification (4 tiers: PHI/PII/Clinical/Operational), PII extraction strategy, strict matching policy, data localization controls, retention periods (7-year) | `iso42001-artifacts/AI_Data_Policy.md` v1.0 (Sections 2-7) | IMPLEMENTED |
-| 8.5 AI system monitoring and control | Monitor AI system performance during operation | Health check system (Ollama, Gemini, KB, DRG statuses), processing time tracking, confidence score monitoring, auto-fallback on API failures | `cds_brain.py` (--health flag), `app.py` (sidebar health status), `gemini_client.py` (fallback chain) | IMPLEMENTED |
+| 8.4 Data management for AI systems | Manage data quality, provenance, and preparation | Data classification (4 tiers: PHI/PII/Clinical/Operational), PII extraction strategy, strict matching policy, data localization controls, retention periods (7-year). **CCAP Phase A:** Synthetic test data clinically validated — age-stratified diagnosis pools, locked patient data across reports, diagnosis-specific PE/imaging/labs, clinical disposition logic. 20 test cases regenerated with full clinical plausibility | `iso42001-artifacts/AI_Data_Policy.md` v1.0 (Sections 2-7), `synthetic_data.py` v2.0.0 (CCAP Phase A), `iso42001-artifacts/Internal_Audit_Report.md` (NC-004 closure evidence) | IMPLEMENTED |
+| 8.5 AI system monitoring and control | Monitor AI system performance during operation | Health check system (Ollama, Gemini, KB, DRG statuses), processing time tracking, confidence score monitoring, auto-fallback on API failures. **CCAP Phase B:** 5-tier confidence calibration enforced in Gemini prompts (0.90+ textbook → <0.40 critical-missing). Input truncation removed — full clinical text sent to Gemini 1M context. **CCAP Phase D:** Dashboard displays precise confidence with threshold context, flags out-of-range values, warns on dropped timeline events | `cds_brain.py` v1.3.0 (--health flag), `app.py` (sidebar health status), `gemini_client.py` v2.0.0 (calibration, no truncation), `dashboard_utils.py` v1.3.0 (safety warnings) | IMPLEMENTED |
 | 8.6 Third-party and customer relationships | Manage external AI system providers | Gemini API as sole cloud dependency; anonymized data only; API encryption; no PII sharing; prohibited actions documented | `iso42001-artifacts/AI_Data_Policy.md` (Sections 8-9), `gemini_client.py` (API integration) | IMPLEMENTED |
 
 ---
@@ -78,9 +78,9 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 | ISO 42001 Clause | Requirement | MedFlow Implementation | Evidence Artifact | Status |
 |---|---|---|---|---|
-| 9.1 Monitoring, measurement, analysis, and evaluation | Monitor and measure AIMS performance | Automated test suites: DRG Validator (8/8 pass), KB strict matching (6/6 pass), PII CLI test, system health check. Processing metrics in CaseResult metadata | `iso42001-artifacts/Verification_Validation_Plan.md` v2.0 (Sections 3, 5), `drg_validator.py` (--test), `knowledge_base.py` (--test-strict) | IMPLEMENTED |
-| 9.1.2 Analysis of AI system performance | Analyze AI system outputs for quality | End-to-end pipeline tests documented: Complex Sepsis case (DRG upcoding detected), Messy DKA case (contradictory documentation flagged), 5 saved cases crash-free | `iso42001-artifacts/Verification_Validation_Plan.md` (Sections 5.2-5.3), `output/` (saved case results) | IMPLEMENTED |
-| 9.2 Internal audit | Conduct internal AIMS audits | PII Manifest audit trail per case (SHA-256 hashes, detection counts, layer breakdown), CaseResult metadata (model used, timestamps, confidence), dashboard audit section | `pii_scrubber.py` (PIIManifest generation), `dashboard_utils.py` (render_pii_audit, render_processing_audit) | IMPLEMENTED |
+| 9.1 Monitoring, measurement, analysis, and evaluation | Monitor and measure AIMS performance | Automated test suites: DRG Validator (8/8 pass), KB strict matching (6/6 pass), PII CLI test, system health check. Processing metrics in CaseResult metadata. **CCAP Phase E:** Full pipeline re-validation 5/5 cases clinically appropriate | `iso42001-artifacts/Verification_Validation_Plan.md` v2.0 (Sections 3, 5), `drg_validator.py` v1.1.0 (--test), `knowledge_base.py` (--test-strict), `iso42001-artifacts/Continual_Improvement_Log.md` (IMP-015 Phase E results) | IMPLEMENTED |
+| 9.1.2 Analysis of AI system performance | Analyze AI system outputs for quality | End-to-end pipeline tests documented: Complex Sepsis case (DRG upcoding detected), Messy DKA case (contradictory documentation flagged), 5 saved cases crash-free. **CCAP Phase E validation:** AKI→EXTENSION(95%), Appendicitis→DISCHARGE(88%), Appendicitis+cardiac→ESCALATE(95%), Sepsis→EXTENSION(88%), CHF→EXTENSION(95%). Confidence calibration producing meaningful differentiation (50-95% range) | `iso42001-artifacts/Verification_Validation_Plan.md` (Sections 5.2-5.3), `output/` (saved case results), `iso42001-artifacts/Internal_Audit_Report.md` (NC-004 CCAP Phase E evidence) | IMPLEMENTED |
+| 9.2 Internal audit | Conduct internal AIMS audits | PII Manifest audit trail per case (SHA-256 hashes, detection counts, layer breakdown), CaseResult metadata (model used, timestamps, confidence), dashboard audit section. Internal Audit conducted (MF-ISO42001-IAR-001): 39 controls, 4 NCs raised (NC-001 CLOSED, NC-002 OPEN, NC-003 OPEN, NC-004 CLOSED via 5-phase CCAP) | `pii_scrubber.py` (PIIManifest generation), `dashboard_utils.py` (render_pii_audit, render_processing_audit), `iso42001-artifacts/Internal_Audit_Report.md` | IMPLEMENTED |
 | 9.3 Management review | Review AIMS at planned intervals | Session-based project tracking (10 sessions), phase gate reviews, technical decisions log with rationale and date | `MEDFLOW_PROJECT_TRACKER.md` (Session Log, 10 sessions), `iso42001-artifacts/AI_Risk_Register.md` (revision history) | IMPLEMENTED |
 
 ---
@@ -89,9 +89,9 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 | ISO 42001 Clause | Requirement | MedFlow Implementation | Evidence Artifact | Status |
 |---|---|---|---|---|
-| 10.1 Continual improvement | Continually improve AIMS suitability, adequacy, and effectiveness | Iterative optimization across phases: PII extraction strategy (3-5x speedup), strict matching controls, DRG Dual-Check architecture, dashboard hardening (15 guards) | `MEDFLOW_PROJECT_TRACKER.md` (Sessions 5, 7, 9), `pii_scrubber.py` v2.1.0, `knowledge_base.py` v1.4.0 | IMPLEMENTED |
-| 10.1.2 Nonconformity and corrective action | Address nonconformities and take corrective action | Root cause analysis documented: "Hypoglycemia Magnet" bug (substring matching), severity marker regex bug, Gemini model fallback failures. Corrective actions implemented and verified | `iso42001-artifacts/AI_Risk_Register.md` (RISK-002 Root Cause Analysis), `MEDFLOW_PROJECT_TRACKER.md` (Session 5) | IMPLEMENTED |
-| 10.2 Continual improvement of AI systems | Improve AI system performance and trustworthiness | Gemini fallback chain (3+ models), confidence threshold tuning (85%/70%), STOP_WORDS filter evolution, 4-lens terminology standardization for regulatory alignment | `gemini_client.py` (MODEL_FALLBACK_ORDER), `config.py` (SafetyConfig), `terminology_system.py` v1.0.0, `knowledge_base.py` (STOP_WORDS) | IMPLEMENTED |
+| 10.1 Continual improvement | Continually improve AIMS suitability, adequacy, and effectiveness | Iterative optimization across phases: PII extraction strategy (3-5x speedup), strict matching controls, DRG Dual-Check architecture, dashboard hardening (15 guards). **NC-004 CCAP:** 28-finding clinical pipeline remediation across 5 phases — the most comprehensive improvement action to date (IMP-015) | `MEDFLOW_PROJECT_TRACKER.md` (Sessions 5, 7, 9, 13), `pii_scrubber.py` v2.1.0, `knowledge_base.py` v1.4.0, `iso42001-artifacts/Continual_Improvement_Log.md` (IMP-015) | IMPLEMENTED |
+| 10.1.2 Nonconformity and corrective action | Address nonconformities and take corrective action | Root cause analysis documented: "Hypoglycemia Magnet" bug (substring matching), severity marker regex bug, Gemini model fallback failures. **NC-004 CCAP (Major NC):** 28 clinical non-conformities across 6 pipeline layers. 5-phase corrective action: synthetic data validity, Gemini prompt engineering, DRG-decision integration, dashboard safety, full re-validation. NC-001 closed (competence matrix). NC-004 closed (CCAP 5/5 validation pass) | `iso42001-artifacts/AI_Risk_Register.md` (RISK-002 Root Cause Analysis), `iso42001-artifacts/Internal_Audit_Report.md` (NC-004), `MEDFLOW_PROJECT_TRACKER.md` (Sessions 5, 13) | IMPLEMENTED |
+| 10.2 Continual improvement of AI systems | Improve AI system performance and trustworthiness | Gemini fallback chain (3+ models), confidence threshold tuning (85%/70%/40%), STOP_WORDS filter evolution, 4-lens terminology standardization for regulatory alignment. CCAP improvements: 5-tier confidence calibration, DRG→decision integration, primary diagnosis weighting, threshold-aligned terminology labels | `gemini_client.py` v2.0.0 (MODEL_FALLBACK_ORDER, calibration), `config.py` (SafetyConfig), `terminology_system.py` v1.1.0, `knowledge_base.py` (STOP_WORDS), `drg_validator.py` v1.1.0 (primary diagnosis weighting) | IMPLEMENTED |
 
 ---
 
@@ -103,7 +103,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 | A.3 Internal Organization | Define AI governance structure | 5 roles with RACI-style responsibilities; Lead Researcher as system owner and architect | `iso42001-artifacts/Roles_Responsibilities.docx`, `iso42001-artifacts/Resource_Management.md` (Section 6) | IMPLEMENTED |
 | A.4 Resources for AI Systems | Provision adequate resources | Hardware specs (CPU/RAM/GPU), software stack (Python, Ollama, Gemini), infrastructure costs documented | `iso42001-artifacts/Resource_Management.md` v2.0 (Sections 2-5, 10) | IMPLEMENTED |
 | A.5 AI System Impact Assessment | Assess impacts of AI systems | 3-dimension AIA: Patient Safety, Fairness/Bias, Human Oversight. Residual risk ratings. Stakeholder notification plan | `iso42001-artifacts/Algorithmic_Impact_Assessment.md` v1.0 | IMPLEMENTED |
-| A.6 AI System Life Cycle | Manage development and operation | 6-phase lifecycle (Foundation > Local AI > CDS > DRG > Dashboard > Standardization), version-controlled modules, modular architecture | `iso42001-artifacts/AI_System_Design.md` v2.0, `MEDFLOW_PROJECT_TRACKER.md` | IMPLEMENTED |
+| A.6 AI System Life Cycle | Manage development and operation | 6-phase lifecycle (Foundation > Local AI > CDS > DRG > Dashboard > ISO Implementation), version-controlled modules, modular architecture. CCAP demonstrated lifecycle corrective action capability: identified 28 clinical non-conformities, executed 5-phase remediation, validated with 5/5 clinical cases | `iso42001-artifacts/AI_System_Design.md` v2.0, `MEDFLOW_PROJECT_TRACKER.md` (13 sessions), `iso42001-artifacts/Internal_Audit_Report.md` (NC-004 lifecycle) | IMPLEMENTED |
 | A.7 Data for AI Systems | Govern data used by AI systems | Data classification, PII handling, PDPL localization, data quality controls, retention policies, incident response protocol | `iso42001-artifacts/AI_Data_Policy.md` v1.0 | IMPLEMENTED |
 | A.8 Information for Interested Parties | Provide transparency about AI systems | Transparency statement in AIA; Clinical User Guide for reviewers; confidence score explanations; override procedures; appeal pathways | `iso42001-artifacts/Algorithmic_Impact_Assessment.md` (Section 7.2), `iso42001-artifacts/User_Guide_Clinical.md` | IMPLEMENTED |
 | A.9 Use of AI Systems | Ensure appropriate use of AI outputs | 4-tier review framework (Autonomous/Supervised/Escalated/Emergency); override mechanisms; documented rationale requirements; appeal pathway | `iso42001-artifacts/Algorithmic_Impact_Assessment.md` (Section 5), `iso42001-artifacts/User_Guide_Clinical.md` (Sections 5-6) | IMPLEMENTED |
@@ -129,13 +129,15 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 **Previously Partial (Cl. 7.2 Competence):** Resolved 2026-02-09 — Competence Assessment Matrix (MF-ISO42001-CAM-001) created with full evidence of qualifications per role. NC-001 closed.
 
+**NC-004 (Major) Clinical Output Validity:** Resolved 2026-02-10 — 5-phase CCAP completed. 28 clinical non-conformities across 6 pipeline layers remediated. 5/5 validation cases clinically appropriate. Evidence: `synthetic_data.py` v2.0.0, `gemini_client.py` v2.0.0, `cds_brain.py` v1.3.0, `drg_validator.py` v1.1.0, `dashboard_utils.py` v1.3.0, `terminology_system.py` v1.1.0.
+
 ---
 
 ## Document Approval
 
 | Role | Name | Date | Signature |
 |---|---|---|---|
-| Lead Implementer | Dr. Islam Mekawy | 2026-02-08 | __________ |
+| Lead Implementer | Dr. Islam Mekawy | 2026-02-10 | __________ |
 | Internal Auditor | _________________ | __________ | __________ |
 
 ---
@@ -145,6 +147,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 | Version | Date | Author | Changes |
 |---|---|---|---|
 | 1.0 | 2026-02-08 | Dr. Islam Mekawy | Initial compliance matrix (39 controls mapped) |
+| 1.1 | 2026-02-10 | Dr. Islam Mekawy | Updated for NC-004 CCAP closure: Clauses 8.1, 8.4, 8.5, 9.1, 9.2, 10.1, 10.2, A.6 evidence updated with CCAP phase results and module versions |
 
 ---
 

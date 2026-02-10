@@ -161,6 +161,7 @@ Identified during this review:
 | MRA-004 | Add ACS/Stroke/Sepsis protocols to KB (OBS-001) | Dr. Islam Mekawy | 2026-03-31 | Medium | OPEN |
 | MRA-005 | Run PII scrubber performance benchmark (OBS-002) | Dr. Islam Mekawy | 2026-03-15 | Low | OPEN |
 | MRA-006 | Start Regulatory Package (PDPL/NPHIES) | Dr. Islam Mekawy | 2026-04-15 | Medium | OPEN |
+| MRA-007 | Clinical Pipeline Corrective Action (NC-004 CCAP) | Dr. Islam Mekawy | 2026-02-28 | Critical | **CLOSED (2026-02-10)** — 5-phase CCAP complete, 5/5 validation pass |
 
 ---
 

@@ -59,7 +59,7 @@ This document provides formal competence assessment records for all personnel in
 
 | Competency Area | Required | Evidence | Assessment |
 |----------------|----------|----------|------------|
-| **AI/ML Knowledge** | Understanding of AI system design, model selection, prompt engineering | Stanford AI in Healthcare Specialization; 64 hrs ISO 42001 implementation (Phases 1-6); designed 6-layer CDS pipeline | COMPETENT |
+| **AI/ML Knowledge** | Understanding of AI system design, model selection, prompt engineering | Stanford AI in Healthcare Specialization; 70 hrs ISO 42001 implementation (Phases 1-6); designed 6-layer CDS pipeline; CCAP prompt engineering (confidence calibration, few-shot) | COMPETENT |
 | **Clinical Domain Expertise** | Medical knowledge sufficient to design clinical decision rules | MSc Orthopedic Surgery; 10 yrs clinical practice (MOH Egypt); 6+ yrs medical review (Tawuniya) | COMPETENT |
 | **Health Informatics** | Systems design, data standards, interoperability concepts | CPHIMS certification (HIMSS); HIMSS membership | COMPETENT |
 | **System Architecture** | Software design, API integration, pipeline orchestration | Designed and implemented: PII scrubber, Knowledge Base, Gemini Client, CDS Brain, DRG Validator, Streamlit Dashboard | COMPETENT |
@@ -83,9 +83,9 @@ This document provides formal competence assessment records for all personnel in
 
 | Competency Area | Required | Evidence | Assessment |
 |----------------|----------|----------|------------|
-| **ISO 42001 Framework** | Ability to implement and maintain AIMS governance | 64 hrs implementation experience; 12 ISO artifacts produced; internal audit conducted; management review held | COMPETENT |
-| **Risk Management** | Identify, assess, and treat AI-specific risks | AI Risk Register v3.0 with 14 risks (8 technical + 6 strategic); likelihood x impact scoring; residual risk tracking | COMPETENT |
-| **Audit Methodology** | Plan and execute internal audits, document findings | Internal Audit Report (MF-ISO42001-IAR-001): 39 controls audited, 9 conformance findings, 3 NCs, 3 observations | COMPETENT |
+| **ISO 42001 Framework** | Ability to implement and maintain AIMS governance | 70 hrs implementation experience; 17 ISO artifacts produced; internal audit conducted; management review held; NC-004 Major NC raised and closed via CCAP | COMPETENT |
+| **Risk Management** | Identify, assess, and treat AI-specific risks | AI Risk Register v3.0 with 14 risks (8 technical + 6 strategic); likelihood x impact scoring; residual risk tracking. NC-004 CCAP: identified and remediated 28 clinical non-conformities across 6 pipeline layers | COMPETENT |
+| **Audit Methodology** | Plan and execute internal audits, document findings | Internal Audit Report (MF-ISO42001-IAR-001): 39 controls audited, 9 conformance findings, 4 NCs (incl. NC-004 Major — CCAP 5-phase remediation), 3 observations | COMPETENT |
 | **Data Protection Awareness** | PDPL, data sovereignty, PII handling principles | Designed Defense-in-Depth PII scrubbing (local processing via Ollama); AI Data Policy created; PDPL alignment documented | COMPETENT |
 | **Insurance Domain** | Healthcare insurance operations, pre-authorization workflows | FLMI Level 1 (LOMA); IFCE (SAMA); 6+ yrs Tawuniya pre-authorization management | COMPETENT |
 
@@ -136,8 +136,8 @@ Reference: `iso42001-artifacts/Implementation_Experience_Log.md` (MF-ISO42001-IE
 | 3 - Policy Development | AI Policy, Data Policy, roles, resource management | 12 | 5.2, 5.3, 7.1, 7.3 |
 | 4 - Technical Implementation | Pipeline development, testing, validation | 18 | 8.1-8.6, A.5-A.7 |
 | 5 - Monitoring & Measurement | Dashboard, audit trails, performance monitoring | 8 | 9.1, A.8, A.9 |
-| 6 - Audit & Review | Internal audit, management review, improvement log | 8 | 9.2, 9.3, 10.1, 10.2 |
-| **Total** | | **64** | **Clauses 4-10, Annex A, Annex B** |
+| 6 - Audit & Review | Internal audit, management review, improvement log, competence matrix, CCAP 5-phase remediation (NC-004) | 14 | 9.2, 9.3, 10.1, 10.2, 7.2, 8.2, 8.4 |
+| **Total** | | **70** | **Clauses 4-10, Annex A, Annex B** |
 
 ---
 
