@@ -2,7 +2,7 @@
 ## MedFlow V3 Clinical Decision Support System
 
 **Document ID:** MF-ISO42001-CAM-001
-**Version:** 1.1
+**Version:** 1.2
 **Classification:** Internal
 **Last Updated:** 2026-02-10
 **Author:** Dr. Islam Mekawy, Lead Implementer
@@ -59,11 +59,11 @@ This document provides formal competence assessment records for all personnel in
 
 | Competency Area | Required | Evidence | Assessment |
 |----------------|----------|----------|------------|
-| **AI/ML Knowledge** | Understanding of AI system design, model selection, prompt engineering | Stanford AI in Healthcare Specialization; 70 hrs ISO 42001 implementation (Phases 1-6); designed 6-layer CDS pipeline; CCAP prompt engineering (confidence calibration, few-shot) | COMPETENT |
+| **AI/ML Knowledge** | Understanding of AI system design, model selection, prompt engineering | Stanford AI in Healthcare Specialization; 80 hrs ISO 42001 implementation (Phases 1-6); designed 6-layer CDS pipeline; CCAP prompt engineering (confidence calibration, few-shot); V3.0 Clinical Simulation Engine (arc-based trajectory modeling) | COMPETENT |
 | **Clinical Domain Expertise** | Medical knowledge sufficient to design clinical decision rules | MSc Orthopedic Surgery; 10 yrs clinical practice (MOH Egypt); 6+ yrs medical review (Tawuniya) | COMPETENT |
 | **Health Informatics** | Systems design, data standards, interoperability concepts | CPHIMS certification (HIMSS); HIMSS membership | COMPETENT |
 | **System Architecture** | Software design, API integration, pipeline orchestration | Designed and implemented: PII scrubber, Knowledge Base, Gemini Client, CDS Brain, DRG Validator, Streamlit Dashboard | COMPETENT |
-| **ISO 42001 Awareness** | Understanding of AIMS requirements, controls, and governance | 64 professional hours implementing ISO 42001 across 6 phases; produced 12 compliance artifacts; conducted internal audit | COMPETENT |
+| **ISO 42001 Awareness** | Understanding of AIMS requirements, controls, and governance | 80 professional hours implementing ISO 42001 across 6 phases; produced 17 compliance artifacts; conducted internal audit; closed 3 NCs (NC-001, NC-004, NC-005) | COMPETENT |
 
 **Overall Assessment: COMPETENT**
 
@@ -83,9 +83,9 @@ This document provides formal competence assessment records for all personnel in
 
 | Competency Area | Required | Evidence | Assessment |
 |----------------|----------|----------|------------|
-| **ISO 42001 Framework** | Ability to implement and maintain AIMS governance | 76 hrs implementation experience; 17 ISO artifacts produced; internal audit conducted; management review held; NC-004 Major NC raised and closed via CCAP; NC-005 Major NC raised and remediated (3-fix pipeline) | COMPETENT |
-| **Risk Management** | Identify, assess, and treat AI-specific risks | AI Risk Register v5.0 with 16 risks (10 technical + 6 strategic); likelihood x impact scoring; residual risk tracking. NC-004 CCAP: remediated 28 clinical non-conformities across 6 pipeline layers. NC-005: identified metadata loss + timeline failure, implemented 3-fix remediation | COMPETENT |
-| **Audit Methodology** | Plan and execute internal audits, document findings | Internal Audit Report (MF-ISO42001-IAR-001 v1.2): 39 controls audited, 9 conformance findings, 5 NCs (incl. NC-004 Major CLOSED, NC-005 Major OPEN), 3 observations | COMPETENT |
+| **ISO 42001 Framework** | Ability to implement and maintain AIMS governance | 80 hrs implementation experience; 17 ISO artifacts produced; internal audit conducted; management review held; NC-004 Major NC raised and closed via CCAP; NC-005 Major NC raised, remediated (3-fix pipeline), and closed via Masterpiece validation | COMPETENT |
+| **Risk Management** | Identify, assess, and treat AI-specific risks | AI Risk Register v5.0 with 16 risks (10 technical + 6 strategic); likelihood x impact scoring; residual risk tracking. NC-004 CCAP: remediated 28 clinical non-conformities across 6 pipeline layers. NC-005: identified metadata loss + timeline failure, implemented 3-fix remediation, validated with 30-day Masterpiece case | COMPETENT |
+| **Audit Methodology** | Plan and execute internal audits, document findings | Internal Audit Report (MF-ISO42001-IAR-001 v1.3): 39 controls audited, 9 conformance findings, 5 NCs (NC-001/NC-004/NC-005 CLOSED, NC-002/NC-003 OPEN), 3 observations | COMPETENT |
 | **Data Protection Awareness** | PDPL, data sovereignty, PII handling principles | Designed Defense-in-Depth PII scrubbing (local processing via Ollama); AI Data Policy created; PDPL alignment documented | COMPETENT |
 | **Insurance Domain** | Healthcare insurance operations, pre-authorization workflows | FLMI Level 1 (LOMA); IFCE (SAMA); 6+ yrs Tawuniya pre-authorization management | COMPETENT |
 
@@ -136,8 +136,8 @@ Reference: `iso42001-artifacts/Implementation_Experience_Log.md` (MF-ISO42001-IE
 | 3 - Policy Development | AI Policy, Data Policy, roles, resource management | 12 | 5.2, 5.3, 7.1, 7.3 |
 | 4 - Technical Implementation | Pipeline development, testing, validation | 18 | 8.1-8.6, A.5-A.7 |
 | 5 - Monitoring & Measurement | Dashboard, audit trails, performance monitoring | 8 | 9.1, A.8, A.9 |
-| 6 - Audit & Review | Internal audit, management review, improvement log, competence matrix, CCAP 5-phase remediation (NC-004), NC-005 3-fix pipeline remediation | 20 | 9.2, 9.3, 10.1, 10.2, 7.2, 8.2, 8.4 |
-| **Total** | | **76** | **Clauses 4-10, Annex A, Annex B** |
+| 6 - Audit & Review | Internal audit, management review, improvement log, competence matrix, CCAP 5-phase remediation (NC-004), NC-005 3-fix pipeline remediation, V3.0 Clinical Simulation Engine, Masterpiece validation | 24 | 9.2, 9.3, 10.1, 10.2, 7.2, 8.2, 8.4 |
+| **Total** | | **80** | **Clauses 4-10, Annex A, Annex B** |
 
 ---
 
@@ -209,6 +209,7 @@ Reference: `iso42001-artifacts/Implementation_Experience_Log.md` (MF-ISO42001-IE
 |---------|------|--------|---------|
 | 1.0 | 2026-02-09 | Dr. Islam Mekawy | Initial competence assessment matrix; NC-001 closure evidence |
 | 1.1 | 2026-02-10 | Dr. Islam Mekawy | Updated counts for NC-005 (5 NCs, 16 risks), training hours 70→76 |
+| 1.2 | 2026-02-10 | Dr. Islam Mekawy | NC-005 CLOSED. Training hours 76→80. V3.0 engine added to competence evidence. IAR reference updated to v1.3. |
 
 ---
 

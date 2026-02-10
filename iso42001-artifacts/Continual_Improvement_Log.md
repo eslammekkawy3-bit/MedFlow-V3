@@ -2,9 +2,9 @@
 ## MedFlow V3 Clinical Decision Support System
 
 **Document ID:** MF-ISO42001-CIL-001
-**Version:** 1.0
+**Version:** 1.3
 **Classification:** Internal
-**Last Updated:** 2026-02-09
+**Last Updated:** 2026-02-10
 **Author:** Dr. Islam Mekawy, Lead Implementer
 **ISO 42001 Reference:** Clauses 10.1, 10.2 - Continual Improvement
 
@@ -256,8 +256,23 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Priority** | P1 - Critical |
 | **Source** | Internal Audit (NC-005, Clauses 8.1/8.4) |
 | **Description** | Clinical audit of CASE-0016-2026 revealed 3 concurrent failures: (1) Extension on Discharge Summary (document type metadata discarded), (2) Conflicting PE findings (Appendicitis + Asthma wheezes from random fallback), (3) LOS 3 days instead of 10 (Gemini-only timeline unreliable on multi-document cases). Three-fix remediation: Fix A — NEUTRAL_PE dictionary replaces random fallback in synthetic_data.py v2.1.0. Fix B — Metadata-aware merging injects document type headers in cds_brain.py v1.4.0. Fix C — Pre-Gemini timeline engine extracts dates deterministically from structured JSON fields with regex fallback. |
-| **Target Date** | 2026-02-28 |
-| **Status** | PLANNED |
+| **Benefit** | NC-005 closed. All 3 pipeline failures resolved. Validated via 30-day Sepsis Masterpiece case (11 documents, DISCHARGE 95% AUTO_APPROVED, 6-day delay correctly identified). Clauses 8.1 and 8.4 restored to IMPLEMENTED. |
+| **Implemented** | 2026-02-10 (Session 13-14) |
+| **Evidence** | `synthetic_data.py` v2.1.0→v3.0.0 (Fix A), `cds_brain.py` v1.4.0 (Fix B/C), `output/masterpiece_result.json` |
+| **Status** | **COMPLETED** |
+
+### IMP-017: V3.0 Clinical Simulation Engine
+| Attribute | Detail |
+|-----------|--------|
+| **ID** | IMP-017 |
+| **Category** | Accuracy (ACCU) |
+| **Priority** | P2 - High |
+| **Source** | Testing (synthetic data lacks clinical trajectory coherence across multi-day cases) |
+| **Description** | Built V3.0 Clinical Simulation Engine in `synthetic_data.py` v3.0.0 (+1,315 lines). 4 arc templates (RAPID_RECOVERY 1-3d, STANDARD_RECOVERY 4-7d, COMPLICATION 8-14d, ICU_COMPLEX 15+d). 6 engine classes: VitalsEngine (sigmoid curves), LabKineticsEngine (peak-then-decay), MedicationStateMachine (4-phase treatment transitions), PEEvolutionEngine (severity-graded findings), ReportScheduler (dynamic report day scheduling), ClinicalEpisode (orchestrator). 4 new template dictionaries: VITALS_ANCHORS (12 patterns), LAB_KINETICS (12 diagnoses), MED_REGIMENS (12 diagnoses x 4 phases), PE_EVOLUTION (12 diagnoses x key systems). Backward compatible with legacy CLI. |
+| **Benefit** | Synthetic episode cases now have clinically coherent trajectories: vitals follow smooth curves, labs follow kinetics, medications transition through treatment phases, PE findings evolve with recovery. Enables meaningful stress-testing of the CDS pipeline with 1-30+ day cases. |
+| **Implemented** | 2026-02-10 (Session 14) |
+| **Evidence** | `synthetic_data.py` v3.0.0, `masterpiece_case/` (30-day Sepsis, 11 reports), `test_episode_pneumonia/` (3-day CAP), `test_episode_sepsis/` (25-day Sepsis) |
+| **Status** | **COMPLETED** |
 
 ---
 
@@ -266,20 +281,20 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | Category | Completed | Planned | Total |
 |----------|-----------|---------|-------|
 | Performance (PERF) | 1 | 0 | 1 |
-| Accuracy (ACCU) | 3 | 4 | 7 |
+| Accuracy (ACCU) | 5 | 2 | 7 |
 | Compliance (COMP) | 3 | 0 | 3 |
 | Reliability (RELI) | 3 | 1 | 4 |
 | Usability (USAB) | 1 | 0 | 1 |
-| **Total** | **11** | **5** | **16** |
+| **Total** | **13** | **3** | **16** |
 
 ### Priority Distribution (Completed)
 
 | Priority | Count | Percentage |
 |----------|-------|------------|
-| P1 - Critical | 2 | 18% |
-| P2 - High | 6 | 55% |
-| P3 - Medium | 2 | 18% |
-| P4 - Low | 1 | 9% |
+| P1 - Critical | 3 | 23% |
+| P2 - High | 7 | 54% |
+| P3 - Medium | 2 | 15% |
+| P4 - Low | 1 | 8% |
 
 ### Improvement Trend
 
@@ -292,6 +307,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | Session 9 | 3 (IMP-007, 008, 009) | Reliability + Usability |
 | Session 10 | 1 (IMP-010) | Compliance |
 | Session 12 | 1 (IMP-011) | Compliance (NC-001 Closure) |
+| Session 13-14 | 2 (IMP-016, IMP-017) | Accuracy (NC-005 Closure + V3.0 Engine) |
 
 ---
 
@@ -299,8 +315,8 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|
-| Lead Implementer | Dr. Islam Mekawy | 2026-02-09 | __________ |
-| Management Representative | Dr. Islam Mekawy | 2026-02-09 | __________ |
+| Lead Implementer | Dr. Islam Mekawy | 2026-02-10 | __________ |
+| Management Representative | Dr. Islam Mekawy | 2026-02-10 | __________ |
 
 ---
 
@@ -311,6 +327,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | 1.0 | 2026-02-09 | Dr. Islam Mekawy | Initial continual improvement log (10 completed + 4 planned) |
 | 1.1 | 2026-02-09 | Dr. Islam Mekawy | IMP-011 completed (Competence Assessment Matrix, NC-001 closure) |
 | 1.2 | 2026-02-10 | Dr. Islam Mekawy | IMP-016 added: NC-005 Clinical Audit Failure Remediation (3-fix plan). Summary counts updated (16 total, 5 planned). |
+| 1.3 | 2026-02-10 | Dr. Islam Mekawy | IMP-016 COMPLETED (NC-005 closed via Masterpiece validation). IMP-017 added: V3.0 Clinical Simulation Engine. Totals: 13 completed, 3 planned. |
 
 ---
 
