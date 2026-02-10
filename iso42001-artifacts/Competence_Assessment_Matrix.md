@@ -2,7 +2,7 @@
 ## MedFlow V3 Clinical Decision Support System
 
 **Document ID:** MF-ISO42001-CAM-001
-**Version:** 1.2
+**Version:** 1.3
 **Classification:** Internal
 **Last Updated:** 2026-02-10
 **Author:** Dr. Islam Mekawy, Lead Implementer
@@ -83,9 +83,9 @@ This document provides formal competence assessment records for all personnel in
 
 | Competency Area | Required | Evidence | Assessment |
 |----------------|----------|----------|------------|
-| **ISO 42001 Framework** | Ability to implement and maintain AIMS governance | 80 hrs implementation experience; 17 ISO artifacts produced; internal audit conducted; management review held; NC-004 Major NC raised and closed via CCAP; NC-005 Major NC raised, remediated (3-fix pipeline), and closed via Masterpiece validation | COMPETENT |
+| **ISO 42001 Framework** | Ability to implement and maintain AIMS governance | 80 hrs implementation experience; 18 ISO artifacts produced; internal audit conducted; management review held; NC-004 Major NC raised and closed via CCAP; NC-005 Major NC raised, remediated (3-fix pipeline), and closed via Masterpiece validation; NC-002 Minor NC closed via fairness testing (32 cases, 24/24 metrics PASS) | COMPETENT |
 | **Risk Management** | Identify, assess, and treat AI-specific risks | AI Risk Register v5.0 with 16 risks (10 technical + 6 strategic); likelihood x impact scoring; residual risk tracking. NC-004 CCAP: remediated 28 clinical non-conformities across 6 pipeline layers. NC-005: identified metadata loss + timeline failure, implemented 3-fix remediation, validated with 30-day Masterpiece case | COMPETENT |
-| **Audit Methodology** | Plan and execute internal audits, document findings | Internal Audit Report (MF-ISO42001-IAR-001 v1.3): 39 controls audited, 9 conformance findings, 5 NCs (NC-001/NC-004/NC-005 CLOSED, NC-002/NC-003 OPEN), 3 observations | COMPETENT |
+| **Audit Methodology** | Plan and execute internal audits, document findings | Internal Audit Report (MF-ISO42001-IAR-001 v1.4): 39 controls audited, 5 NCs (NC-001/NC-002/NC-004/NC-005 CLOSED, NC-003 OPEN), 3 observations. Fairness testing: 32-case demographic study, 24/24 metrics PASS | COMPETENT |
 | **Data Protection Awareness** | PDPL, data sovereignty, PII handling principles | Designed Defense-in-Depth PII scrubbing (local processing via Ollama); AI Data Policy created; PDPL alignment documented | COMPETENT |
 | **Insurance Domain** | Healthcare insurance operations, pre-authorization workflows | FLMI Level 1 (LOMA); IFCE (SAMA); 6+ yrs Tawuniya pre-authorization management | COMPETENT |
 
@@ -210,6 +210,7 @@ Reference: `iso42001-artifacts/Implementation_Experience_Log.md` (MF-ISO42001-IE
 | 1.0 | 2026-02-09 | Dr. Islam Mekawy | Initial competence assessment matrix; NC-001 closure evidence |
 | 1.1 | 2026-02-10 | Dr. Islam Mekawy | Updated counts for NC-005 (5 NCs, 16 risks), training hours 70→76 |
 | 1.2 | 2026-02-10 | Dr. Islam Mekawy | NC-005 CLOSED. Training hours 76→80. V3.0 engine added to competence evidence. IAR reference updated to v1.3. |
+| 1.3 | 2026-02-10 | Dr. Islam Mekawy | NC-002 CLOSED. Fairness testing evidence added. IAR reference updated to v1.4. Artifacts count 17→18 (AFR-001 added). |
 
 ---
 

@@ -2,7 +2,7 @@
 ## MedFlow V3 - AI Management System Implementation
 
 **Document ID:** MF-ISO42001-MATRIX-001
-**Version:** 1.3
+**Version:** 1.4
 **Classification:** Internal
 **Date:** 2026-02-10
 **Author:** Dr. Islam Mekawy, Lead Implementer
@@ -66,7 +66,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 | ISO 42001 Clause | Requirement | MedFlow Implementation | Evidence Artifact | Status |
 |---|---|---|---|---|
 | 8.1 Operational planning and control | Plan, implement, and control processes to meet AIMS requirements | 8-step CDS pipeline with centralized orchestration: PII scrub, merge, summarize, timeline, guidelines, DRG validation, decision, assembly. Pipeline reordered (CCAP Phase C): DRG runs BEFORE decision so severity context flows into clinical reasoning. Escalation criteria codified: Severity A + WORSENING → ESCALATE, confidence <0.40 → ESCALATE. **NC-005 Fix B/C (CLOSED):** Step 2 injects document type metadata headers during merging. Step 2.5 pre-Gemini timeline engine extracts dates from structured fields, overrides Gemini LOS. Document type context injected into decision prompt. Validated via 30-day Masterpiece case. | `cds_brain.py` v1.4.0 (metadata-aware merging, pre-Gemini timeline, doc type context), `config.py` (ProcessingConfig), `output/masterpiece_result.json` | IMPLEMENTED |
-| 8.2 AI system impact assessment | Conduct impact assessments for AI systems | Algorithmic Impact Assessment covering 3 dimensions: Patient Safety (3 risks), Fairness/Bias (3 concerns), Human Oversight (4-tier framework) | `iso42001-artifacts/Algorithmic_Impact_Assessment.md` v1.0 | IMPLEMENTED |
+| 8.2 AI system impact assessment | Conduct impact assessments for AI systems | Algorithmic Impact Assessment covering 3 dimensions: Patient Safety (3 risks), Fairness/Bias (3 concerns), Human Oversight (4-tier framework). **NC-002 CLOSED:** Fairness test suite executed (`fairness_test.py`): 32 demographically-stratified cases, 24/24 fairness metrics PASS (0.00% variance). Evidence: `Algorithmic_Fairness_Report.md` (AFR-001) | `iso42001-artifacts/Algorithmic_Impact_Assessment.md` v1.0, `iso42001-artifacts/Algorithmic_Fairness_Report.md` v1.0, `fairness_test.py` | IMPLEMENTED |
 | 8.3 AI system life cycle processes | Manage AI system through its lifecycle | 5-layer architecture with versioned components, defined development phases (1-5.5), modular design enabling independent component updates | `iso42001-artifacts/AI_System_Design.md` v2.0, `PHASE3_ARCHITECTURE.md` | IMPLEMENTED |
 | 8.4 Data management for AI systems | Manage data quality, provenance, and preparation | Data classification (4 tiers: PHI/PII/Clinical/Operational), PII extraction strategy, strict matching policy, data localization controls, retention periods (7-year). **CCAP Phase A:** Synthetic test data clinically validated — age-stratified diagnosis pools, locked patient data across reports, diagnosis-specific PE/imaging/labs, clinical disposition logic. **NC-005 Fix A (CLOSED):** PE generation fallback uses NEUTRAL_PE (non-pathological defaults). **V3.0 Engine:** Arc-based clinical simulation with vitals curves, lab kinetics, medication state machine, PE evolution for coherent multi-day trajectories. | `iso42001-artifacts/AI_Data_Policy.md` v1.0 (Sections 2-7), `synthetic_data.py` v3.0.0 (V3.0 Clinical Simulation Engine), `iso42001-artifacts/Internal_Audit_Report.md` (NC-004 + NC-005 CLOSED) | IMPLEMENTED |
 | 8.5 AI system monitoring and control | Monitor AI system performance during operation | Health check system (Ollama, Gemini, KB, DRG statuses), processing time tracking, confidence score monitoring, auto-fallback on API failures. **CCAP Phase B:** 5-tier confidence calibration enforced in Gemini prompts (0.90+ textbook → <0.40 critical-missing). Input truncation removed — full clinical text sent to Gemini 1M context. **CCAP Phase D:** Dashboard displays precise confidence with threshold context, flags out-of-range values, warns on dropped timeline events | `cds_brain.py` v1.3.0 (--health flag), `app.py` (sidebar health status), `gemini_client.py` v2.0.0 (calibration, no truncation), `dashboard_utils.py` v1.3.0 (safety warnings) | IMPLEMENTED |
@@ -152,6 +152,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 | 1.1 | 2026-02-10 | Dr. Islam Mekawy | Updated for NC-004 CCAP closure: Clauses 8.1, 8.4, 8.5, 9.1, 9.2, 10.1, 10.2, A.6 evidence updated with CCAP phase results and module versions |
 | 1.2 | 2026-02-10 | Dr. Islam Mekawy | NC-005 (Major): Clauses 8.1 and 8.4 set to PARTIAL. 3-fix remediation referenced (synthetic_data.py v2.1.0, cds_brain.py v1.4.0). Summary: 36/39 implemented, 3 partial. |
 | 1.3 | 2026-02-10 | Dr. Islam Mekawy | NC-005 CLOSED via Masterpiece validation. Clauses 8.1, 8.4 restored to IMPLEMENTED. Cl.7.2 corrected to IMPLEMENTED (NC-001 closed). synthetic_data.py updated to v3.0.0 (V3.0 engine). Summary: 39/39 implemented (100%). |
+| 1.4 | 2026-02-10 | Dr. Islam Mekawy | NC-002 CLOSED via fairness testing. Clause 8.2 evidence updated with AFR-001 and fairness_test.py. |
 
 ---
 

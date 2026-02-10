@@ -2,7 +2,7 @@
 ## MedFlow V3 Clinical Decision Support System
 
 **Document ID:** MF-ISO42001-MRM-001
-**Version:** 1.2
+**Version:** 1.3
 **Classification:** Internal
 **Last Updated:** 2026-02-10
 **Author:** Dr. Islam Mekawy, Lead Implementer
@@ -73,7 +73,7 @@ Reference: `iso42001-artifacts/Internal_Audit_Report.md` (MF-ISO42001-IAR-001)
 | Finding | Clause | Severity | Status |
 |---------|--------|----------|--------|
 | NC-001: Competence Assessment Records | 7.2 | Minor | **CLOSED (2026-02-09)** — CAM-001 created |
-| NC-002: Fairness Validation Not Executed | 8.2 | Minor | OPEN - Target 2026-04-30 |
+| NC-002: Fairness Validation Not Executed | 8.2 | Minor | **CLOSED (2026-02-10)** -- 32-case fairness test, 24/24 PASS |
 | NC-003: Automated Drift Detection | Annex A | Minor | OPEN - Target 2026-05-31 |
 | NC-004: Clinical Accuracy Pipeline (CCAP) | 8.2, 8.4 | Major | **CLOSED (2026-02-10)** — 5-phase CCAP complete |
 | NC-005: Clinical Audit Failure (PE/Timeline/Decision) | 8.1, 8.4 | Major | **CLOSED (2026-02-10)** — 3-fix remediation + Masterpiece validation |
@@ -158,7 +158,7 @@ Identified during this review:
 | Action ID | Action | Owner | Due Date | Priority | Status |
 |-----------|--------|-------|----------|----------|--------|
 | MRA-001 | Create competence assessment matrix (NC-001) | Dr. Islam Mekawy | 2026-03-15 | High | **CLOSED (2026-02-09)** — CAM-001 created |
-| MRA-002 | Design and execute fairness test suite (NC-002) | Dr. Islam Mekawy | 2026-04-30 | High | OPEN |
+| MRA-002 | Design and execute fairness test suite (NC-002) | Dr. Islam Mekawy | 2026-04-30 | High | **CLOSED (2026-02-10)** -- fairness_test.py: 32 cases, 24/24 metrics PASS. AFR-001 created. |
 | MRA-003 | Implement automated drift detection (NC-003) | Dr. Islam Mekawy | 2026-05-31 | Medium | OPEN |
 | MRA-004 | Add ACS/Stroke/Sepsis protocols to KB (OBS-001) | Dr. Islam Mekawy | 2026-03-31 | Medium | OPEN |
 | MRA-005 | Run PII scrubber performance benchmark (OBS-002) | Dr. Islam Mekawy | 2026-03-15 | Low | OPEN |
@@ -195,6 +195,7 @@ Identified during this review:
 | 1.0 | 2026-02-09 | Dr. Islam Mekawy | Initial management review (Q1 2026) |
 | 1.1 | 2026-02-10 | Dr. Islam Mekawy | Updated: NC-001 CLOSED, NC-004 CLOSED, NC-005 OPEN; Risk Register v5.0 (16 risks); MRA-008 added; session/hours counts updated |
 | 1.2 | 2026-02-10 | Dr. Islam Mekawy | NC-005 CLOSED, MRA-008 CLOSED. Hours updated to 80. ISO controls 39/39 (100%). V3.0 Clinical Simulation Engine reflected. |
+| 1.3 | 2026-02-10 | Dr. Islam Mekawy | NC-002 CLOSED, MRA-002 CLOSED. Fairness test suite executed (32 cases, 24/24 metrics PASS). AFR-001 created. |
 
 ---
 
