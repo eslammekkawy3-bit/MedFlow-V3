@@ -74,7 +74,7 @@ Reference: `iso42001-artifacts/Internal_Audit_Report.md` (MF-ISO42001-IAR-001)
 |---------|--------|----------|--------|
 | NC-001: Competence Assessment Records | 7.2 | Minor | **CLOSED (2026-02-09)** — CAM-001 created |
 | NC-002: Fairness Validation Not Executed | 8.2 | Minor | **CLOSED (2026-02-10)** -- 32-case fairness test, 24/24 PASS |
-| NC-003: Automated Drift Detection | Annex A | Minor | OPEN - Target 2026-05-31 |
+| NC-003: Automated Drift Detection | Annex A | Minor | **CLOSED (2026-02-16)** -- RTRM v1.0.0 deployed |
 | NC-004: Clinical Accuracy Pipeline (CCAP) | 8.2, 8.4 | Major | **CLOSED (2026-02-10)** — 5-phase CCAP complete |
 | NC-005: Clinical Audit Failure (PE/Timeline/Decision) | 8.1, 8.4 | Major | **CLOSED (2026-02-10)** — 3-fix remediation + Masterpiece validation |
 | OBS-001: Protocol Coverage Gaps | KB | Observation | NOTED |
@@ -159,7 +159,7 @@ Identified during this review:
 |-----------|--------|-------|----------|----------|--------|
 | MRA-001 | Create competence assessment matrix (NC-001) | Dr. Islam Mekawy | 2026-03-15 | High | **CLOSED (2026-02-09)** — CAM-001 created |
 | MRA-002 | Design and execute fairness test suite (NC-002) | Dr. Islam Mekawy | 2026-04-30 | High | **CLOSED (2026-02-10)** -- fairness_test.py: 32 cases, 24/24 metrics PASS. AFR-001 created. |
-| MRA-003 | Implement automated drift detection (NC-003) | Dr. Islam Mekawy | 2026-05-31 | Medium | OPEN |
+| MRA-003 | Implement automated drift detection (NC-003) | Dr. Islam Mekawy | 2026-02-16 | Medium | **CLOSED (2026-02-16)** -- RTRM v1.0.0, 51-case gold standard, 11/11 tests PASS |
 | MRA-004 | Add ACS/Stroke/Sepsis protocols to KB (OBS-001) | Dr. Islam Mekawy | 2026-03-31 | Medium | OPEN |
 | MRA-005 | Run PII scrubber performance benchmark (OBS-002) | Dr. Islam Mekawy | 2026-03-15 | Low | OPEN |
 | MRA-006 | Start Regulatory Package (PDPL/NPHIES) | Dr. Islam Mekawy | 2026-04-15 | Medium | OPEN |
@@ -196,6 +196,7 @@ Identified during this review:
 | 1.1 | 2026-02-10 | Dr. Islam Mekawy | Updated: NC-001 CLOSED, NC-004 CLOSED, NC-005 OPEN; Risk Register v5.0 (16 risks); MRA-008 added; session/hours counts updated |
 | 1.2 | 2026-02-10 | Dr. Islam Mekawy | NC-005 CLOSED, MRA-008 CLOSED. Hours updated to 80. ISO controls 39/39 (100%). V3.0 Clinical Simulation Engine reflected. |
 | 1.3 | 2026-02-10 | Dr. Islam Mekawy | NC-002 CLOSED, MRA-002 CLOSED. Fairness test suite executed (32 cases, 24/24 metrics PASS). AFR-001 created. |
+| 1.4 | 2026-02-16 | Dr. Islam Mekawy | NC-003 CLOSED, MRA-003 CLOSED. RTRM v1.0.0 deployed (2-signal drift detection, 51-case gold standard, 11/11 tests PASS). All 5 NCs now CLOSED. |
 
 ---
 

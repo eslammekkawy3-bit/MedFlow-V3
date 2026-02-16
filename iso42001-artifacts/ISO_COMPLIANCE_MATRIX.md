@@ -133,6 +133,8 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 **NC-005 (Major) Clinical Logic Failure & Timeline Inconsistency:** Resolved 2026-02-10 — 3-fix remediation validated via 30-day Sepsis Masterpiece case (11 documents, 121 PII items, DISCHARGE 95% AUTO_APPROVED, 6-day delay correctly identified). Fixes: (A) `synthetic_data.py` v3.0.0 neutral PE fallback + V3.0 Clinical Simulation Engine, (B) `cds_brain.py` v1.4.0 metadata-aware merging + doc type context, (C) `cds_brain.py` v1.4.0 pre-Gemini timeline engine. Clauses 8.1 and 8.4 restored to IMPLEMENTED. NC-005 **CLOSED**.
 
+**NC-003 (Minor) Automated Drift Detection:** Resolved 2026-02-16 — Real-Time Risk Monitor (RTRM) v1.0.0 implemented in `governance/real_time_risk_monitor.py`. 2-signal drift detection (confidence distribution + recommendation distribution), >10% threshold, 100-event rolling window. 51-case gold standard dataset (12 diagnoses, 4 clinical arcs). 11/11 automated tests PASS. NC-003 **CLOSED**. All 5 NCs now CLOSED.
+
 ---
 
 ## Document Approval
@@ -153,6 +155,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 | 1.2 | 2026-02-10 | Dr. Islam Mekawy | NC-005 (Major): Clauses 8.1 and 8.4 set to PARTIAL. 3-fix remediation referenced (synthetic_data.py v2.1.0, cds_brain.py v1.4.0). Summary: 36/39 implemented, 3 partial. |
 | 1.3 | 2026-02-10 | Dr. Islam Mekawy | NC-005 CLOSED via Masterpiece validation. Clauses 8.1, 8.4 restored to IMPLEMENTED. Cl.7.2 corrected to IMPLEMENTED (NC-001 closed). synthetic_data.py updated to v3.0.0 (V3.0 engine). Summary: 39/39 implemented (100%). |
 | 1.4 | 2026-02-10 | Dr. Islam Mekawy | NC-002 CLOSED via fairness testing. Clause 8.2 evidence updated with AFR-001 and fairness_test.py. |
+| 1.5 | 2026-02-16 | Dr. Islam Mekawy | NC-003 CLOSED: RTRM v1.0.0 deployed with 2-signal drift detection, 51-case gold standard, 11/11 tests PASS. All 5 NCs now CLOSED. |
 
 ---
 

@@ -2,9 +2,9 @@
 ## MedFlow V3 Clinical Decision Support System
 
 **Document ID:** MF-ISO42001-A4-001
-**Version:** 4.0
+**Version:** 5.0
 **Classification:** Internal
-**Last Updated:** 2026-02-07
+**Last Updated:** 2026-02-16
 **Author:** MedFlow Development Team
 **ISO 42001 Reference:** Annex A.4 - AI System Risk Management
 
@@ -288,7 +288,7 @@ This register documents identified AI-specific risks, their assessment, and impl
 | Risk ID | Title | Inherent | Residual | Status |
 |---------|-------|----------|----------|--------|
 | RISK-009 | Regulatory Non-Alignment | MEDIUM (8) | MEDIUM (6) | MONITORING |
-| RISK-010 | Model Drift Over Time | MEDIUM (9) | MEDIUM (6) | DOCUMENTED |
+| RISK-010 | Model Drift Over Time | MEDIUM (9) | LOW (4) | MITIGATED |
 | RISK-011 | Transparency Gaps | LOW (6) | LOW (2) | MITIGATED |
 | RISK-012 | Research Methodology | LOW (6) | LOW (2) | MITIGATED |
 | RISK-013 | Staffing & Knowledge Continuity | LOW (6) | LOW (2) | MITIGATED |
@@ -309,19 +309,18 @@ LOW  ████████         (4 strategic)
 
 RESIDUAL RISKS (After Controls):
 HIGH ░░░░░░░░░░░░░░░░ (0 remaining)
-MED  ████████         (4 remaining: RISK-002,005,009,010)
-LOW  ██████████████████ (11 after controls)
+MED  ██████           (3 remaining: RISK-002,005,009)
+LOW  ████████████████████ (12 after controls)
 
 Total Active Risks: 16
 ├── Technical/Operational: 10 (added RISK-016: Document Metadata Loss)
 └── Strategic/Governance: 6
 
 By Status:
-├── Mitigated: 11
+├── Mitigated: 12 (RISK-010 upgraded from DOCUMENTED)
 ├── Monitoring: 1 (RISK-009)
-├── Realized: 1 (RISK-005 → NC-005)
-├── Open: 1 (RISK-016 → NC-005 remediation in progress)
-├── Documented: 1
+├── Realized: 1 (RISK-005 -> NC-005)
+├── Open: 1 (RISK-016 -> NC-005 remediation in progress)
 └── Accepted: 1
 ```
 
@@ -368,16 +367,25 @@ By Status:
 | **Likelihood** | Possible (3) |
 | **Impact** | Moderate (3) |
 | **Inherent Risk** | 9 (MEDIUM) |
-| **Controls Implemented** | Performance monitoring framework design; Drift detection methodology documented |
-| **Control Effectiveness** | Planned |
-| **Residual Likelihood** | Possible (3) |
+| **Controls Implemented** | Real-Time Risk Monitor (RTRM) v1.0.0: 2-signal drift detection (confidence distribution + recommendation distribution); 100-event rolling baseline window; >10% shift threshold triggers RISK_DRIFT_DETECTED alert via governance event bus; Gold standard: 51 clinically validated test cases (12 diagnoses, 4 arcs); 11/11 automated tests PASS |
+| **Control Effectiveness** | Effective |
+| **Residual Likelihood** | Unlikely (2) |
 | **Residual Impact** | Minor (2) |
-| **Residual Risk** | 6 (MEDIUM) |
+| **Residual Risk** | 4 (LOW) |
 | **Owner** | System Administrator |
-| **Status** | DOCUMENTED |
-| **Last Review** | 2026-02-04 |
+| **Status** | MITIGATED |
+| **Last Review** | 2026-02-16 |
 
-**Planned Controls:**
+**Implemented Controls (Feb 16, 2026):**
+- RTRM v1.0.0 (`governance/real_time_risk_monitor.py`): Confidence score distribution monitoring (baseline vs. rolling 100-event window)
+- Recommendation distribution tracking (EXTENSION/DISCHARGE/HOME_CARE/ESCALATE ratios)
+- Threshold: >10% shift in any metric triggers drift alert on governance event bus
+- Gold standard: 51 clinically validated test cases covering 12 diagnoses, 4 clinical arcs, LOS 1-25 days
+- Automated test suite: 11/11 PASS (baseline, confidence drift, distribution drift, combined drift, gold standard eval, alert emission, rolling window, edge cases, status reporting)
+
+**NC-003 Closure (2026-02-16):** RTRM implementation satisfies ISO 42001 Annex A monitoring requirements. NC-003 closed.
+
+**Remaining Opportunities:**
 - Quarterly accuracy audits against new cases
 - ICD-10/AR-DRG version update process
 - MOH protocol refresh workflow
@@ -544,6 +552,7 @@ By Status:
 | 3.0 | 2026-02-06 | MedFlow Team | Merged Strategic & Governance Risks (RISK-009 to RISK-014) from legacy Risk_Register.xlsx |
 | 4.0 | 2026-02-07 | MedFlow Team | Phase 4: RISK-007 upgraded to MITIGATED (DRG Validator); RISK-003 latency note (data sovereignty trade-off); New RISK-015 (Conflicting AI Evidence) |
 | 5.0 | 2026-02-10 | Dr. Islam Mekawy | NC-005: RISK-005 status changed to REALIZED. New RISK-016 (Document Metadata Loss). Summary counts updated (16 total, 10 technical). |
+| 5.1 | 2026-02-16 | Dr. Islam Mekawy | NC-003 CLOSED: RISK-010 upgraded DOCUMENTED -> MITIGATED. RTRM v1.0.0 deployed (2-signal drift detection, 51-case gold standard, 11/11 tests PASS). Residual risk 6 -> 4 (MEDIUM -> LOW). |
 
 ---
 

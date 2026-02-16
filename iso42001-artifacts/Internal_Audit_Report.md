@@ -62,7 +62,7 @@ This document records the findings of the first internal audit of the MedFlow V3
 |----------|-------|
 | **Controls Audited** | 39 |
 | **Conformances** | 37 (95%) |
-| **Minor Non-conformances** | 3 (NC-001 CLOSED, NC-002 CLOSED, NC-003 OPEN) |
+| **Minor Non-conformances** | 3 (NC-001 CLOSED, NC-002 CLOSED, NC-003 CLOSED) |
 | **Major Non-conformances** | 2 (NC-004 CLOSED, NC-005 CLOSED — validated via Masterpiece case) |
 | **Observations / Opportunities for Improvement** | 3 |
 
@@ -77,9 +77,9 @@ This document records the findings of the first internal audit of the MedFlow V3
 | 8 | Operation | 6 | 6 | 0 | FULL |
 | 9 | Performance Evaluation | 4 | 4 | 0 | FULL |
 | 10 | Improvement | 3 | 3 | 0 | FULL |
-| Annex A | AI Controls | 5 | 4 | 1 | PARTIAL |
+| Annex A | AI Controls | 5 | 5 | 0 | FULL |
 | Annex B | AI Guidance | 4 | 4 | 0 | FULL |
-| **Total** | | **39** | **37** | **2** | **95%** |
+| **Total** | | **39** | **38** | **1** | **97%** |
 
 ---
 
@@ -201,8 +201,11 @@ This document records the findings of the first internal audit of the MedFlow V3
 | **Severity** | Minor |
 | **Root Cause** | System is in prototype/research phase; production monitoring deferred |
 | **Corrective Action** | Implement confidence score tracking over time. Define drift thresholds (e.g., >10% shift in recommendation distribution). Create scheduled monitoring script with alert mechanism. |
+| **Action Taken** | Real-Time Risk Monitor (RTRM) v1.0.0 implemented in `governance/real_time_risk_monitor.py`. Subscribes to DECISION_COMPLETE events via governance event bus. Drift detection monitors 2 signals: (1) confidence score distribution (baseline mean vs. rolling 100-event window), (2) recommendation distribution (EXTENSION/DISCHARGE/HOME_CARE/ESCALATE ratios). Threshold: >10% shift in any metric triggers RISK_DRIFT_DETECTED event on governance bus. Gold standard dataset: 51 clinically validated test cases across 12 diagnoses, 4 clinical arcs (RAPID_RECOVERY, STANDARD_RECOVERY, COMPLICATION, ICU_COMPLEX), LOS range 1-25 days. Automated test suite: 11/11 tests PASS (initialization, baseline establishment, no-drift scenario, confidence drift, distribution drift, combined drift, gold standard evaluation, event bus alert emission, rolling window behavior, edge cases, status/trend reporting). |
+| **Validation Evidence** | `governance/real_time_risk_monitor.py` (RTRM v1.0.0), `gold_standard/manifest.json` (51 cases), `test_rtrm.py` (11/11 PASS), `gold_standard/cases/` (51 case directories with JSON reports) |
 | **Target Date** | 2026-05-31 |
-| **Status** | OPEN |
+| **Closure Date** | 2026-02-16 |
+| **Status** | **CLOSED** |
 
 #### NC-004: Clinical Output Validity — Synthetic Data & Pipeline
 | Attribute | Detail |
@@ -267,9 +270,9 @@ This document records the findings of the first internal audit of the MedFlow V3
 |--------|-------|
 | **Overall Compliance Rating** | 95% (37/39 controls conformant) |
 | **Major Non-conformances** | 2 (NC-004 **CLOSED** 2026-02-10 via 5-phase CCAP; NC-005 **CLOSED** 2026-02-10 via 3-fix remediation + Masterpiece validation) |
-| **Minor Non-conformances** | 3 (NC-001 **CLOSED** 2026-02-09, NC-002 **CLOSED** 2026-02-10, NC-003 OPEN) |
+| **Minor Non-conformances** | 3 (NC-001 **CLOSED** 2026-02-09, NC-002 **CLOSED** 2026-02-10, NC-003 **CLOSED** 2026-02-16) |
 | **Observations** | 3 |
-| **Audit Opinion** | The AIMS substantially conforms to ISO 42001:2023 requirements. All Major NCs (NC-004, NC-005) and 2 of 3 Minor NCs (NC-001, NC-002) have been addressed through corrective actions with validated evidence. NC-002 closed via demographic-stratified fairness testing (32 cases, 24/24 metrics PASS). Remaining 1 minor NC (NC-003: automated drift detection) relates to production monitoring, acceptable for research prototype. |
+| **Audit Opinion** | The AIMS substantially conforms to ISO 42001:2023 requirements. All 5 NCs (2 Major, 3 Minor) have been addressed through corrective actions with validated evidence. NC-003 closed via RTRM v1.0.0 deployment (2-signal drift detection, 51-case gold standard, 11/11 tests PASS). All non-conformances are now CLOSED. |
 
 ### 5.2 Corrective Action Summary
 
@@ -277,7 +280,7 @@ This document records the findings of the first internal audit of the MedFlow V3
 |-------|--------|-------------------|-------------|-------|
 | NC-001 | 7.2 | Create competence matrix + document credentials | 2026-03-15 | Dr. Islam Mekawy | **CLOSED (2026-02-09)** |
 | NC-002 | 8.2 | Execute fairness tests with demographic stratification | 2026-04-30 | Dr. Islam Mekawy | **CLOSED (2026-02-10)** |
-| NC-003 | Annex A | Implement automated drift detection with thresholds | 2026-05-31 | Dr. Islam Mekawy |
+| NC-003 | Annex A | Implement automated drift detection with thresholds | 2026-05-31 | Dr. Islam Mekawy | **CLOSED (2026-02-16)** |
 | NC-004 | 8.4/8.2 | CCAP: 5-phase pipeline clinical remediation | 2026-02-28 | Dr. Islam Mekawy | **CLOSED (2026-02-10)** |
 | NC-005 | 8.1/8.4 | 3-fix remediation: Neutral PE fallback, metadata-aware merging, pre-Gemini timeline engine | 2026-02-28 | Dr. Islam Mekawy | **CLOSED (2026-02-10)** |
 
@@ -309,6 +312,7 @@ This document records the findings of the first internal audit of the MedFlow V3
 | 1.2 | 2026-02-10 | Dr. Islam Mekawy | NC-005 added (Major, Clauses 8.1/8.4): Clinical logic failure & timeline inconsistency on CASE-0016-2026. 3-fix remediation plan. Summary counts updated (34/39 conformant, 5 NCs total). |
 | 1.3 | 2026-02-10 | Dr. Islam Mekawy | NC-005 CLOSED: Validated via 30-day Sepsis Masterpiece case (11 docs, DISCHARGE 95%). Clauses 8.1/8.4 conformant. Summary: 36/39 conformant (3 NCs closed, 2 open). |
 | 1.4 | 2026-02-10 | Dr. Islam Mekawy | NC-002 CLOSED: Fairness test suite executed (32 cases, 24/24 metrics PASS). Algorithmic Fairness Report (AFR-001) created. Summary: 37/39 conformant (4 NCs closed, 1 open). |
+| 1.5 | 2026-02-16 | Dr. Islam Mekawy | NC-003 CLOSED: RTRM v1.0.0 deployed with 2-signal drift detection (confidence + recommendation distribution), 51-case gold standard, 11/11 automated tests PASS. Annex A restored to FULL. Summary: 38/39 conformant (5 NCs closed, 0 open). |
 
 ---
 
