@@ -1,62 +1,41 @@
-# ── Security & IP Protection ──────────────────────────────────────────────────
-.env
-*.key
-.claude/
-OllamaSetup/
-OllamaSetup.exe
-SAIP/
-
-# ── Virtual Environments & Build Cache ────────────────────────────────────────
-venv/
-__pycache__/
-.pytest_cache/
+# ── Ignore ALL Source Code ────────────────────────────────────────────────────
+*.py
+governance/
+terminology_system/
+gemini_client/
+dashboard_utils/
+knowledge_base_v2/
+rag_ingestion/
+config/
 .streamlit/
+OllamaSetup/
+.claude/
 
-# ── Databases & Heavy Data ────────────────────────────────────────────────────
-chroma_db/
-chroma_db_backup_*/
+# ── Ignore ALL Data and Databases ─────────────────────────────────────────────
+chroma_db*/
 data/
 drg data/
 synthetic_data/
-
-# ── Knowledge Base PDFs (Large Binary / Copyrighted) ──────────────────────────
-knowledge-base.moh_protocols/
-knowledge-base.international/
 NCEBM/
+gold_standard/
+fairness_cases/
+masterpiece_case/
+test_episode*/
+sample_cases/
+sdaia-sandbox/
+backups/
 
-# ── Logs, Outputs & Draft Folders ─────────────────────────────────────────────
+# ── Ignore ALL Logs, Secrets, and Caches ──────────────────────────────────────
+.env
+*.key
+venv/
+__pycache__/
 logs/
 audit_logs/
 output/
 outputs/
 portfolio/
 regulatory-package/
-iso study material/
-backups/
-docs/
-sdaia-sandbox/
 
-# ── Test Episodes, Scratch & Generated Case Data ──────────────────────────────
-test_episode*/
-masterpiece_case/
-fairness_cases/
-sample_cases/
-gold_standard/cases/
-complex_test_case.txt
-
-# ── Messy Test Scripts & Backups ──────────────────────────────────────────────
-test_*.py
-masterpiece.py
-fairness_test.py
-PHASE.txt
-PHASE*.md
-
-# ── Miscellaneous Artifacts ────────────────────────────────────────────────────
-*.zip
-*.exe
-nul
-masterpiece_rag_validation.json
-create_international_pdfs.py
-generate_iso_docs.py
-silent_clean.py
-maintenance.py
+# ── Ignore Patent Claims ───────────────────────────────────────────────────────
+SAIP/
