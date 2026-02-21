@@ -2,7 +2,7 @@
 
 ## ISO 42001-Compliant AI Governance Framework for Healthcare Insurance Decisions
 
-**Lead Architect:** Dr. Islam Mekawy, MSc, CPHIMS, CCDS, FLMI
+**Lead Architect:** Dr. Islam Mekawy, MSc, CPHIMS, CCDS, FLMI, Certified ISO 42001 Lead Implementer (AIMS)
 **Jurisdiction:** Kingdom of Saudi Arabia
 **Patent Status:** SAIP Application Pending
 **Governance Phase:** v4.0 — Sprint 1+2+3 Complete | All 5 Non-Conformances Closed
@@ -227,7 +227,7 @@ python test_rtrm.py                              # 11/11
 
 ## Contact & Lead Architect
 
-* **Name:** Dr. Islam Mekawy, MSc, CPHIMS, CCDS, FLMI
+* **Name:** Dr. Islam Mekawy, MSc, CPHIMS, CCDS, FLMI, Certified ISO 42001 Lead Implementer (AIMS)
 * **Email:** eslammekkawy3@gmail.com
 * **LinkedIn:** https://www.linkedin.com/in/islam-mekawy-624b5b194/
 * **Phone/WhatsApp:** +966567054862
