@@ -35,7 +35,7 @@ The system addresses the central governance challenge in AI-assisted healthcare 
 <tr>
 <td width="33%" valign="top">
 
-### 🇸🇦 &nbsp;Knowledge Sovereignty
+### 🌐 &nbsp;Knowledge Sovereignty
 
 Saudi MOH protocols are prioritized at **three times** the retrieval weight of international guidelines. Clinical evidence hierarchy is enforced at the algorithm level, not merely at the policy level. All retrieval operates on on-premises local embeddings — no patient context reaches external infrastructure.
 
@@ -63,21 +63,21 @@ Before any coverage decision is issued, a six-element documentation quality gate
 
 ```mermaid
 flowchart TD
-    INPUT(["📄  INPUT — Inpatient Medical Records\nPDF · DOCX · JSON · Multi-day Clinical Episodes"])
+    INPUT(["📄  INPUT — Inpatient Medical Records<br/>PDF · DOCX · JSON · Multi-day Clinical Episodes"])
 
-    L1["🔐  LAYER 1 — PRIVACY ELIMINATION\nDual-method PHI scrubbing · Regex + Local LLM\nValidation pass confirms zero leakage"]
+    L1["🔐  LAYER 1 — PRIVACY ELIMINATION<br/>Dual-method PHI scrubbing · Regex + Local LLM<br/>Validation pass confirms zero leakage"]
 
-    L2["📚  LAYER 2 — KNOWLEDGE RETRIEVAL\nSemantic RAG · 9,296 indexed knowledge chunks\nSaudi MOH at 3× weight · Population filtering"]
+    L2["📚  LAYER 2 — KNOWLEDGE RETRIEVAL<br/>Semantic RAG · 9,296 indexed knowledge chunks<br/>Saudi MOH at 3× weight · Population filtering"]
 
-    L3["⚖️  LAYER 3 — EVIDENCE SCORING\nNCEBM 6-dimension quality assessment\nBelow-threshold sources rejected at ingestion"]
+    L3["⚖️  LAYER 3 — EVIDENCE SCORING<br/>NCEBM 6-dimension quality assessment<br/>Below-threshold sources rejected at ingestion"]
 
-    L4["🧠  LAYER 4 — CLINICAL ANALYSIS\n1M-token full context · No truncation\n5-tier confidence calibration · DRG context injection"]
+    L4["🧠  LAYER 4 — CLINICAL ANALYSIS<br/>1M-token full context · No truncation<br/>5-tier confidence calibration · DRG context injection"]
 
-    L5["🏥  LAYER 5 — DRG CLASSIFICATION\nSaudi AR-DRG v9.0 · 25 Major Diagnostic Categories\nUpcoding risk detection · 960Z documentation gate"]
+    L5["🏥  LAYER 5 — DRG CLASSIFICATION<br/>Saudi AR-DRG v9.0 · 25 Major Diagnostic Categories<br/>Upcoding risk detection · 960Z documentation gate"]
 
-    L6["📋  LAYER 6 — GOVERNANCE AUDIT\nPer-layer structured audit trail · Patent confidence formula\nPDPL · NPHIES · ISO 42001 compliance status"]
+    L6["📋  LAYER 6 — GOVERNANCE AUDIT<br/>Per-layer structured audit trail · Patent confidence formula<br/>PDPL · NPHIES · ISO 42001 compliance status"]
 
-    OUTPUT(["✅  OUTPUT — Structured Decision Record\nRecommendation · Confidence Score · DRG Classification\nFull Audit Trail · Regulatory Compliance Status"])
+    OUTPUT(["✅  OUTPUT — Structured Decision Record<br/>Recommendation · Confidence Score · DRG Classification<br/>Full Audit Trail · Regulatory Compliance Status"])
 
     INPUT --> L1 --> L2 --> L3 --> L4 --> L5 --> L6 --> OUTPUT
 
