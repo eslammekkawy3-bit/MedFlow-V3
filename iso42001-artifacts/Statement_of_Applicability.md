@@ -1,21 +1,35 @@
-# Statement of Applicability
-## MedFlow V3 Clinical Decision Support System
+<div align="center">
 
-**Document ID:** MF-ISO-20
-**Title:** Statement of Applicability (SOA)
-**Version:** 1.0
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 6.1.3 – Statement of Applicability
-**Supersedes:** N/A (Initial Issue)
+# Statement of Applicability
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-1%2E0-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_6.1.3-7b2d8b?style=flat-square)]()
+[![Coverage](https://img.shields.io/badge/Annex_A-Full_Coverage-2ea44f?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-20 |
+| **Version** | 1.0 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 6.1.3 – Statement of Applicability |
+| **Supersedes** | N/A (Initial Issue) |
 
 ---
 
-## 1. Purpose
+
+## 1. 📋 Purpose
 
 This Statement of Applicability (SOA) documents which ISO/IEC 42001:2023 Annex A and Annex B controls are applicable to the MedFlow V3 AI Management System (AIMS), and the justification for inclusion or exclusion of each control. It is a mandatory output of the risk treatment planning process (Clause 6.1.3) and serves as the bridge between risk assessment and control implementation.
 
@@ -23,7 +37,7 @@ This Statement of Applicability (SOA) documents which ISO/IEC 42001:2023 Annex A
 
 ---
 
-## 2. How to Read This SOA
+## 2. 📖 How to Read This SOA
 
 | Column | Meaning |
 |--------|---------|
@@ -34,9 +48,9 @@ This Statement of Applicability (SOA) documents which ISO/IEC 42001:2023 Annex A
 
 ---
 
-## 3. Annex A Controls — Statement of Applicability
+## 3. 📎 Annex A Controls — Statement of Applicability
 
-### A.2 Policies for AI
+### <font color="#58a6ff">A.2 Policies for AI</font>
 
 | Control | Ref | Applicable | Status | Evidence Artifact | Justification |
 |---------|-----|-----------|--------|-------------------|---------------|
@@ -46,7 +60,7 @@ This Statement of Applicability (SOA) documents which ISO/IEC 42001:2023 Annex A
 
 ---
 
-### A.3 Internal Organization
+### <font color="#58a6ff">A.3 Internal Organization</font>
 
 | Control | Ref | Applicable | Status | Evidence Artifact | Justification |
 |---------|-----|-----------|--------|-------------------|---------------|
@@ -56,7 +70,7 @@ This Statement of Applicability (SOA) documents which ISO/IEC 42001:2023 Annex A
 
 ---
 
-### A.4 Resources for AI Systems
+### <font color="#58a6ff">A.4 Resources for AI Systems</font>
 
 | Control | Ref | Applicable | Status | Evidence Artifact | Justification |
 |---------|-----|-----------|--------|-------------------|---------------|
@@ -67,7 +81,7 @@ This Statement of Applicability (SOA) documents which ISO/IEC 42001:2023 Annex A
 
 ---
 
-### A.5 Assessing Impacts of AI Systems
+### <font color="#58a6ff">A.5 Assessing Impacts of AI Systems</font>
 
 | Control | Ref | Applicable | Status | Evidence Artifact | Justification |
 |---------|-----|-----------|--------|-------------------|---------------|
@@ -78,7 +92,7 @@ This Statement of Applicability (SOA) documents which ISO/IEC 42001:2023 Annex A
 
 ---
 
-### A.6 Data for AI Systems
+### <font color="#58a6ff">A.6 Data for AI Systems</font>
 
 | Control | Ref | Applicable | Status | Evidence Artifact | Justification |
 |---------|-----|-----------|--------|-------------------|---------------|
@@ -90,7 +104,7 @@ This Statement of Applicability (SOA) documents which ISO/IEC 42001:2023 Annex A
 
 ---
 
-### A.7 Information about AI Systems
+### <font color="#58a6ff">A.7 Information about AI Systems</font>
 
 | Control | Ref | Applicable | Status | Evidence Artifact | Justification |
 |---------|-----|-----------|--------|-------------------|---------------|
@@ -101,7 +115,7 @@ This Statement of Applicability (SOA) documents which ISO/IEC 42001:2023 Annex A
 
 ---
 
-### A.8 Relating with AI System Users
+### <font color="#58a6ff">A.8 Relating with AI System Users</font>
 
 | Control | Ref | Applicable | Status | Evidence Artifact | Justification |
 |---------|-----|-----------|--------|-------------------|---------------|
@@ -112,7 +126,7 @@ This Statement of Applicability (SOA) documents which ISO/IEC 42001:2023 Annex A
 
 ---
 
-### A.9 AI System Verification and Validation
+### <font color="#58a6ff">A.9 AI System Verification and Validation</font>
 
 | Control | Ref | Applicable | Status | Evidence Artifact | Justification |
 |---------|-----|-----------|--------|-------------------|---------------|
@@ -123,7 +137,7 @@ This Statement of Applicability (SOA) documents which ISO/IEC 42001:2023 Annex A
 
 ---
 
-### A.10 AI System Monitoring
+### <font color="#58a6ff">A.10 AI System Monitoring</font>
 
 | Control | Ref | Applicable | Status | Evidence Artifact | Justification |
 |---------|-----|-----------|--------|-------------------|---------------|
@@ -134,7 +148,7 @@ This Statement of Applicability (SOA) documents which ISO/IEC 42001:2023 Annex A
 
 ---
 
-### A.11 Incident Management
+### <font color="#58a6ff">A.11 Incident Management</font>
 
 | Control | Ref | Applicable | Status | Evidence Artifact | Justification |
 |---------|-----|-----------|--------|-------------------|---------------|
@@ -145,7 +159,7 @@ This Statement of Applicability (SOA) documents which ISO/IEC 42001:2023 Annex A
 
 ---
 
-### A.12 Continual Improvement
+### <font color="#58a6ff">A.12 Continual Improvement</font>
 
 | Control | Ref | Applicable | Status | Evidence Artifact | Justification |
 |---------|-----|-----------|--------|-------------------|---------------|
@@ -155,7 +169,7 @@ This Statement of Applicability (SOA) documents which ISO/IEC 42001:2023 Annex A
 
 ---
 
-## 4. Excluded Controls
+## 4. 📌 Excluded Controls
 
 | Control | Ref | Justification for Exclusion |
 |---------|-----|-----------------------------|
@@ -165,7 +179,7 @@ This Statement of Applicability (SOA) documents which ISO/IEC 42001:2023 Annex A
 
 ---
 
-## 5. Annex B Implementation Guidance — Applicability
+## 5. 📎 Annex B Implementation Guidance — Applicability
 
 ISO 42001:2023 Annex B provides additional implementation guidance for specific AI use cases.
 
@@ -179,7 +193,7 @@ ISO 42001:2023 Annex B provides additional implementation guidance for specific 
 
 ---
 
-## 6. SOA Summary Dashboard
+## 6. 📊 SOA Summary Dashboard
 
 | Category | Total Controls | Applicable | Not Applicable | Implemented | Partial | Planned |
 |----------|---------------|-----------|----------------|-------------|---------|---------|
@@ -202,7 +216,7 @@ All partial controls have remediation plans documented in MF-ISO-15 (Continual I
 
 ---
 
-## 7. Document Approval
+## 7. 📝 Document Approval
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|
@@ -211,7 +225,7 @@ All partial controls have remediation plans documented in MF-ISO-15 (Continual I
 
 ---
 
-## 8. Revision History
+## 8. 📌 Revision History
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|

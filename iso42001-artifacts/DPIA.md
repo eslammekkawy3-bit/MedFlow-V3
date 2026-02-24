@@ -1,27 +1,37 @@
-# Data Privacy Impact Assessment (DPIA)
-## MedFlow V3 Clinical Decision Support System
+<div align="center">
 
-**Document ID:** MF-ISO-19
-**Title:** Data Privacy Impact Assessment (DPIA)
-**Version:** 1.1
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 8.2 – AI Risk Assessment; PDPL Articles 6 & 9
-**Supersedes:** Data Privacy Impact Assessment (DPIA).docx v1.0 (2026-02-21) — converted from .docx to .md; system version reference synchronized to MedFlow V3
+# Data Privacy Impact Assessment
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-1%2E1-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_8.2-7b2d8b?style=flat-square)]()
+[![PDPL](https://img.shields.io/badge/PDPL-Compliant-0052cc?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-19 |
+| **Version** | 1.1 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 8.2 – AI Risk Assessment; PDPL Articles 6 & 9 |
+| **System** | MedFlow V3 Clinical Governance Architecture |
+| **Assessment Focus** | Layer 1 — Local Sovereignty & PII Redaction Engine |
+| **Supersedes** | Data Privacy Impact Assessment v1.0 (2026-02-21) |
 
 ---
 
-**System:** MedFlow V3 Clinical Governance Architecture
-**Regulatory Framework:** Saudi Personal Data Protection Law (PDPL)
-**Assessment Focus:** Layer 1 — Local Sovereignty & PII Redaction Engine
 
----
-
-## 1. Executive Summary
+## 1. 📋 Executive Summary
 
 This Data Privacy Impact Assessment (DPIA) evaluates the data processing pipeline of the MedFlow Clinical Decision Support system. MedFlow utilizes cloud-based Large Language Models (LLMs) to evaluate inpatient medical claims against AR-DRG v9.0 and NPHIES standards.
 
@@ -29,11 +39,11 @@ To ensure strict compliance with the Saudi Personal Data Protection Law (PDPL) r
 
 ---
 
-## 2. Technical Architecture: Layer 1 (Local Sovereignty Layer)
+## 2. ⚙️ Technical Architecture: Layer 1 (Local Sovereignty Layer)
 
 MedFlow intercepts and neutralizes sensitive data before any external API calls are made. This is achieved through a localized, three-stage Defensive Engine:
 
-### Defensive Layer 1: Deterministic Filtering (Regex)
+### <font color="#58a6ff">Defensive Layer 1: Deterministic Filtering (Regex)</font>
 
 The system first passes the raw medical file through strict Regular Expression (Regex) filters to instantly strip structured identifiers. This includes:
 
@@ -42,35 +52,35 @@ The system first passes the raw medical file through strict Regular Expression (
 - Medical Record Numbers (MRNs)
 - Emails and exact Dates of Birth
 
-### Defensive Layer 2: Semantic Redaction (Local LLM)
+### <font color="#58a6ff">Defensive Layer 2: Semantic Redaction (Local LLM)</font>
 
 Because patient names and hospital locations are unstructured text, Regex is insufficient. MedFlow deploys a locally hosted **Llama 3.2 (3-Billion Parameter)** model via Ollama. This model runs entirely on-premise (or within the client's secure local cloud). It reads the text and semantically identifies and redacts unstructured PII, such as patient names, facility names, and employer data.
 
-### Defensive Layer 3: Leakage Validation & The Actionability Gate
+### <font color="#58a6ff">Defensive Layer 3: Leakage Validation & The Actionability Gate</font>
 
 Before the de-identified clinical narrative is transmitted to the core analytical engine, a final validation scan is performed. If any residual PII is detected, the system executes a **"Hard Fail,"** rejecting the entire file and blocking transmission.
 
 ---
 
-## 3. PDPL Article Alignment
+## 3. 📌 PDPL Article Alignment
 
 The MedFlow architecture natively enforces the following PDPL mandates:
 
-### Alignment with Data Localization Requirements
+### <font color="#58a6ff">Alignment with Data Localization Requirements</font>
 
 Because the Llama 3.2 redaction model operates locally, the actual unredacted patient file never touches a foreign cloud server. Only the anonymized, purely clinical narrative (e.g., "A 57-year-old female presents with sepsis...") is processed by the analytical engine.
 
-### Alignment with Data Minimization
+### <font color="#58a6ff">Alignment with Data Minimization</font>
 
 The system extracts and transmits only the precise clinical data points (vital signs, lab results, diagnoses) strictly necessary for AR-DRG clinical validation and NPHIES 960Z checks, discarding all administrative identities.
 
-### Alignment with Security & Confidentiality
+### <font color="#58a6ff">Alignment with Security & Confidentiality</font>
 
 By executing destruction of PII at the point of ingestion, the system neutralizes the threat of data breaches during transmission.
 
 ---
 
-## 4. Auditability and Governance (The PII Manifest)
+## 4. 🔐 Auditability and Governance (The PII Manifest)
 
 To satisfy regulatory audits without compromising patient privacy, MedFlow generates an **immutable PII Manifest** for every processed case.
 
@@ -78,7 +88,7 @@ The manifest does not store the patient's data; rather, it logs the metadata of 
 
 ---
 
-## 5. PII Categories and Replacement Tokens
+## 5. 🔐 PII Categories and Replacement Tokens
 
 | Category | Examples | Replacement Token |
 |----------|----------|------------------|
@@ -93,7 +103,7 @@ The manifest does not store the patient's data; rather, it logs the metadata of 
 
 ---
 
-## 6. Risk Assessment Summary
+## 6. 📊 Risk Assessment Summary
 
 | Risk | Likelihood | Impact | Mitigation | Residual Risk |
 |------|-----------|--------|-----------|---------------|
@@ -104,7 +114,7 @@ The manifest does not store the patient's data; rather, it logs the metadata of 
 
 ---
 
-## 7. Conclusion
+## 7. 📌 Conclusion
 
 The MedFlow V3 Layer 1 architecture provides a technically robust, PDPL-compliant, and auditable mechanism for patient data protection. The three-stage Defensive Engine ensures that sensitive patient information is neutralized at the point of ingestion, with no pathway for PII to reach external cloud services.
 
@@ -116,7 +126,7 @@ This DPIA concludes that the MedFlow V3 data processing pipeline meets the requi
 
 ---
 
-## 8. Revision History
+## 8. 📌 Revision History
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|

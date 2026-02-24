@@ -1,22 +1,35 @@
-# Clinical User Guide
-## MedFlow V3 - For Medical Reviewers
+<div align="center">
 
-**Document ID:** MF-ISO-17
-**Title:** Clinical User Guide
-**Version:** 1.1
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 7.3, Clause 8.3 – Awareness & AI System Operations
-**Audience:** Medical Reviewers, Physicians, Clinical Validators
-**Supersedes:** MF-UG-CLINICAL-001 v1.0 (2026-02-06)
+# Clinical User Guide
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-1%2E1-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_7.3-7b2d8b?style=flat-square)]()
+[![Audience](https://img.shields.io/badge/Audience-Medical_Reviewers-7b2d8b?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-17 |
+| **Version** | 1.1 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 7.3, Clause 8.3 – Awareness & AI System Operations |
+| **Supersedes** | MF-UG-CLINICAL-001 v1.0 (2026-02-06) |
 
 ---
 
-## 1. Introduction
+
+## 1. 📋 Introduction
 
 MedFlow V3 is an AI-assisted clinical decision support system designed to help medical reviewers evaluate inpatient admission requests efficiently and consistently. This guide explains how to interpret AI outputs, understand confidence scores, and exercise appropriate clinical oversight.
 
@@ -24,7 +37,7 @@ MedFlow V3 is an AI-assisted clinical decision support system designed to help m
 
 ---
 
-## 2. Quick Reference Card
+## 2. ⚡ Quick Reference Card
 
 | Confidence Score | Review Level | Your Action |
 |-----------------|--------------|-------------|
@@ -40,9 +53,9 @@ MedFlow V3 is an AI-assisted clinical decision support system designed to help m
 
 ---
 
-## 3. Understanding the Output Report
+## 3. 📤 Understanding the Output Report
 
-### 3.1 Case Summary
+### <font color="#58a6ff">3.1 Case Summary</font>
 
 The AI extracts key clinical information from all submitted documents:
 
@@ -63,7 +76,7 @@ DRG Classification: E65A (Major Cardiovascular Procedures)
 
 ---
 
-### 3.2 Clinical Timeline
+### <font color="#58a6ff">3.2 Clinical Timeline</font>
 
 The AI reconstructs the clinical progression from multiple documents:
 
@@ -84,7 +97,7 @@ Day 7: Mobilizing, wound healing well
 
 ---
 
-### 3.3 Confidence Score
+### <font color="#58a6ff">3.3 Confidence Score</font>
 
 The confidence score (0-100%) reflects the AI's certainty in its recommendation.
 
@@ -109,7 +122,7 @@ REVIEW LEVEL: STANDARD REVIEW
 
 ---
 
-### 3.4 Guideline Citations
+### <font color="#58a6ff">3.4 Guideline Citations</font>
 
 Each recommendation cites the clinical guideline basis:
 
@@ -138,9 +151,9 @@ Reference: MOH-DM-2024, Section 4.2.1
 
 ---
 
-## 4. Privacy Protection (PII Redaction)
+## 4. 🔐 Privacy Protection (PII Redaction)
 
-### 4.1 What is Redacted
+### <font color="#58a6ff">4.1 What is Redacted</font>
 
 Before any clinical document reaches the AI analysis engine, sensitive information is automatically removed:
 
@@ -155,13 +168,13 @@ Before any clinical document reaches the AI analysis engine, sensitive informati
 | Addresses | 123 King Fahd Rd | [ADDRESS_1] |
 | Hospital Names | King Faisal Hospital | [HOSPITAL_1] |
 
-### 4.2 Why This Matters
+### <font color="#58a6ff">4.2 Why This Matters</font>
 
 - **Regulatory Compliance:** Saudi PDPL requires PII protection
 - **Data Sovereignty:** Sensitive data never leaves local processing
 - **Cloud Safety:** Only de-identified data reaches cloud AI services
 
-### 4.3 PII Manifest
+### <font color="#58a6ff">4.3 PII Manifest</font>
 
 Each case includes a PII Manifest for audit purposes:
 
@@ -178,9 +191,9 @@ Verification: PASSED (no leakage detected)
 
 ---
 
-## 5. How to Review a Case
+## 5. 🔎 How to Review a Case
 
-### 5.1 Standard Review Workflow (70-84% Confidence)
+### <font color="#58a6ff">5.1 Standard Review Workflow (70-84% Confidence)</font>
 
 1. **Read the Case Summary**
    - Verify diagnosis accuracy
@@ -199,7 +212,7 @@ Verification: PASSED (no leakage detected)
    - MODIFY: Accept with changes (document rationale)
    - REJECT: Override with different recommendation (document rationale)
 
-### 5.2 Escalated Review Workflow (Below 70%)
+### <font color="#58a6ff">5.2 Escalated Review Workflow (Below 70%)</font>
 
 1. Complete Standard Review steps above
 2. Identify WHY confidence is low (check "Confidence Factors" section)
@@ -209,11 +222,11 @@ Verification: PASSED (no leakage detected)
 
 ---
 
-## 6. Overriding AI Recommendations
+## 6. 📌 Overriding AI Recommendations
 
 You can always override the AI. Here's how:
 
-### 6.1 When to Override
+### <font color="#58a6ff">6.1 When to Override</font>
 
 | Situation | Action |
 |-----------|--------|
@@ -222,7 +235,7 @@ You can always override the AI. Here's how:
 | AI cited wrong guideline | Override and report issue |
 | Your clinical judgment differs | Override with rationale |
 
-### 6.2 Documenting Overrides
+### <font color="#58a6ff">6.2 Documenting Overrides</font>
 
 Required fields for any override:
 - Original AI recommendation
@@ -238,9 +251,9 @@ Required fields for any override:
 
 ---
 
-## 7. Reporting Issues
+## 7. 📌 Reporting Issues
 
-### 7.1 When to Report
+### <font color="#58a6ff">7.1 When to Report</font>
 
 Report to system administrators if you observe:
 - Repeated incorrect guideline citations
@@ -248,7 +261,7 @@ Report to system administrators if you observe:
 - PII appearing in AI output (Verification: FAILED)
 - Confidence scores that don't match case complexity
 
-### 7.2 How to Report
+### <font color="#58a6ff">7.2 How to Report</font>
 
 1. Document the Case ID
 2. Screenshot the problematic output
@@ -257,7 +270,7 @@ Report to system administrators if you observe:
 
 ---
 
-## 8. Frequently Asked Questions
+## 8. 📌 Frequently Asked Questions
 
 **Q: Can I trust high-confidence (85%+) recommendations without review?**
 A: The system allows autonomous processing for high-confidence cases, but periodic spot-checks are recommended. You retain responsibility for cases in your queue.
@@ -276,7 +289,7 @@ A: Override data feeds into continuous improvement. Patterns of overrides help i
 
 ---
 
-## 9. Quick Commands Reference
+## 9. 📖 Quick Commands Reference
 
 | Task | Command |
 |------|---------|
@@ -287,7 +300,7 @@ A: Override data feeds into continuous improvement. Patterns of overrides help i
 
 ---
 
-## 10. Support Contacts
+## 10. 🛟 Support Contacts
 
 | Issue | Contact |
 |-------|---------|
@@ -298,7 +311,7 @@ A: Override data feeds into continuous improvement. Patterns of overrides help i
 
 ---
 
-## 11. Document History
+## 11. 📝 Document History
 
 | Version | Date | Changes |
 |---------|------|---------|

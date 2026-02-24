@@ -1,31 +1,44 @@
-# AI Roles and Responsibilities
-## MedFlow V3 Clinical Decision Support System
+<div align="center">
 
-**Document ID:** MF-ISO-03
-**Title:** Roles and Responsibilities
-**Version:** 1.0
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 5.3 – Organizational Roles, Responsibilities and Authorities
-**Supersedes:** AIMS-5-3-001 v1.0 (2026-02-02) — converted from .docx to .md; no content changes
+# AI Roles and Responsibilities
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-1%2E0-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_5.3-7b2d8b?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-03 |
+| **Version** | 1.0 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 5.3 – Organizational Roles, Responsibilities and Authorities |
+| **Supersedes** | AIMS-5-3-001 v1.0 (2026-02-02) |
 
 ---
 
-## 1. Introduction
+
+## 1. 📋 Introduction
 
 This document defines roles, responsibilities, and authorities for the MedFlow V3 research initiative. As a Personal Innovation Prototype (Non-Commercial) managed by an Individual Research Lab, the Lead Researcher fulfills multiple governance functions.
 
 ---
 
-## 2. Current State: Solo Researcher Mode
+## 2. 📊 Current State: Solo Researcher Mode
 
 In the current research phase, Dr. Islam Mekawy serves as the sole contributor, combining the following functional roles:
 
-### 2.1 Lead Researcher & Architect
+### <font color="#58a6ff">2.1 Lead Researcher & Architect</font>
 
 - Define research objectives and methodology
 - Design AI system architecture
@@ -33,14 +46,14 @@ In the current research phase, Dr. Islam Mekawy serves as the sole contributor, 
 - Document technical decisions and rationale
 - Ensure ISO 42001 alignment
 
-### 2.2 Clinical Validator (Self-Review)
+### <font color="#58a6ff">2.2 Clinical Validator (Self-Review)</font>
 
 - Validate AI outputs against clinical standards
 - Review ICD-10 and DRG assignments
 - Document validation methodology
 - Identify edge cases and limitations
 
-### 2.3 AI Governance Lead (Self-Governance)
+### <font color="#58a6ff">2.3 AI Governance Lead (Self-Governance)</font>
 
 - Maintain ISO 42001 compliance artifacts
 - Conduct self-assessment audits
@@ -49,11 +62,11 @@ In the current research phase, Dr. Islam Mekawy serves as the sole contributor, 
 
 ---
 
-## 3. Enterprise Scalability Roadmap
+## 3. 📌 Enterprise Scalability Roadmap
 
 This system is architected for enterprise scalability. The following roles represent the governance structure the system is designed to support when deployed in an enterprise context:
 
-### 3.1 AI Governance Committee (Future)
+### <font color="#58a6ff">3.1 AI Governance Committee (Future)</font>
 
 Strategic oversight body for enterprise AI initiatives. Planned members:
 
@@ -62,14 +75,14 @@ Strategic oversight body for enterprise AI initiatives. Planned members:
 - Chief Compliance Officer
 - Board Representative
 
-### 3.2 AI System Owner (Future)
+### <font color="#58a6ff">3.2 AI System Owner (Future)</font>
 
 Operational ownership of production system. Planned members:
 
 - Pre-Authorization Manager
 - Clinical Operations Director
 
-### 3.3 AI Development Team (Future)
+### <font color="#58a6ff">3.3 AI Development Team (Future)</font>
 
 Technical implementation and maintenance. Planned members:
 
@@ -77,7 +90,7 @@ Technical implementation and maintenance. Planned members:
 - Backend Developers
 - DevOps Engineers
 
-### 3.4 Data Protection Office (Future)
+### <font color="#58a6ff">3.4 Data Protection Office (Future)</font>
 
 Privacy and data protection compliance. Planned members:
 
@@ -85,7 +98,7 @@ Privacy and data protection compliance. Planned members:
 - Privacy Analysts
 - Legal Counsel
 
-### 3.5 Clinical Review Team (Future)
+### <font color="#58a6ff">3.5 Clinical Review Team (Future)</font>
 
 Human oversight for AI decisions. Planned members:
 
@@ -93,7 +106,7 @@ Human oversight for AI decisions. Planned members:
 - Certified Coders
 - Clinical Auditors
 
-### 3.6 Internal Audit (Future)
+### <font color="#58a6ff">3.6 Internal Audit (Future)</font>
 
 Independent assessment of AI system compliance. Planned members:
 
@@ -103,7 +116,7 @@ Independent assessment of AI system compliance. Planned members:
 
 ---
 
-## 4. RACI Matrix (Enterprise Ready)
+## 4. 📌 RACI Matrix (Enterprise Ready)
 
 **R** = Responsible, **A** = Accountable, **C** = Consulted, **I** = Informed
 
@@ -117,7 +130,7 @@ Independent assessment of AI system compliance. Planned members:
 
 ---
 
-## 5. Competency Requirements (Enterprise)
+## 5. 📌 Competency Requirements (Enterprise)
 
 | Role | Required Skills | Certifications |
 |------|----------------|----------------|
@@ -128,7 +141,7 @@ Independent assessment of AI system compliance. Planned members:
 
 ---
 
-## 6. Revision History
+## 6. 📌 Revision History
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|

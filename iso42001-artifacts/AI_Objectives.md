@@ -1,27 +1,40 @@
-# AI Management System Objectives
-## MedFlow V3 Clinical Decision Support System
+<div align="center">
 
-**Document ID:** MF-ISO-04
-**Title:** AI Objectives
-**Version:** 1.1
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 6.2 – AI Objectives and Planning to Achieve Them
-**Supersedes:** AIMS-6-2-001 v1.0 (2026-02-02) — converted from .docx to .md; OBJ-007 target synchronized to actual document count achieved
+# AI Management System Objectives
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-1%2E1-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_6.2-7b2d8b?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-04 |
+| **Version** | 1.1 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 6.2 – AI Objectives and Planning to Achieve Them |
+| **Supersedes** | AIMS-6-2-001 v1.0 (2026-02-02) |
 
 ---
 
-## 1. Introduction
+
+## 1. 📋 Introduction
 
 This document establishes measurable objectives for the MedFlow V3 research initiative. As a Personal Innovation Prototype (Non-Commercial), these objectives focus on technical metrics that demonstrate enterprise readiness and ISO 42001:2023 alignment.
 
 ---
 
-## 2. Research Goals
+## 2. 📌 Research Goals
 
 The research objectives support the following goals:
 
@@ -32,9 +45,9 @@ The research objectives support the following goals:
 
 ---
 
-## 3. Technical Metrics (Enterprise Readiness)
+## 3. ⚙️ Technical Metrics (Enterprise Readiness)
 
-### OBJ-001: Achieve 95% ICD-10 Coding Accuracy
+### <font color="#58a6ff">OBJ-001: Achieve 95% ICD-10 Coding Accuracy</font>
 
 | Field | Detail |
 |-------|--------|
@@ -46,7 +59,7 @@ The research objectives support the following goals:
 
 ---
 
-### OBJ-002: Achieve 92% AR-DRG Classification Accuracy
+### <font color="#58a6ff">OBJ-002: Achieve 92% AR-DRG Classification Accuracy</font>
 
 | Field | Detail |
 |-------|--------|
@@ -58,7 +71,7 @@ The research objectives support the following goals:
 
 ---
 
-### OBJ-003: Achieve 99.5% PII Detection Rate
+### <font color="#58a6ff">OBJ-003: Achieve 99.5% PII Detection Rate</font>
 
 | Field | Detail |
 |-------|--------|
@@ -70,7 +83,7 @@ The research objectives support the following goals:
 
 ---
 
-### OBJ-004: Process Cases Within 60 Seconds (P80)
+### <font color="#58a6ff">OBJ-004: Process Cases Within 60 Seconds (P80)</font>
 
 | Field | Detail |
 |-------|--------|
@@ -82,7 +95,7 @@ The research objectives support the following goals:
 
 ---
 
-### OBJ-005: Maintain 99.5% System Availability
+### <font color="#58a6ff">OBJ-005: Maintain 99.5% System Availability</font>
 
 | Field | Detail |
 |-------|--------|
@@ -94,7 +107,7 @@ The research objectives support the following goals:
 
 ---
 
-### OBJ-006: Achieve Demographic Parity (0.8–1.2 Ratio)
+### <font color="#58a6ff">OBJ-006: Achieve Demographic Parity (0.8–1.2 Ratio)</font>
 
 | Field | Detail |
 |-------|--------|
@@ -106,7 +119,7 @@ The research objectives support the following goals:
 
 ---
 
-### OBJ-007: Complete ISO 42001 Artifact Set
+### <font color="#58a6ff">OBJ-007: Complete ISO 42001 Artifact Set</font>
 
 | Field | Detail |
 |-------|--------|
@@ -118,7 +131,7 @@ The research objectives support the following goals:
 
 ---
 
-## 4. Monitoring and Validation
+## 4. 📌 Monitoring and Validation
 
 Research objectives are monitored through:
 
@@ -129,7 +142,7 @@ Research objectives are monitored through:
 
 ---
 
-## 5. Enterprise Scalability Considerations
+## 5. 📌 Enterprise Scalability Considerations
 
 These metrics demonstrate the system's readiness for enterprise deployment:
 
@@ -142,7 +155,7 @@ These metrics demonstrate the system's readiness for enterprise deployment:
 
 ---
 
-## 6. Revision History
+## 6. 📌 Revision History
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|

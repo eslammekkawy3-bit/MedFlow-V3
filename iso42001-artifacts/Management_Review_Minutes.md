@@ -1,27 +1,41 @@
-# Management Review Minutes
-## MedFlow V3 Clinical Decision Support System
+<div align="center">
 
-**Document ID:** MF-ISO-13
-**Title:** Management Review Minutes
-**Version:** 1.4
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 9.3 – Management Review
-**Supersedes:** MF-ISO42001-MRM-001 v1.3 (2026-02-10)
+# Management Review Minutes
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-1%2E4-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_9.3-7b2d8b?style=flat-square)]()
+[![Q1 2026](https://img.shields.io/badge/Q1_2026-COMPLETED-2ea44f?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-13 |
+| **Version** | 1.4 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 9.3 – Management Review |
+| **Supersedes** | MF-ISO42001-MRM-001 v1.3 (2026-02-10) |
 
 ---
 
-## 1. Purpose
+
+## 1. 📋 Purpose
 
 This document records the management review of the MedFlow V3 AI Management System (AIMS) conducted in accordance with ISO 42001:2023 Clause 9.3. Management reviews ensure the continued suitability, adequacy, and effectiveness of the AIMS and identify opportunities for improvement.
 
 ---
 
-## 2. Review Schedule
+## 2. 🔎 Review Schedule
 
 | Review Cycle | Date | Type | Status |
 |--------------|------|------|--------|
@@ -32,9 +46,9 @@ This document records the management review of the MedFlow V3 AI Management Syst
 
 ---
 
-## 3. Review Meeting #1 - February 9, 2026
+## 3. 🔎 Review Meeting #1 - February 9, 2026
 
-### 3.1 Meeting Details
+### <font color="#58a6ff">3.1 Meeting Details</font>
 
 | Attribute | Detail |
 |-----------|--------|
@@ -44,7 +58,7 @@ This document records the management review of the MedFlow V3 AI Management Syst
 | **Type** | Q1 Comprehensive Review |
 | **Duration** | 90 minutes |
 
-### 3.2 Attendees
+### <font color="#58a6ff">3.2 Attendees</font>
 
 | Role | Name | Responsibility |
 |------|------|----------------|
@@ -52,9 +66,9 @@ This document records the management review of the MedFlow V3 AI Management Syst
 
 ---
 
-## 4. Review Inputs
+## 4. 🔎 Review Inputs
 
-### 4.1 AIMS Performance Summary
+### <font color="#58a6ff">4.1 AIMS Performance Summary</font>
 
 | Metric | Value | Assessment |
 |--------|-------|------------|
@@ -67,11 +81,11 @@ This document records the management review of the MedFlow V3 AI Management Syst
 | **MOH Protocols Loaded** | 13 | Knowledge Base operational |
 | **Saved Case Analyses** | 5+ | All render correctly in dashboard |
 
-### 4.2 Status of Actions from Previous Reviews
+### <font color="#58a6ff">4.2 Status of Actions from Previous Reviews</font>
 
 This is the initial management review; no prior actions exist.
 
-### 4.3 Internal Audit Results
+### <font color="#58a6ff">4.3 Internal Audit Results</font>
 
 Reference: `iso42001-artifacts/Internal_Audit_Report.md` (MF-ISO42001-IAR-001)
 
@@ -86,7 +100,7 @@ Reference: `iso42001-artifacts/Internal_Audit_Report.md` (MF-ISO42001-IAR-001)
 | OBS-002: PII Performance Benchmarks | PII | Observation | NOTED |
 | OBS-003: Terminology Standardization | Phase 5.5 | Observation | NOTED |
 
-### 4.4 Risk Register Review
+### <font color="#58a6ff">4.4 Risk Register Review</font>
 
 Reference: `iso42001-artifacts/AI_Risk_Register.md` (v5.0, 16 risks)
 
@@ -101,7 +115,7 @@ Reference: `iso42001-artifacts/AI_Risk_Register.md` (v5.0, 16 risks)
 2. **RISK-003: Gemini Hallucination** - Mitigated by Knowledge Base hierarchy and General Clinical Fallback. Residual risk: Medium.
 3. **RISK-009: Regulatory Non-compliance** - Mitigated by PDPL alignment in AI Data Policy. Residual risk: Medium (NPHIES integration pending).
 
-### 4.5 Interested Party Feedback
+### <font color="#58a6ff">4.5 Interested Party Feedback</font>
 
 | Stakeholder | Feedback Channel | Key Input |
 |-------------|-----------------|-----------|
@@ -111,9 +125,9 @@ Reference: `iso42001-artifacts/AI_Risk_Register.md` (v5.0, 16 risks)
 
 ---
 
-## 5. Review Discussion and Analysis
+## 5. 📊 Review Discussion and Analysis
 
-### 5.1 AIMS Effectiveness Assessment
+### <font color="#58a6ff">5.1 AIMS Effectiveness Assessment</font>
 
 **Overall Assessment: EFFECTIVE with identified improvement areas.**
 
@@ -124,7 +138,7 @@ The AIMS has progressed from concept (Phase 1) to a functional prototype (Phase 
 - **Traceability**: Every case produces auditable output with PII manifest, processing metadata, and guideline citations.
 - **Governance**: 39 ISO 42001 controls mapped with 92% conformance.
 
-### 5.2 Resource Adequacy
+### <font color="#58a6ff">5.2 Resource Adequacy</font>
 
 | Resource | Status | Assessment |
 |----------|--------|------------|
@@ -135,7 +149,7 @@ The AIMS has progressed from concept (Phase 1) to a functional prototype (Phase 
 | **Documentation** | 13+ ISO artifacts | Exceeds initial 10-document target |
 | **Personnel** | Single researcher | Sufficient for research prototype; production would require team |
 
-### 5.3 Opportunities for Improvement
+### <font color="#58a6ff">5.3 Opportunities for Improvement</font>
 
 Identified during this review:
 
@@ -146,7 +160,7 @@ Identified during this review:
 
 ---
 
-## 6. Key Decisions
+## 6. 📌 Key Decisions
 
 | Decision ID | Decision | Rationale | Owner | Date |
 |-------------|----------|-----------|-------|------|
@@ -158,7 +172,7 @@ Identified during this review:
 
 ---
 
-## 7. Action Items
+## 7. 📋 Action Items
 
 | Action ID | Action | Owner | Due Date | Priority | Status |
 |-----------|--------|-------|----------|----------|--------|
@@ -173,7 +187,7 @@ Identified during this review:
 
 ---
 
-## 8. Next Review
+## 8. 🔎 Next Review
 
 | Attribute | Detail |
 |-----------|--------|
@@ -184,7 +198,7 @@ Identified during this review:
 
 ---
 
-## Document Approval
+## 📝 Document Approval
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|
@@ -193,7 +207,7 @@ Identified during this review:
 
 ---
 
-## Revision History
+## 📌 Revision History
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|

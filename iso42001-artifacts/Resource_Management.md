@@ -1,29 +1,42 @@
-# Resource Management Plan
-## MedFlow V3 Clinical Decision Support System
+<div align="center">
 
-**Document ID:** MF-ISO-08
-**Title:** Resource Management Plan
-**Version:** 2.1
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 7.1, Annex A.7 – Resources for AI Systems
-**Supersedes:** MF-ISO42001-A7-001 v2.0 (2026-02-07)
+# Resource Management Plan
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-2%2E1-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_7.1-7b2d8b?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-08 |
+| **Version** | 2.1 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 7.1, Annex A.7 – Resources for AI Systems |
+| **Supersedes** | MF-ISO42001-A7-001 v2.0 (2026-02-07) |
 
 ---
 
-## 1. Purpose
+
+## 1. 📋 Purpose
 
 This document defines the software, hardware, and human resource requirements for operating and maintaining MedFlow V3 Clinical Decision Support System.
 
 ---
 
-## 2. Software Requirements
+## 2. 🖥️ Software Requirements
 
-### 2.1 Core Runtime Environment
+### <font color="#58a6ff">2.1 Core Runtime Environment</font>
 
 | Component | Requirement | Purpose |
 |-----------|-------------|---------|
@@ -31,7 +44,7 @@ This document defines the software, hardware, and human resource requirements fo
 | pip | Latest | Package management |
 | Virtual Environment | venv or conda | Dependency isolation |
 
-### 2.2 Python Dependencies
+### <font color="#58a6ff">2.2 Python Dependencies</font>
 
 **Required Packages:**
 
@@ -53,7 +66,7 @@ python -c "import pypdf; print('pypdf OK')"
 python -c "import pdfplumber; print('pdfplumber OK')"
 ```
 
-### 2.3 Local AI Infrastructure
+### <font color="#58a6ff">2.3 Local AI Infrastructure</font>
 
 | Component | Requirement | Purpose |
 |-----------|-------------|---------|
@@ -77,7 +90,7 @@ ollama list  # Should show llama3.2
 curl http://localhost:11434/api/tags  # Should return model list
 ```
 
-### 2.4 Cloud API Services
+### <font color="#58a6ff">2.4 Cloud API Services</font>
 
 | Service | Provider | Purpose | Credentials |
 |---------|----------|---------|-------------|
@@ -92,9 +105,9 @@ GEMINI_MODEL=gemini-2.0-flash
 
 ---
 
-## 3. Hardware Requirements
+## 3. 🖥️ Hardware Requirements
 
-### 3.1 Minimum Specifications
+### <font color="#58a6ff">3.1 Minimum Specifications</font>
 
 | Component | Minimum | Recommended | Purpose |
 |-----------|---------|-------------|---------|
@@ -103,7 +116,7 @@ GEMINI_MODEL=gemini-2.0-flash
 | Storage | 20 GB | 50 GB | Models + knowledge base |
 | Network | 10 Mbps | 100 Mbps | API communication |
 
-### 3.2 Local Inference Requirements (SDAIA Data Sovereignty)
+### <font color="#58a6ff">3.2 Local Inference Requirements (SDAIA Data Sovereignty)</font>
 
 MedFlow V3 performs all PII scrubbing locally via Ollama + Llama 3.2 to comply with SDAIA Personal Data Protection Law (PDPL) data localization requirements. No patient-identifiable information leaves the local environment. This architectural decision imposes specific compute requirements.
 
@@ -131,7 +144,7 @@ python pii_scrubber.py --text "Patient Ahmed Al-Rashid, MRN-123456, phone +966 5
 # Expected: < 60s processing time
 ```
 
-### 3.3 GPU (Optional)
+### <font color="#58a6ff">3.3 GPU (Optional)</font>
 
 | Component | Requirement | Benefit |
 |-----------|-------------|---------|
@@ -140,7 +153,7 @@ python pii_scrubber.py --text "Patient Ahmed Al-Rashid, MRN-123456, phone +966 5
 
 **Note:** GPU is optional. CPU-only operation is fully supported.
 
-### 3.4 Storage Layout
+### <font color="#58a6ff">3.4 Storage Layout</font>
 
 ```
 Disk Usage Estimate:
@@ -156,22 +169,22 @@ Disk Usage Estimate:
 
 ---
 
-## 4. Network Requirements
+## 4. 📌 Network Requirements
 
-### 4.1 External Connectivity
+### <font color="#58a6ff">4.1 External Connectivity</font>
 
 | Endpoint | Protocol | Port | Purpose |
 |----------|----------|------|---------|
 | generativelanguage.googleapis.com | HTTPS | 443 | Gemini API |
 | pypi.org | HTTPS | 443 | Package installation |
 
-### 4.2 Internal Services
+### <font color="#58a6ff">4.2 Internal Services</font>
 
 | Service | Protocol | Port | Purpose |
 |---------|----------|------|---------|
 | Ollama | HTTP | 11434 | Local LLM inference |
 
-### 4.3 Firewall Rules
+### <font color="#58a6ff">4.3 Firewall Rules</font>
 
 | Direction | Allow | Deny |
 |-----------|-------|------|
@@ -180,9 +193,9 @@ Disk Usage Estimate:
 
 ---
 
-## 5. Environment Configuration
+## 5. 📌 Environment Configuration
 
-### 5.1 Environment Variables
+### <font color="#58a6ff">5.1 Environment Variables</font>
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
@@ -191,7 +204,7 @@ Disk Usage Estimate:
 | OLLAMA_HOST | No | http://localhost:11434 | Ollama server URL |
 | MEDFLOW_ENV | No | development | Environment tier |
 
-### 5.2 Configuration Files
+### <font color="#58a6ff">5.2 Configuration Files</font>
 
 | File | Purpose | Location |
 |------|---------|----------|
@@ -200,9 +213,9 @@ Disk Usage Estimate:
 
 ---
 
-## 6. Human Resources
+## 6. 📌 Human Resources
 
-### 6.1 Roles and Responsibilities
+### <font color="#58a6ff">6.1 Roles and Responsibilities</font>
 
 | Role | Responsibility | Required Skills |
 |------|----------------|-----------------|
@@ -212,7 +225,7 @@ Disk Usage Estimate:
 | Data Protection Officer | PDPL compliance, audit | Legal, data protection |
 | Support Engineer | Troubleshooting, monitoring | Python, debugging |
 
-### 6.2 Training Requirements
+### <font color="#58a6ff">6.2 Training Requirements</font>
 
 | Role | Training Topics |
 |------|-----------------|
@@ -223,9 +236,9 @@ Disk Usage Estimate:
 
 ---
 
-## 7. Capacity Planning
+## 7. 📌 Capacity Planning
 
-### 7.1 Processing Capacity
+### <font color="#58a6ff">7.1 Processing Capacity</font>
 
 | Metric | Current (Phase 4) | Target |
 |--------|---------|--------|
@@ -236,7 +249,7 @@ Disk Usage Estimate:
 | PII scrub latency | ~50s/page (CPU) | <10s/page (GPU) |
 | DRG validation latency | <1s | <1s |
 
-### 7.2 Scaling Options
+### <font color="#58a6ff">7.2 Scaling Options</font>
 
 | Scenario | Solution |
 |----------|----------|
@@ -246,9 +259,9 @@ Disk Usage Estimate:
 
 ---
 
-## 8. Backup and Recovery
+## 8. 📌 Backup and Recovery
 
-### 8.1 Backup Scope
+### <font color="#58a6ff">8.1 Backup Scope</font>
 
 | Component | Backup Frequency | Retention |
 |-----------|------------------|-----------|
@@ -257,7 +270,7 @@ Disk Usage Estimate:
 | Logs | Daily | 90 days |
 | Models | On update | 2 versions |
 
-### 8.2 Recovery Procedures
+### <font color="#58a6ff">8.2 Recovery Procedures</font>
 
 | Scenario | RTO | RPO | Procedure |
 |----------|-----|-----|-----------|
@@ -267,9 +280,9 @@ Disk Usage Estimate:
 
 ---
 
-## 9. Monitoring and Alerting
+## 9. 📌 Monitoring and Alerting
 
-### 9.1 Health Metrics
+### <font color="#58a6ff">9.1 Health Metrics</font>
 
 | Metric | Check Interval | Alert Threshold |
 |--------|----------------|-----------------|
@@ -278,7 +291,7 @@ Disk Usage Estimate:
 | Disk space | 1 hour | < 10% free |
 | Memory usage | 5 min | > 90% used |
 
-### 9.2 Health Check Command
+### <font color="#58a6ff">9.2 Health Check Command</font>
 
 ```bash
 python cds_brain.py --health
@@ -286,9 +299,9 @@ python cds_brain.py --health
 
 ---
 
-## 10. Cost Estimation
+## 10. 📌 Cost Estimation
 
-### 10.1 Infrastructure Costs
+### <font color="#58a6ff">10.1 Infrastructure Costs</font>
 
 | Component | Type | Estimated Cost |
 |-----------|------|----------------|
@@ -296,7 +309,7 @@ python cds_brain.py --health
 | Gemini API | Per 1K tokens | ~$0.001-0.002 |
 | Storage | Per GB/month | ~$0.10 |
 
-### 10.2 Per-Case Cost
+### <font color="#58a6ff">10.2 Per-Case Cost</font>
 
 | Component | Cost per Case |
 |-----------|---------------|
@@ -306,7 +319,7 @@ python cds_brain.py --health
 
 ---
 
-## 11. Document Approval
+## 11. 📝 Document Approval
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|

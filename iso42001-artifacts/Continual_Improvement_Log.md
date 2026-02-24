@@ -1,29 +1,43 @@
-# Continual Improvement Log
-## MedFlow V3 Clinical Decision Support System
+<div align="center">
 
-**Document ID:** MF-ISO-15
-**Title:** Continual Improvement Log
-**Version:** 1.5
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clauses 10.1, 10.2 – Continual Improvement & Corrective Action
-**Supersedes:** MF-ISO42001-CIL-001 v1.4 (2026-02-10)
+# Continual Improvement Log
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-1%2E5-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clauses_10.1%2F10.2-7b2d8b?style=flat-square)]()
+[![Improvements](https://img.shields.io/badge/Improvements-15_Documented-0052cc?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-15 |
+| **Version** | 1.5 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clauses 10.1, 10.2 – Continual Improvement & Corrective Action |
+| **Supersedes** | MF-ISO42001-CIL-001 v1.4 (2026-02-10) |
 
 ---
 
-## 1. Purpose
+
+## 1. 📋 Purpose
 
 This document maintains a register of all improvements made to the MedFlow V3 AI Management System (AIMS) in accordance with ISO 42001:2023 Clauses 10.1 (Nonconformity and Corrective Action) and 10.2 (Continual Improvement). It tracks realized improvements, their sources, benefits, and evidence across the project lifecycle.
 
 ---
 
-## 2. Improvement Process
+## 2. 📈 Improvement Process
 
-### 2.1 Improvement Sources
+### <font color="#58a6ff">2.1 Improvement Sources</font>
 
 | Source | Description | Examples |
 |--------|-------------|----------|
@@ -33,7 +47,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Code Review** | Defects or optimization opportunities in source code | PII scrubber strategy, deprecation warnings |
 | **Risk Register** | Mitigation actions from identified risks | Hallucination prevention, PII leakage controls |
 
-### 2.2 Improvement Categories
+### <font color="#58a6ff">2.2 Improvement Categories</font>
 
 | Category | Code | Description |
 |----------|------|-------------|
@@ -43,7 +57,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | Reliability | RELI | Error handling, self-healing, crash prevention |
 | Usability | USAB | Dashboard UX, output clarity, terminology |
 
-### 2.3 Priority Scoring
+### <font color="#58a6ff">2.3 Priority Scoring</font>
 
 | Priority | Criteria |
 |----------|----------|
@@ -54,9 +68,9 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 
 ---
 
-## 3. Improvement Register - Completed
+## 3. 📈 Improvement Register - Completed
 
-### IMP-001: Gemini Auto-Fallback Self-Healing
+### <font color="#58a6ff">IMP-001: Gemini Auto-Fallback Self-Healing</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-001 |
@@ -69,7 +83,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Evidence** | `gemini_client.py` v1.0.0 - MODEL_FALLBACK_ORDER, auto-retry logic |
 | **Status** | COMPLETED |
 
-### IMP-002: PII Scrubber Extraction Strategy
+### <font color="#58a6ff">IMP-002: PII Scrubber Extraction Strategy</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-002 |
@@ -82,7 +96,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Evidence** | `pii_scrubber.py` v2.1.0 - `_extract_pii_entities()`, JSON output mode |
 | **Status** | COMPLETED |
 
-### IMP-003: Knowledge Base Word Boundary Fix
+### <font color="#58a6ff">IMP-003: Knowledge Base Word Boundary Fix</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-003 |
@@ -95,7 +109,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Evidence** | `knowledge_base.py` v1.4.0 - STOP_WORDS, `_variant_matches_text()`, `--test-strict` |
 | **Status** | COMPLETED |
 
-### IMP-004: General Clinical Reasoning Fallback
+### <font color="#58a6ff">IMP-004: General Clinical Reasoning Fallback</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-004 |
@@ -108,7 +122,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Evidence** | `cds_brain.py` v1.1.0 - General Clinical Standards fallback block |
 | **Status** | COMPLETED |
 
-### IMP-005: DRG Clinical Validator Engine
+### <font color="#58a6ff">IMP-005: DRG Clinical Validator Engine</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-005 |
@@ -121,7 +135,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Evidence** | `drg_validator.py` v1.0.0, `data/drg_clinical_rules.json` v1.1.0, `cds_brain.py` v1.2.0 |
 | **Status** | COMPLETED |
 
-### IMP-006: Risk Register Consolidation
+### <font color="#58a6ff">IMP-006: Risk Register Consolidation</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-006 |
@@ -134,7 +148,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Evidence** | `iso42001-artifacts/AI_Risk_Register.md` v3.0 |
 | **Status** | COMPLETED |
 
-### IMP-007: Dashboard Crash-Proofing
+### <font color="#58a6ff">IMP-007: Dashboard Crash-Proofing</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-007 |
@@ -147,7 +161,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Evidence** | `dashboard_utils.py` v1.1.0 - `_safe_str()`, 15 guard locations |
 | **Status** | COMPLETED |
 
-### IMP-008: Streamlit API Deprecation Fixes
+### <font color="#58a6ff">IMP-008: Streamlit API Deprecation Fixes</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-008 |
@@ -160,7 +174,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Evidence** | `app.py` v1.0.1, `dashboard_utils.py` v1.1.0 |
 | **Status** | COMPLETED |
 
-### IMP-009: Terminology System (Rosetta Stone)
+### <font color="#58a6ff">IMP-009: Terminology System (Rosetta Stone)</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-009 |
@@ -173,7 +187,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Evidence** | `terminology_system.py` v1.0.0, `app.py` v1.1.0, `dashboard_utils.py` v1.2.0 |
 | **Status** | COMPLETED |
 
-### IMP-010: ISO 42001 Evidence Generation
+### <font color="#58a6ff">IMP-010: ISO 42001 Evidence Generation</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-010 |
@@ -188,9 +202,9 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 
 ---
 
-## 4. Improvement Register - Planned
+## 4. 📈 Improvement Register - Planned
 
-### IMP-011: Competence Assessment Matrix (NC-001)
+### <font color="#58a6ff">IMP-011: Competence Assessment Matrix (NC-001)</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-011 |
@@ -203,7 +217,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Evidence** | `iso42001-artifacts/Competence_Assessment_Matrix.md` (MF-ISO42001-CAM-001) |
 | **Status** | COMPLETED |
 
-### IMP-012: Algorithmic Fairness Test Suite (NC-002)
+### <font color="#58a6ff">IMP-012: Algorithmic Fairness Test Suite (NC-002)</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-012 |
@@ -216,7 +230,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Completion Date** | 2026-02-10 |
 | **Status** | **COMPLETED** |
 
-### IMP-013: Automated Drift Detection (NC-003)
+### <font color="#58a6ff">IMP-013: Automated Drift Detection (NC-003)</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-013 |
@@ -229,7 +243,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Completion Date** | 2026-02-16 |
 | **Status** | **COMPLETED** |
 
-### IMP-014: Missing Clinical Protocols
+### <font color="#58a6ff">IMP-014: Missing Clinical Protocols</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-014 |
@@ -240,7 +254,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Target Date** | 2026-03-31 |
 | **Status** | PLANNED |
 
-### IMP-015: Clinical Pipeline Corrective Action (NC-004)
+### <font color="#58a6ff">IMP-015: Clinical Pipeline Corrective Action (NC-004)</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-015 |
@@ -257,7 +271,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Phase D Results** | 5 UI findings remediated in `dashboard_utils.py` v1.3.0 + `terminology_system.py` v1.1.0. Error banners for missing grade/trajectory (UI-01). Precise confidence with threshold context (UI-02). Dropped timeline event warnings (UI-03). Out-of-range confidence flagging (UI-04). Threshold-aligned terminology labels (UI-05). |
 | **Phase E Results** | Full pipeline re-validation: 5/5 cases produce clinically appropriate decisions. Simple AKI→EXTENSION(95%), Medium Appendicitis→DISCHARGE(88%), Medium Appendicitis+cardiac→ESCALATE(95%), Complex Sepsis→EXTENSION(88%), Complex CHF→EXTENSION(95%). Confidence calibration verified. DRG context flowing to decisions. NC-004 CLOSED. |
 
-### IMP-016: Clinical Audit Failure Remediation (NC-005)
+### <font color="#58a6ff">IMP-016: Clinical Audit Failure Remediation (NC-005)</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-016 |
@@ -270,7 +284,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | **Evidence** | `synthetic_data.py` v2.1.0→v3.0.0 (Fix A), `cds_brain.py` v1.4.0 (Fix B/C), `output/masterpiece_result.json` |
 | **Status** | **COMPLETED** |
 
-### IMP-017: V3.0 Clinical Simulation Engine
+### <font color="#58a6ff">IMP-017: V3.0 Clinical Simulation Engine</font>
 | Attribute | Detail |
 |-----------|--------|
 | **ID** | IMP-017 |
@@ -285,7 +299,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 
 ---
 
-## 5. Improvement Summary by Category
+## 5. 📊 Improvement Summary by Category
 
 | Category | Completed | Planned | Total |
 |----------|-----------|---------|-------|
@@ -296,7 +310,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | Usability (USAB) | 1 | 0 | 1 |
 | **Total** | **15** | **1** | **16** |
 
-### Priority Distribution (Completed)
+### <font color="#58a6ff">Priority Distribution (Completed)</font>
 
 | Priority | Count | Percentage |
 |----------|-------|------------|
@@ -305,7 +319,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 | P3 - Medium | 3 | 20% |
 | P4 - Low | 1 | 7% |
 
-### Improvement Trend
+### <font color="#58a6ff">Improvement Trend</font>
 
 | Session | Improvements Implemented | Focus Area |
 |---------|------------------------|------------|
@@ -322,7 +336,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 
 ---
 
-## Document Approval
+## 📝 Document Approval
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|
@@ -331,7 +345,7 @@ This document maintains a register of all improvements made to the MedFlow V3 AI
 
 ---
 
-## Revision History
+## 📌 Revision History
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|

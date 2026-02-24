@@ -1,29 +1,43 @@
-# AI Risk Register
-## MedFlow V3 Clinical Decision Support System
+<div align="center">
 
-**Document ID:** MF-ISO-05
-**Title:** AI Risk Register
-**Version:** 5.1
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 6.1, Annex A.4 – AI System Risk Management
-**Supersedes:** MF-ISO42001-A4-001 v5.0 (2026-02-16)
+# AI Risk Register
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-5%2E1-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_6.1-7b2d8b?style=flat-square)]()
+[![Risks](https://img.shields.io/badge/Risks-16_Documented-e67e22?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-05 |
+| **Version** | 5.1 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 6.1, Annex A.4 – AI System Risk Management |
+| **Supersedes** | MF-ISO42001-A4-001 v5.0 (2026-02-16) |
 
 ---
 
-## 1. Purpose
+
+## 1. 📋 Purpose
 
 This register documents identified AI-specific risks, their assessment, and implemented controls for MedFlow V3. It is a living document updated as risks are identified, mitigated, or realized.
 
 ---
 
-## 2. Risk Assessment Methodology
+## 2. 🔍 Risk Assessment Methodology
 
-### 2.1 Likelihood Scale
+### <font color="#58a6ff">2.1 Likelihood Scale</font>
 
 | Level | Score | Definition |
 |-------|-------|------------|
@@ -33,7 +47,7 @@ This register documents identified AI-specific risks, their assessment, and impl
 | Likely | 4 | Will probably occur |
 | Almost Certain | 5 | Expected to occur |
 
-### 2.2 Impact Scale
+### <font color="#58a6ff">2.2 Impact Scale</font>
 
 | Level | Score | Definition |
 |-------|-------|------------|
@@ -43,7 +57,7 @@ This register documents identified AI-specific risks, their assessment, and impl
 | Major | 4 | Serious harm, regulatory implications |
 | Catastrophic | 5 | Patient harm, legal action, system shutdown |
 
-### 2.3 Risk Rating
+### <font color="#58a6ff">2.3 Risk Rating</font>
 
 **Risk Score = Likelihood × Impact**
 
@@ -56,9 +70,9 @@ This register documents identified AI-specific risks, their assessment, and impl
 
 ---
 
-## 3. Risk Register
+## 3. ⚠️ Risk Register
 
-### RISK-001: PII Data Leakage
+### <font color="#58a6ff">RISK-001: PII Data Leakage</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -79,7 +93,7 @@ This register documents identified AI-specific risks, their assessment, and impl
 
 ---
 
-### RISK-002: AI Hallucination - Wrong Protocol Citation
+### <font color="#58a6ff">RISK-002: AI Hallucination - Wrong Protocol Citation</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -109,7 +123,7 @@ This register documents identified AI-specific risks, their assessment, and impl
 
 ---
 
-### RISK-003: PII Scrubbing Latency
+### <font color="#58a6ff">RISK-003: PII Scrubbing Latency</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -141,7 +155,7 @@ This register documents identified AI-specific risks, their assessment, and impl
 
 ---
 
-### RISK-004: Gemini API Unavailability
+### <font color="#58a6ff">RISK-004: Gemini API Unavailability</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -162,7 +176,7 @@ This register documents identified AI-specific risks, their assessment, and impl
 
 ---
 
-### RISK-005: Clinical Decision Accuracy
+### <font color="#58a6ff">RISK-005: Clinical Decision Accuracy</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -193,7 +207,7 @@ This register documents identified AI-specific risks, their assessment, and impl
 
 ---
 
-### RISK-006: Missing Clinical Protocols
+### <font color="#58a6ff">RISK-006: Missing Clinical Protocols</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -218,7 +232,7 @@ This register documents identified AI-specific risks, their assessment, and impl
 
 ---
 
-### RISK-007: DRG Misclassification / Model Bias
+### <font color="#58a6ff">RISK-007: DRG Misclassification / Model Bias</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -251,7 +265,7 @@ This register documents identified AI-specific risks, their assessment, and impl
 
 ---
 
-### RISK-008: Ollama Service Failure
+### <font color="#58a6ff">RISK-008: Ollama Service Failure</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -272,9 +286,9 @@ This register documents identified AI-specific risks, their assessment, and impl
 
 ---
 
-## 4. Risk Summary Dashboard
+## 4. 📊 Risk Summary Dashboard
 
-### 4.1 Technical & Operational Risks
+### <font color="#58a6ff">4.1 Technical & Operational Risks</font>
 
 | Risk ID | Title | Inherent | Residual | Status |
 |---------|-------|----------|----------|--------|
@@ -288,7 +302,7 @@ This register documents identified AI-specific risks, their assessment, and impl
 | RISK-008 | Ollama Service Failure | MEDIUM (8) | LOW (3) | MITIGATED |
 | RISK-016 | Document Metadata Loss in Pipeline | HIGH (15) | HIGH (15) | OPEN (NC-005) |
 
-### 4.2 Strategic & Governance Risks
+### <font color="#58a6ff">4.2 Strategic & Governance Risks</font>
 
 | Risk ID | Title | Inherent | Residual | Status |
 |---------|-------|----------|----------|--------|
@@ -302,7 +316,7 @@ This register documents identified AI-specific risks, their assessment, and impl
 
 ---
 
-## 5. Risk Trend
+## 5. ⚠️ Risk Trend
 
 ```
 Risk Reduction Over Time (Feb 7, 2026):
@@ -331,11 +345,11 @@ By Status:
 
 ---
 
-## 6. Strategic & Governance Risks
+## 6. 📌 Strategic & Governance Risks
 
 *These risks address organization-level concerns beyond technical implementation.*
 
-### RISK-009: Regulatory Non-Alignment
+### <font color="#58a6ff">RISK-009: Regulatory Non-Alignment</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -362,7 +376,7 @@ By Status:
 
 ---
 
-### RISK-010: Model Drift Over Time
+### <font color="#58a6ff">RISK-010: Model Drift Over Time</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -397,7 +411,7 @@ By Status:
 
 ---
 
-### RISK-011: Transparency & Explainability Gaps
+### <font color="#58a6ff">RISK-011: Transparency & Explainability Gaps</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -420,7 +434,7 @@ By Status:
 
 ---
 
-### RISK-012: Research Methodology Validation
+### <font color="#58a6ff">RISK-012: Research Methodology Validation</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -441,7 +455,7 @@ By Status:
 
 ---
 
-### RISK-013: Staffing & Knowledge Continuity
+### <font color="#58a6ff">RISK-013: Staffing & Knowledge Continuity</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -462,7 +476,7 @@ By Status:
 
 ---
 
-### RISK-014: Reputational Risk
+### <font color="#58a6ff">RISK-014: Reputational Risk</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -483,7 +497,7 @@ By Status:
 
 ---
 
-### RISK-015: Conflicting AI Evidence (Gemini vs. DRG Validator)
+### <font color="#58a6ff">RISK-015: Conflicting AI Evidence (Gemini vs. DRG Validator)</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -512,7 +526,7 @@ By Status:
 - When LLM and rule engine disagree, it signals the case needs human clinical review
 - Together they catch different failure modes: LLM misses coding rules, rules miss clinical context
 
-### RISK-016: Document Metadata Loss in Pipeline
+### <font color="#58a6ff">RISK-016: Document Metadata Loss in Pipeline</font>
 
 | Attribute | Value |
 |-----------|-------|
@@ -538,7 +552,7 @@ By Status:
 
 ---
 
-## 7. Document Approval
+## 7. 📝 Document Approval
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|
@@ -548,7 +562,7 @@ By Status:
 
 ---
 
-## 8. Revision History
+## 8. 📌 Revision History
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|

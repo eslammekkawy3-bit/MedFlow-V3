@@ -1,29 +1,43 @@
-# Verification and Validation Plan
-## MedFlow V3 Clinical Decision Support System
+<div align="center">
 
-**Document ID:** MF-ISO-18
-**Title:** Verification and Validation Plan
-**Version:** 2.1
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 8.5, Annex A.9 – AI System Verification and Validation
-**Supersedes:** MF-ISO42001-A9-001 v2.0 (2026-02-07)
+# Verification and Validation Plan
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-2%2E1-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_8.5-7b2d8b?style=flat-square)]()
+[![Tests](https://img.shields.io/badge/Tests-All_Pass-2ea44f?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-18 |
+| **Version** | 2.1 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 8.5, Annex A.9 – AI System Verification and Validation |
+| **Supersedes** | MF-ISO42001-A9-001 v2.0 (2026-02-07) |
 
 ---
 
-## 1. Purpose
+
+## 1. 📋 Purpose
 
 This document defines the verification and validation (V&V) strategy for MedFlow V3, ensuring the AI system performs as intended, produces reliable outputs, and maintains safety and compliance standards.
 
 ---
 
-## 2. V&V Framework Overview
+## 2. 🔍 V&V Framework Overview
 
-### 2.1 Verification vs. Validation
+### <font color="#58a6ff">2.1 Verification vs. Validation</font>
 
 | Aspect | Verification | Validation |
 |--------|--------------|------------|
@@ -32,7 +46,7 @@ This document defines the verification and validation (V&V) strategy for MedFlow
 | Methods | Unit tests, integration tests | Clinical review, user acceptance |
 | Frequency | Continuous (CI/CD) | Periodic (release gates) |
 
-### 2.2 Test Pyramid
+### <font color="#58a6ff">2.2 Test Pyramid</font>
 
 ```
                     ┌─────────────────┐
@@ -52,9 +66,9 @@ This document defines the verification and validation (V&V) strategy for MedFlow
 
 ---
 
-## 3. Automated Test Suites
+## 3. 🧪 Automated Test Suites
 
-### 3.1 Knowledge Base Strict Matching Test
+### <font color="#58a6ff">3.1 Knowledge Base Strict Matching Test</font>
 
 **Command:** `python knowledge_base.py --test-strict`
 
@@ -89,7 +103,7 @@ TEST SUITE: ALL PASSED
 
 ---
 
-### 3.2 System Health Check
+### <font color="#58a6ff">3.2 System Health Check</font>
 
 **Command:** `python cds_brain.py --health`
 
@@ -119,7 +133,7 @@ TEST SUITE: ALL PASSED
 
 ---
 
-### 3.3 PII Scrubber CLI Test
+### <font color="#58a6ff">3.3 PII Scrubber CLI Test</font>
 
 **Command:** `python pii_scrubber.py --text "<test_text>"`
 
@@ -136,7 +150,7 @@ Patient Ahmed Al-Rashid, MRN-123456, phone +966 55 123 4567
 
 ---
 
-### 3.4 Debug Mode Testing
+### <font color="#58a6ff">3.4 Debug Mode Testing</font>
 
 **Command:** `python knowledge_base.py --reference "<diagnosis>" --debug`
 
@@ -150,9 +164,9 @@ Patient Ahmed Al-Rashid, MRN-123456, phone +966 55 123 4567
 
 ---
 
-## 4. Manual Validation Procedures
+## 4. 📌 Manual Validation Procedures
 
-### 4.1 Clinical Accuracy Review
+### <font color="#58a6ff">4.1 Clinical Accuracy Review</font>
 
 **Frequency:** Quarterly or after major updates
 
@@ -177,7 +191,7 @@ Patient Ahmed Al-Rashid, MRN-123456, phone +966 55 123 4567
 
 ---
 
-### 4.2 PII Leak Testing
+### <font color="#58a6ff">4.2 PII Leak Testing</font>
 
 **Frequency:** After any PII scrubber update
 
@@ -195,7 +209,7 @@ Patient Ahmed Al-Rashid, MRN-123456, phone +966 55 123 4567
 
 ---
 
-### 4.3 Stress Testing
+### <font color="#58a6ff">4.3 Stress Testing</font>
 
 **Frequency:** Before production deployment
 
@@ -215,14 +229,14 @@ Patient Ahmed Al-Rashid, MRN-123456, phone +966 55 123 4567
 
 ---
 
-## 5. Phase 4 Test Record (Feb 7, 2026)
+## 5. 🧪 Phase 4 Test Record (Feb 7, 2026)
 
 **Test Date:** 2026-02-07
 **Verified By:** Automated Test Suite + Manual End-to-End Pipeline
 **Phase:** Phase 4 - Clinical DRG Validator
 **Components Under Test:** `drg_validator.py` v1.0.0, `data/drg_clinical_rules.json` v1.1.0, `cds_brain.py` v1.2.0
 
-### 5.1 DRG Validator Unit Tests
+### <font color="#58a6ff">5.1 DRG Validator Unit Tests</font>
 
 **Command:** `python drg_validator.py --test`
 
@@ -239,7 +253,7 @@ Patient Ahmed Al-Rashid, MRN-123456, phone +966 55 123 4567
 
 **Result: 8/8 PASSED (100%)**
 
-### 5.2 End-to-End Pipeline Test: Complex Sepsis (COMPLEX-E2E-001)
+### <font color="#58a6ff">5.2 End-to-End Pipeline Test: Complex Sepsis (COMPLEX-E2E-001)</font>
 
 **Input:** Synthetic case - 60yo male, septic shock secondary to CAP, ventilator, vasopressors, CRRT dialysis. Claimed DRG: E62B (Respiratory Infection / Simple).
 
@@ -256,7 +270,7 @@ Patient Ahmed Al-Rashid, MRN-123456, phone +966 55 123 4567
 
 **Processing Time:** 42.8 seconds (1 document)
 
-### 5.3 End-to-End Pipeline Test: Messy DKA (CASE-0020-42)
+### <font color="#58a6ff">5.3 End-to-End Pipeline Test: Messy DKA (CASE-0020-42)</font>
 
 **Input:** Real synthetic case from sample_cases/complex - 63yo male, DKA, 4 documents over 10 days, DRG K60A. Contradictory documentation across reports.
 
@@ -279,12 +293,12 @@ Patient Ahmed Al-Rashid, MRN-123456, phone +966 55 123 4567
 
 **Processing Time:** 200.4 seconds (4 documents, including 138s PII scrubbing)
 
-### 5.4 Regression: Knowledge Base Strict Matching
+### <font color="#58a6ff">5.4 Regression: Knowledge Base Strict Matching</font>
 
 **Command:** `python knowledge_base.py --test-strict`
 **Result:** 6/6 PASSED (unchanged from Phase 3)
 
-### 5.5 Test Evidence
+### <font color="#58a6ff">5.5 Test Evidence</font>
 
 | Artifact | Location |
 |----------|----------|
@@ -295,9 +309,9 @@ Patient Ahmed Al-Rashid, MRN-123456, phone +966 55 123 4567
 
 ---
 
-## 6. Regression Testing
+## 6. 📌 Regression Testing
 
-### 5.1 Trigger Conditions
+### <font color="#58a6ff">5.1 Trigger Conditions</font>
 
 Regression tests must run when:
 - Any core module is modified
@@ -305,7 +319,7 @@ Regression tests must run when:
 - Knowledge base protocols are added/removed
 - Configuration changes are deployed
 
-### 5.2 Regression Test Suite
+### <font color="#58a6ff">5.2 Regression Test Suite</font>
 
 | Test ID | Module | Test Type | Command |
 |---------|--------|-----------|---------|
@@ -317,9 +331,9 @@ Regression tests must run when:
 
 ---
 
-## 7. Acceptance Criteria
+## 7. 📌 Acceptance Criteria
 
-### 6.1 Release Gate Requirements
+### <font color="#58a6ff">6.1 Release Gate Requirements</font>
 
 | Requirement | Threshold | Status |
 |-------------|-----------|--------|
@@ -330,7 +344,7 @@ Regression tests must run when:
 | Clinical accuracy | >= 90% | Required |
 | Documentation complete | Yes | Required |
 
-### 6.2 Known Limitations
+### <font color="#58a6ff">6.2 Known Limitations</font>
 
 | Limitation | Impact | Mitigation |
 |------------|--------|------------|
@@ -340,9 +354,9 @@ Regression tests must run when:
 
 ---
 
-## 8. Test Evidence Repository
+## 8. 🧪 Test Evidence Repository
 
-### 7.1 Storage Location
+### <font color="#58a6ff">7.1 Storage Location</font>
 
 ```
 C:\Medflow Master Brain\
@@ -353,7 +367,7 @@ C:\Medflow Master Brain\
     └── test_pii_scrubbing.py
 ```
 
-### 7.2 Retention
+### <font color="#58a6ff">7.2 Retention</font>
 
 - Test results: 1 year
 - Logs: 90 days
@@ -361,9 +375,9 @@ C:\Medflow Master Brain\
 
 ---
 
-## 9. Continuous Improvement
+## 9. 📈 Continuous Improvement
 
-### 8.1 Defect Tracking
+### <font color="#58a6ff">8.1 Defect Tracking</font>
 
 | Severity | Response Time | Resolution Time |
 |----------|---------------|-----------------|
@@ -372,7 +386,7 @@ C:\Medflow Master Brain\
 | Medium (performance) | 24 hours | 1 week |
 | Low (cosmetic) | 1 week | 1 month |
 
-### 8.2 Lessons Learned
+### <font color="#58a6ff">8.2 Lessons Learned</font>
 
 Document after each incident:
 - Root cause analysis
@@ -382,7 +396,7 @@ Document after each incident:
 
 ---
 
-## 10. Document Approval
+## 10. 📝 Document Approval
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|

@@ -1,21 +1,35 @@
-# AI Data Policy
-## MedFlow V3 Clinical Decision Support System
+<div align="center">
 
-**Document ID:** MF-ISO-06
-**Title:** AI Data Policy
-**Version:** 2.0
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 7.3, Annex A.6 – Data for AI Systems; PDPL Articles 6 & 9
-**Supersedes:** MF-ISO42001-A6-001 v1.0 (2026-02-04)
+# AI Data Policy
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-2%2E0-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_7.3-7b2d8b?style=flat-square)]()
+[![PDPL](https://img.shields.io/badge/PDPL-Compliant-0052cc?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-06 |
+| **Version** | 2.0 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 7.3, Annex A.6 – Data for AI Systems; PDPL Articles 6 & 9 |
+| **Supersedes** | MF-ISO42001-A6-001 v1.0 (2026-02-04) |
 
 ---
 
-## 1. Purpose
+
+## 1. 📋 Purpose
 
 This document establishes the data governance policies for MedFlow V3, ensuring compliance with:
 - ISO 42001:2023 (AI Management System)
@@ -25,9 +39,9 @@ This document establishes the data governance policies for MedFlow V3, ensuring 
 
 ---
 
-## 2. Data Classification
+## 2. 💾 Data Classification
 
-### 2.1 Data Categories
+### <font color="#58a6ff">2.1 Data Categories</font>
 
 | Category | Description | Sensitivity | Handling |
 |----------|-------------|-------------|----------|
@@ -36,7 +50,7 @@ This document establishes the data governance policies for MedFlow V3, ensuring 
 | **Clinical** | Diagnoses, treatments, vitals | MEDIUM | Anonymized for analysis |
 | **Operational** | Logs, metrics, configs | LOW | Standard protection |
 
-### 2.2 PII Elements Identified
+### <font color="#58a6ff">2.2 PII Elements Identified</font>
 
 The system identifies and redacts the following PII types:
 
@@ -54,9 +68,9 @@ The system identifies and redacts the following PII types:
 
 ---
 
-## 3. Data Minimization Principles
+## 3. 💾 Data Minimization Principles
 
-### 3.1 Extraction vs. Rewriting Strategy
+### <font color="#58a6ff">3.1 Extraction vs. Rewriting Strategy</font>
 
 **Policy:** The system uses an "Extraction" strategy rather than "Rewriting" to minimize data exposure and prevent AI hallucination.
 
@@ -82,7 +96,7 @@ NEW APPROACH (Implemented):
 {"persons": ["name1", "name2"], "hospitals": ["hospital1"]}
 ```
 
-### 3.2 Strict Matching Policy
+### <font color="#58a6ff">3.2 Strict Matching Policy</font>
 
 **Policy:** The Knowledge Base uses strict matching to prevent irrelevant data associations.
 
@@ -104,9 +118,9 @@ NEW APPROACH (Implemented):
 
 ---
 
-## 4. Data Localization (PDPL Compliance)
+## 4. 💾 Data Localization (PDPL Compliance)
 
-### 4.1 Local Processing Requirement
+### <font color="#58a6ff">4.1 Local Processing Requirement</font>
 
 **Policy:** All PII processing MUST occur within Saudi Arabia jurisdiction.
 
@@ -121,7 +135,7 @@ NEW APPROACH (Implemented):
 
 *Note: Only anonymized (scrubbed) data is sent to cloud services.
 
-### 4.2 Data Flow Controls
+### <font color="#58a6ff">4.2 Data Flow Controls</font>
 
 ```
 [Raw Medical Data] ─── LOCAL ONLY ───► [PII Scrubber]
@@ -132,9 +146,9 @@ NEW APPROACH (Implemented):
 
 ---
 
-## 5. Data Quality Controls
+## 5. 💾 Data Quality Controls
 
-### 5.1 Input Validation
+### <font color="#58a6ff">5.1 Input Validation</font>
 
 | Check | Implementation | Action on Failure |
 |-------|----------------|-------------------|
@@ -142,7 +156,7 @@ NEW APPROACH (Implemented):
 | Character encoding | UTF-8 | Convert or reject |
 | File format | PDF, TXT, JSON | Reject unsupported |
 
-### 5.2 Output Validation
+### <font color="#58a6ff">5.2 Output Validation</font>
 
 | Check | Implementation | Action on Failure |
 |-------|----------------|-------------------|
@@ -152,9 +166,9 @@ NEW APPROACH (Implemented):
 
 ---
 
-## 6. Audit Trail Requirements
+## 6. 🔎 Audit Trail Requirements
 
-### 6.1 PII Manifest
+### <font color="#58a6ff">6.1 PII Manifest</font>
 
 Every scrubbing operation generates a manifest containing:
 
@@ -178,7 +192,7 @@ Every scrubbing operation generates a manifest containing:
 
 **Note:** Actual PII values are NOT stored. Only SHA-256 hashes for tracking.
 
-### 6.2 Processing Logs
+### <font color="#58a6ff">6.2 Processing Logs</font>
 
 | Event | Logged Data |
 |-------|-------------|
@@ -190,9 +204,9 @@ Every scrubbing operation generates a manifest containing:
 
 ---
 
-## 7. Data Retention
+## 7. 💾 Data Retention
 
-### 7.1 Retention Periods
+### <font color="#58a6ff">7.1 Retention Periods</font>
 
 | Data Type | Retention Period | Disposal Method |
 |-----------|------------------|-----------------|
@@ -202,7 +216,7 @@ Every scrubbing operation generates a manifest containing:
 | Processing logs | 1 year | Automatic purge |
 | Model outputs | 7 years | Secure deletion |
 
-### 7.2 Right to Erasure
+### <font color="#58a6ff">7.2 Right to Erasure</font>
 
 The system supports data subject rights through:
 - PII hash tracking (enables identification without storage)
@@ -211,16 +225,16 @@ The system supports data subject rights through:
 
 ---
 
-## 8. Third-Party Data Sharing
+## 8. 💾 Third-Party Data Sharing
 
-### 8.1 Approved Recipients
+### <font color="#58a6ff">8.1 Approved Recipients</font>
 
 | Recipient | Data Shared | Purpose | Controls |
 |-----------|-------------|---------|----------|
 | Google Gemini | Anonymized text only | Clinical analysis | API encryption, no storage |
 | None | Raw PII | N/A | Prohibited |
 
-### 8.2 Prohibited Actions
+### <font color="#58a6ff">8.2 Prohibited Actions</font>
 
 - Sharing raw PII with any external party
 - Storing PII in cloud services
@@ -229,9 +243,9 @@ The system supports data subject rights through:
 
 ---
 
-## 9. Incident Response
+## 9. 📌 Incident Response
 
-### 9.1 Data Breach Protocol
+### <font color="#58a6ff">9.1 Data Breach Protocol</font>
 
 1. **Detection:** PII leak detected in validation layer
 2. **Containment:** Halt processing, isolate affected case
@@ -239,7 +253,7 @@ The system supports data subject rights through:
 4. **Investigation:** Root cause analysis
 5. **Remediation:** System update, revalidation
 
-### 9.2 Escalation Contacts
+### <font color="#58a6ff">9.2 Escalation Contacts</font>
 
 | Role | Responsibility |
 |------|----------------|
@@ -249,7 +263,7 @@ The system supports data subject rights through:
 
 ---
 
-## 10. Document Approval
+## 10. 📝 Document Approval
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|

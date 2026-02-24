@@ -1,21 +1,35 @@
-# Document Control Register
-## MedFlow V3 Clinical Decision Support System — AIMS Master Document Index
+<div align="center">
 
-**Document ID:** MF-ISO-21
-**Title:** Document Control Register
-**Version:** 1.1
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 7.5 – Documented Information (Control of documented information)
-**Supersedes:** MF-ISO-21 v1.0 (2026-02-21) — MF-ISO-01/02/03/04/19 migrated from .docx to .md; all documents now 100% Markdown
+# Document Control Register
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-1%2E1-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_7.5-7b2d8b?style=flat-square)]()
+[![Documents](https://img.shields.io/badge/Documents-21_Controlled-0052cc?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-21 |
+| **Version** | 1.1 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 7.5 – Documented Information |
+| **Supersedes** | MF-ISO-21 v1.0 (2026-02-21) |
 
 ---
 
-## 1. Purpose
+
+## 1. 📋 Purpose
 
 This Document Control Register (DCR) serves as the master index for all controlled documents within the MedFlow V3 AI Management System (AIMS). It ensures that:
 
@@ -29,7 +43,7 @@ This Document Control Register (DCR) serves as the master index for all controll
 
 ---
 
-## 2. Document Status Definitions
+## 2. 📝 Document Status Definitions
 
 | Status | Definition |
 |--------|-----------|
@@ -40,9 +54,9 @@ This Document Control Register (DCR) serves as the master index for all controll
 
 ---
 
-## 3. Master Document Register
+## 3. 📝 Master Document Register
 
-### 3.1 Tier 1: Foundational AIMS Documents (Policy & Scope)
+### <font color="#58a6ff">3.1 Tier 1: Foundational AIMS Documents (Policy & Scope)</font>
 
 | Doc ID | Title | Filename | Format | Version | Status | Date | Owner | Review Cycle |
 |--------|-------|----------|--------|---------|--------|------|-------|-------------|
@@ -55,7 +69,7 @@ This Document Control Register (DCR) serves as the master index for all controll
 
 ---
 
-### 3.2 Tier 2: Risk, Assessment & Compliance Documents
+### <font color="#58a6ff">3.2 Tier 2: Risk, Assessment & Compliance Documents</font>
 
 | Doc ID | Title | Filename | Format | Version | Status | Date | Owner | Review Cycle | ISO 42001 Clause |
 |--------|-------|----------|--------|---------|--------|------|-------|-------------|-----------------|
@@ -68,7 +82,7 @@ This Document Control Register (DCR) serves as the master index for all controll
 
 ---
 
-### 3.3 Tier 3: Technical System Documents
+### <font color="#58a6ff">3.3 Tier 3: Technical System Documents</font>
 
 | Doc ID | Title | Filename | Format | Version | Status | Date | Owner | Review Cycle | ISO 42001 Clause |
 |--------|-------|----------|--------|---------|--------|------|-------|-------------|-----------------|
@@ -78,7 +92,7 @@ This Document Control Register (DCR) serves as the master index for all controll
 
 ---
 
-### 3.4 Tier 4: Audit, Review & Governance Documents
+### <font color="#58a6ff">3.4 Tier 4: Audit, Review & Governance Documents</font>
 
 | Doc ID | Title | Filename | Format | Version | Status | Date | Owner | Review Cycle | ISO 42001 Clause |
 |--------|-------|----------|--------|---------|--------|------|-------|-------------|-----------------|
@@ -90,7 +104,7 @@ This Document Control Register (DCR) serves as the master index for all controll
 
 ---
 
-### 3.5 Tier 5: Operational & User-Facing Documents
+### <font color="#58a6ff">3.5 Tier 5: Operational & User-Facing Documents</font>
 
 | Doc ID | Title | Filename | Format | Version | Status | Date | Owner | Review Cycle | ISO 42001 Clause |
 |--------|-------|----------|--------|---------|--------|------|-------|-------------|-----------------|
@@ -98,7 +112,7 @@ This Document Control Register (DCR) serves as the master index for all controll
 
 ---
 
-## 4. Version History Summary (Document Evolution Tracker)
+## 4. 📊 Version History Summary (Document Evolution Tracker)
 
 | Doc ID | v1.0 | v1.1 | v2.0 | v3.0 | v5.0+ | Current |
 |--------|------|------|------|------|-------|---------|
@@ -126,9 +140,9 @@ This Document Control Register (DCR) serves as the master index for all controll
 
 ---
 
-## 5. Document Control Procedure
+## 5. 🛡️ Document Control Procedure
 
-### 5.1 Issuance & Approval
+### <font color="#58a6ff">5.1 Issuance & Approval</font>
 
 1. Author drafts document and assigns next version number
 2. Reviewer validates content against applicable ISO 42001 clause
@@ -136,7 +150,7 @@ This Document Control Register (DCR) serves as the master index for all controll
 4. Document is saved to `iso42001-artifacts/` with updated header
 5. DCR (this document) is updated with new version and date
 
-### 5.2 Version Numbering Convention
+### <font color="#58a6ff">5.2 Version Numbering Convention</font>
 
 | Change Type | Version Increment | Example |
 |-------------|-------------------|---------|
@@ -144,7 +158,7 @@ This Document Control Register (DCR) serves as the master index for all controll
 | Minor revision (content update, additional entries) | X.Y → X.(Y+1) | v1.4 → v1.5 |
 | Typographical / document control header only | X.Y → X.Y (same) | v1.5 (no increment needed) |
 
-### 5.3 Retention Policy
+### <font color="#58a6ff">5.3 Retention Policy</font>
 
 | Document Tier | Retention Period | Disposal |
 |--------------|-----------------|---------|
@@ -154,7 +168,7 @@ This Document Control Register (DCR) serves as the master index for all controll
 | Tier 4 (Audit/Governance) | 7 years from audit date | Secure deletion |
 | Tier 5 (Operational) | 3 years from version date | Secure deletion |
 
-### 5.4 Distribution Control
+### <font color="#58a6ff">5.4 Distribution Control</font>
 
 All documents in this register are classified **CONFIDENTIAL – Internal Use Only** unless explicitly marked otherwise. External distribution (e.g., certification body auditors, GitHub publication) requires:
 
@@ -164,7 +178,7 @@ All documents in this register are classified **CONFIDENTIAL – Internal Use On
 
 ---
 
-## 6. GitHub Publication Checklist
+## 6. 📌 GitHub Publication Checklist
 
 For ISO portfolio publication on GitHub, verify each document:
 
@@ -194,7 +208,7 @@ For ISO portfolio publication on GitHub, verify each document:
 
 ---
 
-## 7. Document Approval
+## 7. 📝 Document Approval
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|
@@ -203,7 +217,7 @@ For ISO portfolio publication on GitHub, verify each document:
 
 ---
 
-## 8. Revision History
+## 8. 📌 Revision History
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|

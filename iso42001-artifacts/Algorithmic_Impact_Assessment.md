@@ -1,21 +1,35 @@
-# Algorithmic Impact Assessment
-## MedFlow V3 Clinical Decision Support System
+<div align="center">
 
-**Document ID:** MF-ISO-09
-**Title:** Algorithmic Impact Assessment
-**Version:** 1.1
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 8.2, Annex A.5 – AI System Impact Assessment
-**Supersedes:** MF-ISO42001-AIA-001 v1.0 (2026-02-06)
+# Algorithmic Impact Assessment
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-1%2E1-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_8.2-7b2d8b?style=flat-square)]()
+[![Risk Rating](https://img.shields.io/badge/Risk_Rating-MEDIUM-e67e22?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-09 |
+| **Version** | 1.1 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 8.2, Annex A.5 – AI System Impact Assessment |
+| **Supersedes** | MF-ISO42001-AIA-001 v1.0 (2026-02-06) |
 
 ---
 
-## 1. Executive Summary
+
+## 1. 📋 Executive Summary
 
 This Algorithmic Impact Assessment (AIA) evaluates the potential effects of deploying MedFlow V3's AI-assisted clinical decision support system in healthcare insurance contexts. The assessment focuses on three critical dimensions: **Patient Safety**, **Fairness**, and **Human Oversight**.
 
@@ -23,9 +37,9 @@ This Algorithmic Impact Assessment (AIA) evaluates the potential effects of depl
 
 ---
 
-## 2. System Description
+## 2. ⚙️ System Description
 
-### 2.1 Purpose
+### <font color="#58a6ff">2.1 Purpose</font>
 
 MedFlow V3 assists medical reviewers in evaluating inpatient admission requests by:
 - Analyzing clinical documentation (PDFs, DOCX, images)
@@ -33,7 +47,7 @@ MedFlow V3 assists medical reviewers in evaluating inpatient admission requests 
 - Assigning ICD-10 codes and Saudi AR-DRG v9.0 classifications
 - Generating recommendations (HOME CARE / EXTENSION / DISCHARGE)
 
-### 2.2 Decision Authority
+### <font color="#58a6ff">2.2 Decision Authority</font>
 
 | Confidence Level | Action | Human Role |
 |-----------------|--------|------------|
@@ -41,16 +55,16 @@ MedFlow V3 assists medical reviewers in evaluating inpatient admission requests 
 | 70-84% | Standard review | Physician validation required |
 | <70% | Escalated | Senior physician mandatory review |
 
-### 2.3 Scope
+### <font color="#58a6ff">2.3 Scope</font>
 
 - **In-Scope:** Inpatient admission review, length-of-stay decisions, DRG classification
 - **Out-of-Scope:** Emergency decisions, treatment recommendations, medication dosing
 
 ---
 
-## 3. Patient Safety Impact Assessment
+## 3. 💥 Patient Safety Impact Assessment
 
-### 3.1 Risk: Delayed Care Authorization
+### <font color="#58a6ff">3.1 Risk: Delayed Care Authorization</font>
 
 | Attribute | Assessment |
 |-----------|------------|
@@ -70,7 +84,7 @@ MedFlow V3 assists medical reviewers in evaluating inpatient admission requests 
 
 ---
 
-### 3.2 Risk: Missed Critical Diagnoses
+### <font color="#58a6ff">3.2 Risk: Missed Critical Diagnoses</font>
 
 | Attribute | Assessment |
 |-----------|------------|
@@ -90,7 +104,7 @@ MedFlow V3 assists medical reviewers in evaluating inpatient admission requests 
 
 ---
 
-### 3.3 Risk: PII Exposure
+### <font color="#58a6ff">3.3 Risk: PII Exposure</font>
 
 | Attribute | Assessment |
 |-----------|------------|
@@ -110,9 +124,9 @@ MedFlow V3 assists medical reviewers in evaluating inpatient admission requests 
 
 ---
 
-## 4. Fairness & Bias Impact Assessment
+## 4. ⚖️ Fairness & Bias Impact Assessment
 
-### 4.1 DRG Classification Bias
+### <font color="#58a6ff">4.1 DRG Classification Bias</font>
 
 | Attribute | Assessment |
 |-----------|------------|
@@ -139,7 +153,7 @@ For each DRG category:
 
 ---
 
-### 4.2 Recommendation Bias
+### <font color="#58a6ff">4.2 Recommendation Bias</font>
 
 | Attribute | Assessment |
 |-----------|------------|
@@ -154,7 +168,7 @@ For each DRG category:
 
 ---
 
-### 4.3 Protocol Coverage Gaps
+### <font color="#58a6ff">4.3 Protocol Coverage Gaps</font>
 
 | Attribute | Assessment |
 |-----------|------------|
@@ -169,9 +183,9 @@ For each DRG category:
 
 ---
 
-## 5. Human Oversight Requirements
+## 5. 📌 Human Oversight Requirements
 
-### 5.1 Oversight Framework
+### <font color="#58a6ff">5.1 Oversight Framework</font>
 
 | Level | Trigger | Reviewer | Response Time |
 |-------|---------|----------|---------------|
@@ -180,7 +194,7 @@ For each DRG category:
 | **Escalated** | Confidence <70% | Senior Physician | 4 hours |
 | **Emergency** | Time-sensitive dx | On-call Physician | 1 hour |
 
-### 5.2 Override Mechanisms
+### <font color="#58a6ff">5.2 Override Mechanisms</font>
 
 **Reviewer Override:**
 - Any AI recommendation can be overridden with documented rationale
@@ -192,7 +206,7 @@ For each DRG category:
 - Human-only review for appealed cases
 - 48-hour resolution target
 
-### 5.3 Explainability Requirements
+### <font color="#58a6ff">5.3 Explainability Requirements</font>
 
 Each AI recommendation includes:
 1. **Confidence Score** - Numerical certainty (0-100%)
@@ -203,9 +217,9 @@ Each AI recommendation includes:
 
 ---
 
-## 6. Monitoring & Continuous Improvement
+## 6. 📈 Monitoring & Continuous Improvement
 
-### 6.1 Key Performance Indicators
+### <font color="#58a6ff">6.1 Key Performance Indicators</font>
 
 | KPI | Target | Measurement Frequency |
 |-----|--------|----------------------|
@@ -215,7 +229,7 @@ Each AI recommendation includes:
 | Time-to-Decision | <24 hours (avg) | Weekly |
 | PII Leak Incidents | 0 | Continuous |
 
-### 6.2 Bias Audit Schedule
+### <font color="#58a6ff">6.2 Bias Audit Schedule</font>
 
 | Audit Type | Frequency | Owner |
 |------------|-----------|-------|
@@ -226,9 +240,9 @@ Each AI recommendation includes:
 
 ---
 
-## 7. Stakeholder Notification
+## 7. 👥 Stakeholder Notification
 
-### 7.1 Affected Parties
+### <font color="#58a6ff">7.1 Affected Parties</font>
 
 | Stakeholder | Notification Method | Content |
 |-------------|--------------------|---------|
@@ -237,15 +251,15 @@ Each AI recommendation includes:
 | Hospitals | Contract amendment | AI system description, oversight model |
 | Regulators | Annual report | AIA summary, audit results |
 
-### 7.2 Transparency Statement
+### <font color="#58a6ff">7.2 Transparency Statement</font>
 
 > "MedFlow V3 uses artificial intelligence to assist medical reviewers in evaluating inpatient admission requests. AI recommendations are subject to human oversight and can be overridden by qualified medical personnel. The system does not make final decisions without appropriate human validation."
 
 ---
 
-## 8. Conclusion & Recommendations
+## 8. 📌 Conclusion & Recommendations
 
-### 8.1 Summary of Findings
+### <font color="#58a6ff">8.1 Summary of Findings</font>
 
 | Impact Area | Inherent Risk | Residual Risk | Status |
 |-------------|---------------|---------------|--------|
@@ -253,7 +267,7 @@ Each AI recommendation includes:
 | Fairness (DRG Bias) | MEDIUM | LOW-MEDIUM | Monitoring required |
 | Human Oversight | LOW | LOW | Framework established |
 
-### 8.2 Recommendations
+### <font color="#58a6ff">8.2 Recommendations</font>
 
 1. **Immediate:** Complete 100-case validation study with demographic stratification
 2. **Short-term:** Acquire missing clinical protocols (Stroke, ACS, Sepsis)
@@ -262,7 +276,7 @@ Each AI recommendation includes:
 
 ---
 
-## 9. Document Approval
+## 9. 📝 Document Approval
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|
@@ -272,7 +286,7 @@ Each AI recommendation includes:
 
 ---
 
-## 10. Revision History
+## 10. 📌 Revision History
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|

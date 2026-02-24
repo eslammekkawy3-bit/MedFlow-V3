@@ -1,30 +1,45 @@
-# Algorithmic Fairness Report
-## MedFlow V3 Clinical Decision Support System
+<div align="center">
 
-**Document ID:** MF-ISO-10
-**Title:** Algorithmic Fairness Report
-**Version:** 1.1
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 8.2 – AI Impact Assessment (Fairness & Bias)
-**NC Reference:** NC-002 CLOSED (MF-ISO-12 Internal Audit Report)
-**Supersedes:** MF-ISO42001-AFR-001 v1.0 (2026-02-10)
+# Algorithmic Fairness Report
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-1%2E1-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_8.2-7b2d8b?style=flat-square)]()
+[![Fairness](https://img.shields.io/badge/All_Metrics-PASS-2ea44f?style=flat-square)]()
+[![NC-002](https://img.shields.io/badge/NC--002-CLOSED-2ea44f?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-10 |
+| **Version** | 1.1 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 8.2 – AI Impact Assessment (Fairness & Bias) |
+| **NC Reference** | NC-002 CLOSED |
+| **Supersedes** | MF-ISO42001-AFR-001 v1.0 (2026-02-10) |
 
 ---
 
-## 1. Purpose
+
+## 1. 📋 Purpose
 
 This document provides formal evidence of algorithmic fairness testing for the MedFlow V3 CDS pipeline, in accordance with ISO 42001:2023 Clause 8.2 and the methodology defined in `Algorithmic_Impact_Assessment.md`. It measures demographic parity, calibration parity, review level parity, and equal opportunity across gender and age group dimensions, closing Non-Conformance NC-002 raised during the internal audit (2026-02-09).
 
 ---
 
-## 2. Methodology
+## 2. 🔍 Methodology
 
-### 2.1 Test Design
+### <font color="#58a6ff">2.1 Test Design</font>
 
 A controlled demographic fairness test was conducted using the V3.0 Clinical Simulation Engine (`synthetic_data.py` v3.0.0) to generate matched case sets with identical clinical parameters but varying demographics.
 
@@ -37,7 +52,7 @@ A controlled demographic fairness test was conducted using the V3.0 Clinical Sim
 | **Varied Variables** | Patient gender, age, name |
 | **Seed** | 42002 (reproducible) |
 
-### 2.2 Test Diagnoses
+### <font color="#58a6ff">2.2 Test Diagnoses</font>
 
 | Diagnosis | LOS | Clinical Arc | Cases |
 |-----------|-----|-------------|-------|
@@ -46,7 +61,7 @@ A controlled demographic fairness test was conducted using the V3.0 Clinical Sim
 | Acute Myocardial Infarction | 5 days | STANDARD_RECOVERY | 8 |
 | Acute Appendicitis | 2 days | RAPID_RECOVERY | 8 |
 
-### 2.3 Demographic Distribution
+### <font color="#58a6ff">2.3 Demographic Distribution</font>
 
 | Gender | Adult | Geriatric | Total |
 |--------|-------|-----------|-------|
@@ -54,7 +69,7 @@ A controlled demographic fairness test was conducted using the V3.0 Clinical Sim
 | Female | 8 | 8 | 16 |
 | **Total** | **16** | **16** | **32** |
 
-### 2.4 Pipeline Configuration
+### <font color="#58a6ff">2.4 Pipeline Configuration</font>
 
 | Component | Configuration |
 |-----------|--------------|
@@ -64,7 +79,7 @@ A controlled demographic fairness test was conducted using the V3.0 Clinical Sim
 | **Knowledge Base** | 13 MOH Protocol PDFs |
 | **DRG Validator** | 25 MDC categories, severity assessment |
 
-### 2.5 Fairness Metrics Measured
+### <font color="#58a6ff">2.5 Fairness Metrics Measured</font>
 
 Per `Algorithmic_Impact_Assessment.md` Section 4.1:
 
@@ -77,7 +92,7 @@ Per `Algorithmic_Impact_Assessment.md` Section 4.1:
 
 ---
 
-## 3. Test Environment
+## 3. 🧪 Test Environment
 
 | Attribute | Value |
 |-----------|-------|
@@ -91,9 +106,9 @@ Per `Algorithmic_Impact_Assessment.md` Section 4.1:
 
 ---
 
-## 4. Results -- Gender Parity
+## 4. 📊 Results -- Gender Parity
 
-### 4.1 Overall Gender Comparison (N=32)
+### <font color="#58a6ff">4.1 Overall Gender Comparison (N=32)</font>
 
 | Metric | Male (n=16) | Female (n=16) | Variance | Threshold | Result |
 |--------|-------------|---------------|----------|-----------|--------|
@@ -102,7 +117,7 @@ Per `Algorithmic_Impact_Assessment.md` Section 4.1:
 | Auto-Approval Rate | 0.0% | 0.0% | 0.00% | <10% | **PASS** |
 | Proxy FNR | 0.0% | 0.0% | 0.00% | <15% | **PASS** |
 
-### 4.2 Gender Within Each Diagnosis
+### <font color="#58a6ff">4.2 Gender Within Each Diagnosis</font>
 
 | Diagnosis | Metric | Male | Female | Variance | Result |
 |-----------|--------|------|--------|----------|--------|
@@ -117,9 +132,9 @@ Per `Algorithmic_Impact_Assessment.md` Section 4.1:
 
 ---
 
-## 5. Results -- Age Group Parity
+## 5. 📊 Results -- Age Group Parity
 
-### 5.1 Overall Age Group Comparison (N=32)
+### <font color="#58a6ff">5.1 Overall Age Group Comparison (N=32)</font>
 
 | Metric | Adult (n=16) | Geriatric (n=16) | Variance | Threshold | Result |
 |--------|-------------|-------------------|----------|-----------|--------|
@@ -130,7 +145,7 @@ Per `Algorithmic_Impact_Assessment.md` Section 4.1:
 
 ---
 
-## 6. DRG Validation Parity
+## 6. 📌 DRG Validation Parity
 
 The DRG Validator (deterministic, keyword-based) correctly classified cases by diagnosis regardless of demographics:
 
@@ -145,9 +160,9 @@ The DRG Validator (deterministic, keyword-based) correctly classified cases by d
 
 ---
 
-## 7. Fairness Metrics Summary
+## 7. 📊 Fairness Metrics Summary
 
-### 7.1 Overall Results
+### <font color="#58a6ff">7.1 Overall Results</font>
 
 | Metric | Dimensions Tested | Metrics Computed | Passed | Failed | Overall |
 |--------|-------------------|-----------------|--------|--------|---------|
@@ -157,7 +172,7 @@ The DRG Validator (deterministic, keyword-based) correctly classified cases by d
 | Equal Opportunity | 6 | 6 | 6 | 0 | **PASS** |
 | **Total** | **6** | **24** | **24** | **0** | **PASS** |
 
-### 7.2 Comparison to AIA Thresholds
+### <font color="#58a6ff">7.2 Comparison to AIA Thresholds</font>
 
 | AIA Metric | AIA Threshold | Measured Maximum Variance | Status |
 |------------|---------------|--------------------------|--------|
@@ -167,9 +182,9 @@ The DRG Validator (deterministic, keyword-based) correctly classified cases by d
 
 ---
 
-## 8. Limitations and Caveats
+## 8. 📌 Limitations and Caveats
 
-### 8.1 Gemini API Quota Constraint
+### <font color="#58a6ff">8.1 Gemini API Quota Constraint</font>
 
 The test was conducted when the Gemini API daily free-tier quota was exhausted (both gemini-2.0-flash and gemini-2.5-flash returned 429 errors). As a result:
 
@@ -178,7 +193,7 @@ The test was conducted when the Gemini API daily free-tier quota was exhausted (
 - The uniform fallback behavior demonstrates that the non-AI pipeline components do not discriminate by demographics
 - A follow-up test with active Gemini is recommended to validate the AI layer specifically
 
-### 8.2 Other Limitations
+### <font color="#58a6ff">8.2 Other Limitations</font>
 
 | Limitation | Impact | Mitigation |
 |------------|--------|------------|
@@ -188,7 +203,7 @@ The test was conducted when the Gemini API daily free-tier quota was exhausted (
 | No pediatric/neonate groups | Only adult and geriatric tested | Future work per AIA Section 4.1 |
 | Gemini fallback mode | AI layer not directly tested for bias | Follow-up test recommended when quota resets |
 
-### 8.3 Interpretation
+### <font color="#58a6ff">8.3 Interpretation</font>
 
 The zero-variance results are expected given that:
 1. PII scrubbing removes demographic identifiers before analysis
@@ -200,7 +215,7 @@ This architecture demonstrates **fairness by design**: demographics are scrubbed
 
 ---
 
-## 9. Recommendations
+## 9. 📌 Recommendations
 
 | Priority | Recommendation | Target |
 |----------|---------------|--------|
@@ -211,7 +226,7 @@ This architecture demonstrates **fairness by design**: demographics are scrubbed
 
 ---
 
-## 10. NC-002 Disposition
+## 10. 📌 NC-002 Disposition
 
 | Attribute | Detail |
 |-----------|--------|
@@ -225,7 +240,7 @@ This architecture demonstrates **fairness by design**: demographics are scrubbed
 
 ---
 
-## 11. Evidence Artifacts
+## 11. 📌 Evidence Artifacts
 
 | Artifact | Path | Description |
 |----------|------|-------------|
@@ -237,7 +252,7 @@ This architecture demonstrates **fairness by design**: demographics are scrubbed
 
 ---
 
-## Document Approval
+## 📝 Document Approval
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|
@@ -246,7 +261,7 @@ This architecture demonstrates **fairness by design**: demographics are scrubbed
 
 ---
 
-## Revision History
+## 📌 Revision History
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|

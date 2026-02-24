@@ -1,28 +1,41 @@
-# ISO/IEC 42001:2023 Compliance Matrix
-## MedFlow V3 - AI Management System Implementation
+<div align="center">
 
-**Document ID:** MF-ISO-14
-**Title:** ISO/IEC 42001:2023 Compliance Matrix
-**Version:** 1.5
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** All Clauses (4–10) + Annex A + Annex B – Master Compliance Reference
-**Purpose:** Map MedFlow V3 implementation artifacts to ISO/IEC 42001:2023 requirements
-**Supersedes:** MF-ISO42001-MATRIX-001 v1.4 (2026-02-10)
+# ISO/IEC 42001:2023 Compliance Matrix
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-1%2E5-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-All_Clauses-7b2d8b?style=flat-square)]()
+[![Controls](https://img.shields.io/badge/Controls-39%2F39_Implemented-2ea44f?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-14 |
+| **Version** | 1.5 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | All Clauses (4–10) + Annex A + Annex B – Master Compliance Reference |
+| **Supersedes** | MF-ISO42001-MATRIX-001 v1.4 (2026-02-10) |
 
 ---
 
-## How to Read This Matrix
+
+## 📖 How to Read This Matrix
 
 Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artifact. The **Evidence Artifact** column references real files in the project repository. Status values: IMPLEMENTED (control in place), PARTIAL (control exists with known gaps), PLANNED (control designed, not yet operational).
 
 ---
 
-## Clause 4: Context of the Organization
+## ⚖️ Clause 4: Context of the Organization
 
 | ISO 42001 Clause | Requirement | MedFlow Implementation | Evidence Artifact | Status |
 |---|---|---|---|---|
@@ -33,7 +46,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 ---
 
-## Clause 5: Leadership
+## ⚖️ Clause 5: Leadership
 
 | ISO 42001 Clause | Requirement | MedFlow Implementation | Evidence Artifact | Status |
 |---|---|---|---|---|
@@ -43,7 +56,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 ---
 
-## Clause 6: Planning
+## ⚖️ Clause 6: Planning
 
 | ISO 42001 Clause | Requirement | MedFlow Implementation | Evidence Artifact | Status |
 |---|---|---|---|---|
@@ -55,7 +68,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 ---
 
-## Clause 7: Support
+## ⚖️ Clause 7: Support
 
 | ISO 42001 Clause | Requirement | MedFlow Implementation | Evidence Artifact | Status |
 |---|---|---|---|---|
@@ -67,7 +80,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 ---
 
-## Clause 8: Operation
+## ⚖️ Clause 8: Operation
 
 | ISO 42001 Clause | Requirement | MedFlow Implementation | Evidence Artifact | Status |
 |---|---|---|---|---|
@@ -80,7 +93,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 ---
 
-## Clause 9: Performance Evaluation
+## ⚖️ Clause 9: Performance Evaluation
 
 | ISO 42001 Clause | Requirement | MedFlow Implementation | Evidence Artifact | Status |
 |---|---|---|---|---|
@@ -91,7 +104,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 ---
 
-## Clause 10: Improvement
+## 📈 Clause 10: Improvement
 
 | ISO 42001 Clause | Requirement | MedFlow Implementation | Evidence Artifact | Status |
 |---|---|---|---|---|
@@ -101,7 +114,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 ---
 
-## Annex A: Reference Controls
+## 📎 Annex A: Reference Controls
 
 | Annex Control | Requirement | MedFlow Implementation | Evidence Artifact | Status |
 |---|---|---|---|---|
@@ -117,7 +130,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 ---
 
-## Compliance Summary
+## 📊 Compliance Summary
 
 | ISO 42001 Area | Total Controls | Implemented | Partial | Planned |
 |---|---|---|---|---|
@@ -143,7 +156,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 ---
 
-## Document Approval
+## 📝 Document Approval
 
 | Role | Name | Date | Signature |
 |---|---|---|---|
@@ -152,7 +165,7 @@ Each row maps an ISO 42001 clause or Annex A control to a concrete MedFlow artif
 
 ---
 
-## Revision History
+## 📌 Revision History
 
 | Version | Date | Author | Changes |
 |---|---|---|---|

@@ -1,29 +1,42 @@
-# AI System Design Document
-## MedFlow V3 Clinical Decision Support System
+<div align="center">
 
-**Document ID:** MF-ISO-07
-**Title:** AI System Design Document
-**Version:** 3.0
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 8.1, Clause 8.4, Annex A.5 – AI System Life Cycle
-**Supersedes:** MF-ISO42001-A5-001 v2.0 (2026-02-07)
+# AI System Design Document
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-3%2E0-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_8.1-7b2d8b?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-07 |
+| **Version** | 3.0 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 8.1, Clause 8.4, Annex A.5 – AI System Life Cycle |
+| **Supersedes** | MF-ISO42001-A5-001 v2.0 (2026-02-07) |
 
 ---
 
-## 1. Executive Summary
+
+## 1. 📋 Executive Summary
 
 MedFlow V3 is an AI-powered Clinical Decision Support (CDS) system designed to assist healthcare insurance decision-making in Saudi Arabia. The system processes inpatient medical records, extracts clinical information, applies Saudi Ministry of Health (MOH) protocols, and provides evidence-based recommendations for continued hospitalization.
 
 ---
 
-## 2. System Architecture Overview
+## 2. 📊 System Architecture Overview
 
-### 2.1 Five-Layer Pipeline Architecture (Dual-Check Design)
+### <font color="#58a6ff">2.1 Five-Layer Pipeline Architecture (Dual-Check Design)</font>
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -63,7 +76,7 @@ MedFlow V3 is an AI-powered Clinical Decision Support (CDS) system designed to a
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### 2.2 Dual-Check Architecture
+### <font color="#58a6ff">2.2 Dual-Check Architecture</font>
 
 MedFlow V3 employs a **Dual-Check Architecture** for clinical integrity:
 
@@ -79,9 +92,9 @@ MedFlow V3 employs a **Dual-Check Architecture** for clinical integrity:
 
 ---
 
-## 3. Component Specifications
+## 3. 📌 Component Specifications
 
-### 3.1 Layer 1: PII Scrubber (`pii_scrubber.py` v2.1.0)
+### <font color="#58a6ff">3.1 Layer 1: PII Scrubber (`pii_scrubber.py` v2.1.0)</font>
 
 **Purpose:** Remove all Personally Identifiable Information (PII) before cloud processing.
 
@@ -116,7 +129,7 @@ MedFlow V3 employs a **Dual-Check Architecture** for clinical integrity:
 
 ---
 
-### 3.2 Layer 2: Clinical Analysis (`gemini_client.py` v1.0.0)
+### <font color="#58a6ff">3.2 Layer 2: Clinical Analysis (`gemini_client.py` v1.0.0)</font>
 
 **Purpose:** Extract clinical insights from scrubbed medical text.
 
@@ -149,7 +162,7 @@ MedFlow V3 employs a **Dual-Check Architecture** for clinical integrity:
 
 ---
 
-### 3.3 Layer 3: Knowledge Base (`knowledge_base.py` v1.4.0)
+### <font color="#58a6ff">3.3 Layer 3: Knowledge Base (`knowledge_base.py` v1.4.0)</font>
 
 **Purpose:** Match clinical findings to MOH protocols and generate citations.
 
@@ -179,7 +192,7 @@ MedFlow V3 employs a **Dual-Check Architecture** for clinical integrity:
 
 ---
 
-### 3.4 Layer 4: Clinical Integrity Engine (`drg_validator.py` v1.0.0)
+### <font color="#58a6ff">3.4 Layer 4: Clinical Integrity Engine (`drg_validator.py` v1.0.0)</font>
 
 **Purpose:** Validate DRG assignments by cross-checking clinical evidence against claimed codes. No financial calculations.
 
@@ -220,7 +233,7 @@ MedFlow V3 employs a **Dual-Check Architecture** for clinical integrity:
 
 ---
 
-### 3.5 Layer 5: Orchestration (`cds_brain.py` v1.2.0)
+### <font color="#58a6ff">3.5 Layer 5: Orchestration (`cds_brain.py` v1.2.0)</font>
 
 **Purpose:** Coordinate all layers and produce final case result.
 
@@ -252,7 +265,7 @@ MedFlow V3 employs a **Dual-Check Architecture** for clinical integrity:
 
 ---
 
-## 4. Data Flow Diagram
+## 4. 💾 Data Flow Diagram
 
 ```
 [Medical Documents]
@@ -297,9 +310,9 @@ MedFlow V3 employs a **Dual-Check Architecture** for clinical integrity:
 
 ---
 
-## 5. Decision Logic
+## 5. ✅ Decision Logic
 
-### 5.1 Recommendation Categories
+### <font color="#58a6ff">5.1 Recommendation Categories</font>
 
 | Recommendation | Condition | Confidence Required |
 |----------------|-----------|---------------------|
@@ -308,7 +321,7 @@ MedFlow V3 employs a **Dual-Check Architecture** for clinical integrity:
 | EXTENSION | Medical necessity for continued stay | >= 70% |
 | ESCALATE | Uncertain or critical condition | Any |
 
-### 5.2 Review Levels
+### <font color="#58a6ff">5.2 Review Levels</font>
 
 | Review Level | Confidence Range | Action |
 |--------------|------------------|--------|
@@ -319,24 +332,24 @@ MedFlow V3 employs a **Dual-Check Architecture** for clinical integrity:
 
 ---
 
-## 6. Integration Points
+## 6. 📌 Integration Points
 
-### 6.1 External APIs
+### <font color="#58a6ff">6.1 External APIs</font>
 - **Google Gemini API:** Clinical analysis (requires API key)
 - **Ollama Local Server:** PII scrubbing (http://localhost:11434)
 
-### 6.2 File System
+### <font color="#58a6ff">6.2 File System</font>
 - **Input:** Medical documents (PDF, TXT, JSON)
 - **Knowledge Base:** `knowledge-base.moh_protocols/` (13 MOH PDFs)
 - **Output:** JSON case results in `output/` directory
 
-### 6.3 Configuration
+### <font color="#58a6ff">6.3 Configuration</font>
 - **`.env` file:** API keys, model selection
 - **CDSConfig:** Processing thresholds, paths
 
 ---
 
-## 7. Version Control (Current Baseline — 2026-02-21)
+## 7. 🛡️ Version Control (Current Baseline — 2026-02-21)
 
 | Component | Version | Last Updated | Notes |
 |-----------|---------|--------------|-------|
@@ -359,7 +372,7 @@ MedFlow V3 employs a **Dual-Check Architecture** for clinical integrity:
 
 ---
 
-## 8. Document Approval
+## 8. 📝 Document Approval
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|
@@ -369,7 +382,7 @@ MedFlow V3 employs a **Dual-Check Architecture** for clinical integrity:
 
 ---
 
-## 9. Revision History
+## 9. 📌 Revision History
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|

@@ -1,28 +1,42 @@
-# Competence Assessment Matrix
-## MedFlow V3 Clinical Decision Support System
+<div align="center">
 
-**Document ID:** MF-ISO-11
-**Title:** Competence Assessment Matrix
-**Version:** 1.3
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 7.2 – Competence
-**NC Reference:** NC-001 CLOSED (MF-ISO-12 Internal Audit Report)
-**Supersedes:** MF-ISO42001-CAM-001 v1.3 (2026-02-10)
+# Competence Assessment Matrix
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-1%2E3-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_7.2-7b2d8b?style=flat-square)]()
+[![NC-001](https://img.shields.io/badge/NC--001-CLOSED-2ea44f?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-11 |
+| **Version** | 1.3 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 7.2 – Competence |
+| **NC Reference** | NC-001 CLOSED |
+| **Supersedes** | MF-ISO42001-CAM-001 v1.3 (2026-02-10) |
 
 ---
 
-## 1. Purpose
+
+## 1. 📋 Purpose
 
 This document provides formal competence assessment records for all personnel involved in the MedFlow V3 AI Management System (AIMS), in accordance with ISO 42001:2023 Clause 7.2. It maps documented qualifications, certifications, and professional experience to the competency requirements of each AIMS role, closing Non-Conformance NC-001 raised during the internal audit (2026-02-09).
 
 ---
 
-## 2. Personnel Register
+## 2. 👥 Personnel Register
 
 | ID | Name | Current Roles in AIMS | Employment | Location |
 |----|------|----------------------|------------|----------|
@@ -32,15 +46,15 @@ This document provides formal competence assessment records for all personnel in
 
 ---
 
-## 3. Qualifications Evidence
+## 3. 📌 Qualifications Evidence
 
-### 3.1 Academic Qualifications
+### <font color="#58a6ff">3.1 Academic Qualifications</font>
 
 | Qualification | Institution | Country | Relevance to AIMS |
 |---------------|------------|---------|-------------------|
 | MSc, Orthopedic Surgery | Zagazig University | Egypt | Clinical domain expertise; medical degree provides foundation for clinical validation of AI outputs |
 
-### 3.2 Professional Certifications
+### <font color="#58a6ff">3.2 Professional Certifications</font>
 
 | Certification | Issuing Body | Status | Relevance to AIMS |
 |--------------|-------------|--------|-------------------|
@@ -50,7 +64,7 @@ This document provides formal competence assessment records for all personnel in
 | AI in Healthcare Specialization | Stanford University | Completed | AI/ML applications in clinical settings, responsible AI, healthcare data science |
 | IFCE (Insurance Foundation Certificate) | Saudi Central Bank (SAMA) | Active | Saudi insurance regulatory framework, market compliance |
 
-### 3.3 Professional Memberships
+### <font color="#58a6ff">3.3 Professional Memberships</font>
 
 | Organization | Membership Type | Relevance |
 |-------------|----------------|-----------|
@@ -58,9 +72,9 @@ This document provides formal competence assessment records for all personnel in
 
 ---
 
-## 4. Competence Matrix
+## 4. 🎓 Competence Matrix
 
-### 4.1 Role: Lead Researcher & Architect
+### <font color="#58a6ff">4.1 Role: Lead Researcher & Architect</font>
 
 | Competency Area | Required | Evidence | Assessment |
 |----------------|----------|----------|------------|
@@ -72,7 +86,7 @@ This document provides formal competence assessment records for all personnel in
 
 **Overall Assessment: COMPETENT**
 
-### 4.2 Role: Clinical Validator (Self-Review)
+### <font color="#58a6ff">4.2 Role: Clinical Validator (Self-Review)</font>
 
 | Competency Area | Required | Evidence | Assessment |
 |----------------|----------|----------|------------|
@@ -84,7 +98,7 @@ This document provides formal competence assessment records for all personnel in
 
 **Overall Assessment: COMPETENT**
 
-### 4.3 Role: AI Governance Lead (Self-Governance)
+### <font color="#58a6ff">4.3 Role: AI Governance Lead (Self-Governance)</font>
 
 | Competency Area | Required | Evidence | Assessment |
 |----------------|----------|----------|------------|
@@ -98,9 +112,9 @@ This document provides formal competence assessment records for all personnel in
 
 ---
 
-## 5. Professional Experience Summary
+## 5. 📊 Professional Experience Summary
 
-### 5.1 Tawuniya Insurance Company, Riyadh, Saudi Arabia (2019 - Present)
+### <font color="#58a6ff">5.1 Tawuniya Insurance Company, Riyadh, Saudi Arabia (2019 - Present)</font>
 **Position:** Pre-Authorization Manager / Roving Doctor
 
 | Responsibility | Relevance to AIMS |
@@ -111,7 +125,7 @@ This document provides formal competence assessment records for all personnel in
 | Support DRG transition through documentation and clinical coding alignment | DRG Validator design competency |
 | Monitor denial trends and propose improvement strategies | Continual improvement methodology |
 
-### 5.2 Ministry of Health, Egypt (2008 - 2018)
+### <font color="#58a6ff">5.2 Ministry of Health, Egypt (2008 - 2018)</font>
 **Position:** Specialist, Orthopedic Surgery
 
 | Responsibility | Relevance to AIMS |
@@ -121,7 +135,7 @@ This document provides formal competence assessment records for all personnel in
 
 ---
 
-## 6. Languages
+## 6. 📌 Languages
 
 | Language | Proficiency | Relevance |
 |----------|------------|-----------|
@@ -130,7 +144,7 @@ This document provides formal competence assessment records for all personnel in
 
 ---
 
-## 7. Training Log (ISO 42001 Implementation)
+## 7. 🎓 Training Log (ISO 42001 Implementation)
 
 Reference: `iso42001-artifacts/Implementation_Experience_Log.md` (MF-ISO42001-IEL-001)
 
@@ -146,15 +160,15 @@ Reference: `iso42001-artifacts/Implementation_Experience_Log.md` (MF-ISO42001-IE
 
 ---
 
-## 8. Competence Gap Analysis
+## 8. 📊 Competence Gap Analysis
 
-### 8.1 Current State (Research Prototype)
+### <font color="#58a6ff">8.1 Current State (Research Prototype)</font>
 
 | Gap Area | Description | Risk Level | Mitigation |
 |----------|-------------|------------|------------|
 | None identified | All 3 current AIMS roles are assessed as COMPETENT based on documented qualifications and experience | N/A | N/A |
 
-### 8.2 Future State (Enterprise Deployment)
+### <font color="#58a6ff">8.2 Future State (Enterprise Deployment)</font>
 
 | Gap Area | Required Competency | Current Status | Recommended Action |
 |----------|-------------------|----------------|-------------------|
@@ -164,9 +178,9 @@ Reference: `iso42001-artifacts/Implementation_Experience_Log.md` (MF-ISO42001-IE
 
 ---
 
-## 9. Assessment Conclusion
+## 9. 🔍 Assessment Conclusion
 
-### 9.1 Summary
+### <font color="#58a6ff">9.1 Summary</font>
 
 | Role | Assessment | Confidence |
 |------|-----------|------------|
@@ -174,7 +188,7 @@ Reference: `iso42001-artifacts/Implementation_Experience_Log.md` (MF-ISO42001-IE
 | Clinical Validator (Self-Review) | COMPETENT | High - 5/5 competency areas evidenced |
 | AI Governance Lead (Self-Governance) | COMPETENT | High - 5/5 competency areas evidenced |
 
-### 9.2 NC-001 Disposition
+### <font color="#58a6ff">9.2 NC-001 Disposition</font>
 
 | Attribute | Detail |
 |-----------|--------|
@@ -186,7 +200,7 @@ Reference: `iso42001-artifacts/Implementation_Experience_Log.md` (MF-ISO42001-IE
 
 ---
 
-## 10. Corrective Action Traceability
+## 10. 📈 Corrective Action Traceability
 
 | Step | Action | Date | Evidence |
 |------|--------|------|----------|
@@ -199,7 +213,7 @@ Reference: `iso42001-artifacts/Implementation_Experience_Log.md` (MF-ISO42001-IE
 
 ---
 
-## Document Approval
+## 📝 Document Approval
 
 | Role | Name | Date | Signature |
 |------|------|------|-----------|
@@ -208,7 +222,7 @@ Reference: `iso42001-artifacts/Implementation_Experience_Log.md` (MF-ISO42001-IE
 
 ---
 
-## Revision History
+## 📌 Revision History
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|

@@ -1,59 +1,72 @@
-# AI Management System Scope
-## MedFlow V3 Clinical Decision Support System
+<div align="center">
 
-**Document ID:** MF-ISO-02
-**Title:** AIMS Scope
-**Version:** 1.1
-**Status:** ACTIVE
-**Date:** 2026-02-21
-**Author:** Dr. Islam Mekawy
-**Reviewer:** Dr. Islam Mekawy (Lead Researcher)
-**Approver:** Dr. Islam Mekawy (AI Governance Lead)
-**Classification:** CONFIDENTIAL – Internal Use Only
-**ISO 42001 Clause:** Clause 4.3 – Determining the Scope of the AIMS
-**Supersedes:** AIMS-4-3-001 v1.0 (2026-02-02) — converted from .docx to .md; Llama version and Decision Engine synchronized to v4.0 architecture
+# AI Management System Scope
+### MedFlow v4.0 · AI Management System (AIMS)
+
+<br>
+
+[![Status](https://img.shields.io/badge/Status-ACTIVE-2ea44f?style=flat-square)]()
+[![Version](https://img.shields.io/badge/Version-1%2E1-0052cc?style=flat-square)]()
+[![ISO 42001](https://img.shields.io/badge/ISO_42001-Clause_4.3-7b2d8b?style=flat-square)]()
+
+</div>
+
+<br>
+
+| Field | Detail |
+|-------|--------|
+| **Document ID** | MF-ISO-02 |
+| **Version** | 1.1 |
+| **Date** | 2026-02-21 |
+| **Author** | Dr. Islam Mekawy |
+| **Reviewer** | Dr. Islam Mekawy (Lead Researcher) |
+| **Approver** | Dr. Islam Mekawy (AI Governance Lead) |
+| **Classification** | CONFIDENTIAL – Internal Use Only |
+| **ISO 42001 Clause** | Clause 4.3 – Determining the Scope of the AIMS |
+| **Supersedes** | AIMS-4-3-001 v1.0 (2026-02-02) |
 
 ---
 
-## 1. Introduction
+
+## 1. 📋 Introduction
 
 This document defines the scope of the MedFlow V3 AI Management System (AIMS) research initiative. As a Personal Innovation Prototype (Non-Commercial), this project establishes boundaries for AI governance study and compliance framework demonstration.
 
 ---
 
-## 2. Research Context
+## 2. 📌 Research Context
 
 This Individual Research Lab project explores healthcare insurance AI decision support systems. The research demonstrates processing of synthetic medical records for academic study of ICD-10 coding and Saudi AR-DRG v9.0 classification methodologies.
 
 ---
 
-## 3. AI Systems in Scope
+## 3. 🔍 AI Systems in Scope
 
-### 3.1 Document Processing Pipeline
+### <font color="#58a6ff">3.1 Document Processing Pipeline</font>
 
 - Input validation and sanitization research
 - PDF/DOCX/Image text extraction techniques
 - Clinical narrative parsing methodologies
 
-### 3.2 PII Scrubbing Engine
+### <font color="#58a6ff">3.2 PII Scrubbing Engine</font>
 
 - Local LLM processing research (Llama 3.2 3B via Ollama)
 - Saudi-specific pattern detection (National ID, phone formats)
 - Name and address redaction techniques
 
-### 3.3 Clinical Intelligence Engine
+### <font color="#58a6ff">3.3 Clinical Intelligence Engine</font>
 
 - Diagnosis extraction and normalization research
 - ICD-10-CM/PCS code assignment automation
 - Procedure identification methodologies
 
-### 3.4 DRG Classification System
+### <font color="#58a6ff">3.4 DRG Classification System</font>
 
 - Saudi AR-DRG v9.0 grouper implementation study
 - NPHIES integration endpoint design
 - Length of stay optimization research
 
-### 3.5 Decision Recommendation Engine
+### <font color="#58a6ff">3.5 Decision Recommendation Engine</font>
 
 - Google Gemini integration (Primary reasoning — gemini_client.py v2.0.0)
 - NCEBM Evidence Scorer (Layer 3 — ncebm_scorer.py v1.2.0)
@@ -61,7 +74,7 @@ This Individual Research Lab project explores healthcare insurance AI decision s
 
 ---
 
-## 4. External Interface Design
+## 4. ⚙️ External Interface Design
 
 The research AIMS demonstrates interfaces with the following systems:
 
@@ -74,7 +87,7 @@ The research AIMS demonstrates interfaces with the following systems:
 
 ---
 
-## 5. Exclusions
+## 5. 📌 Exclusions
 
 The following are explicitly excluded from research scope:
 
@@ -86,7 +99,7 @@ The following are explicitly excluded from research scope:
 
 ---
 
-## 6. Regulatory Compliance Study
+## 6. 🛡️ Regulatory Compliance Study
 
 This research studies compliance requirements within Saudi Arabia including:
 
@@ -98,7 +111,7 @@ This research studies compliance requirements within Saudi Arabia including:
 
 ---
 
-## 7. Revision History
+## 7. 📌 Revision History
 
 | Version | Date | Author | Changes |
 |---------|------|--------|---------|
